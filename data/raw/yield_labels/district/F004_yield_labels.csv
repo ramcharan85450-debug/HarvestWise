@@ -1,19 +1,19 @@
-season_start_date,final_yield_t_ha
-1997-06-15,3.0103
-1998-06-15,2.8787
-1999-06-15,3.1066
-2000-06-15,3.047
-2001-06-15,3.0031
-2002-06-15,2.8264
-2003-06-15,2.6748
-2004-06-15,3.0958
-2005-06-15,2.9072
-2006-06-15,3.0225
-2007-06-15,3.0674
-2008-06-15,2.9071
-2009-06-15,2.7081
-2010-06-15,2.7043
-2011-06-15,2.6196
-2012-06-15,2.9405
-2013-06-15,2.8462
-2014-06-15,2.7747
+season_start_date,final_yield_t_ha,geographic_level,source_name,source_url_or_id,original_unit,retrieved_date,crop
+1997-06-15,3.0103,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+1998-06-15,2.8787,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+1999-06-15,3.1066,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2000-06-15,3.047,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2001-06-15,3.0031,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2002-06-15,2.8264,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2003-06-15,2.6748,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2004-06-15,3.0958,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2005-06-15,2.9072,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2006-06-15,3.0225,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2007-06-15,3.0674,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2008-06-15,2.9071,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2009-06-15,2.7081,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2010-06-15,2.7043,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2011-06-15,2.6196,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2012-06-15,2.9405,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2013-06-15,2.8462,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab
+2014-06-15,2.7747,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_punjab

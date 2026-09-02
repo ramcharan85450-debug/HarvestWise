@@ -1,2 +1,2 @@
-season_start_date,final_yield_t_ha
-2023-07-01,3.393
+season_start_date,final_yield_t_ha,geographic_level,source_name,source_url_or_id,original_unit,retrieved_date,crop
+2023-07-01,3.393,state,"CEIC Data, citing Directorate of Economics and Statistics, Dept. of Agriculture & Farmers Welfare, Govt. of India","https://www.ceicdata.com (aggregator - primary source desagri.gov.in/aps.dac.gov.in unreachable from this environment, see README.md)",t/ha,,rice_andhra_pradesh

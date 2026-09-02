@@ -1,17 +1,17 @@
-season_start_date,final_yield_t_ha
-1998-08-01,3.4306
-1999-08-01,3.5848
-2000-08-01,3.8674
-2001-08-01,3.5267
-2002-08-01,3.3681
-2003-08-01,2.9127
-2004-08-01,3.3781
-2005-08-01,2.7903
-2006-08-01,3.8593
-2007-08-01,3.7747
-2008-08-01,9.8861
-2009-08-01,3.5087
-2010-08-01,3.9081
-2011-08-01,3.9886
-2012-08-01,3.6596
-2013-08-01,4.6983
+season_start_date,final_yield_t_ha,geographic_level,source_name,source_url_or_id,original_unit,retrieved_date,crop
+1998-08-01,3.4306,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+1999-08-01,3.5848,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2000-08-01,3.8674,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2001-08-01,3.5267,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2002-08-01,3.3681,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2003-08-01,2.9127,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2004-08-01,3.3781,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2005-08-01,2.7903,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2006-08-01,3.8593,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2007-08-01,3.7747,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2008-08-01,9.8861,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2009-08-01,3.5087,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2010-08-01,3.9081,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2011-08-01,3.9886,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2012-08-01,3.6596,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice
+2013-08-01,4.6983,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice

@@ -1,19 +1,19 @@
-season_start_date,final_yield_t_ha
-1997-07-01,2.7429
-1998-07-01,2.7887
-1999-07-01,2.4156
-2000-07-01,2.0286
-2001-07-01,2.7475
-2002-07-01,2.9751
-2003-07-01,2.9814
-2004-07-01,2.9555
-2005-07-01,3.2731
-2006-07-01,2.8636
-2007-07-01,2.7186
-2008-07-01,2.803
-2009-07-01,2.96
-2010-07-01,2.8935
-2011-07-01,3.0059
-2012-07-01,3.0922
-2013-07-01,3.1605
-2014-07-01,3.2422
+season_start_date,final_yield_t_ha,geographic_level,source_name,source_url_or_id,original_unit,retrieved_date,crop
+1997-07-01,2.7429,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+1998-07-01,2.7887,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+1999-07-01,2.4156,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2000-07-01,2.0286,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2001-07-01,2.7475,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2002-07-01,2.9751,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2003-07-01,2.9814,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2004-07-01,2.9555,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2005-07-01,3.2731,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2006-07-01,2.8636,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2007-07-01,2.7186,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2008-07-01,2.803,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2009-07-01,2.96,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2010-07-01,2.8935,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2011-07-01,3.0059,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2012-07-01,3.0922,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2013-07-01,3.1605,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal
+2014-07-01,3.2422,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_west_bengal

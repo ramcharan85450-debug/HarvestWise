@@ -1,19 +1,19 @@
-season_start_date,final_yield_t_ha
-1997-07-01,2.0051
-1998-07-01,1.5084
-1999-07-01,2.5694
-2000-07-01,2.691
-2001-07-01,2.626
-2002-07-01,2.829
-2003-07-01,3.249
-2004-07-01,3.312
-2005-07-01,1.604
-2006-07-01,2.403
-2007-07-01,2.9545
-2008-07-01,2.983
-2009-07-01,3.05
-2010-07-01,1.926
-2011-07-01,2.9869
-2012-07-01,1.531
-2013-07-01,1.846
-2014-07-01,3.016
+season_start_date,final_yield_t_ha,geographic_level,source_name,source_url_or_id,original_unit,retrieved_date,crop
+1997-07-01,2.0051,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+1998-07-01,1.5084,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+1999-07-01,2.5694,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2000-07-01,2.691,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2001-07-01,2.626,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2002-07-01,2.829,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2003-07-01,3.249,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2004-07-01,3.312,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2005-07-01,1.604,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2006-07-01,2.403,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2007-07-01,2.9545,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2008-07-01,2.983,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2009-07-01,3.05,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2010-07-01,1.926,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2011-07-01,2.9869,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2012-07-01,1.531,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2013-07-01,1.846,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh
+2014-07-01,3.016,district,"data.gov.in - District-wise, season-wise crop production statistics from 1997 (Ministry of Agriculture and Farmers Welfare)",35be999b-0208-4354-b557-f6ca9a5355de,t/ha,2026-09-02,rice_andhra_pradesh

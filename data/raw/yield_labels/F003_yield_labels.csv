@@ -1,7 +1,7 @@
-season_start_date,final_yield_t_ha
-2019-08-01,2.622
-2020-08-01,2.607
-2021-08-01,2.705
-2022-08-01,2.735
-2023-08-01,2.780
-2024-08-01,2.825
+season_start_date,final_yield_t_ha,geographic_level,source_name,source_url_or_id,original_unit,retrieved_date,crop
+2019-08-01,2.622,national,"Government of India, Economic Survey 2025-26, Statistical Appendix, Table 1.17: Yield Per Hectare of Major Crops",https://www.indiabudget.gov.in/economicsurvey/doc/stat/tab1.17.pdf,kg/ha,,rice
+2020-08-01,2.607,national,"Government of India, Economic Survey 2025-26, Statistical Appendix, Table 1.17: Yield Per Hectare of Major Crops",https://www.indiabudget.gov.in/economicsurvey/doc/stat/tab1.17.pdf,kg/ha,,rice
+2021-08-01,2.705,national,"Government of India, Economic Survey 2025-26, Statistical Appendix, Table 1.17: Yield Per Hectare of Major Crops",https://www.indiabudget.gov.in/economicsurvey/doc/stat/tab1.17.pdf,kg/ha,,rice
+2022-08-01,2.735,national,"Government of India, Economic Survey 2025-26, Statistical Appendix, Table 1.17: Yield Per Hectare of Major Crops",https://www.indiabudget.gov.in/economicsurvey/doc/stat/tab1.17.pdf,kg/ha,,rice
+2023-08-01,2.78,national,"Government of India, Economic Survey 2025-26, Statistical Appendix, Table 1.17: Yield Per Hectare of Major Crops",https://www.indiabudget.gov.in/economicsurvey/doc/stat/tab1.17.pdf,kg/ha,,rice
+2024-08-01,2.825,national,"Government of India, Economic Survey 2025-26, Statistical Appendix, Table 1.17: Yield Per Hectare of Major Crops",https://www.indiabudget.gov.in/economicsurvey/doc/stat/tab1.17.pdf,kg/ha,,rice
