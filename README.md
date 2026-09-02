@@ -32,7 +32,7 @@ HarvestWise/
 | 7 | Climate-shock benchmark | Done, but underpowered at 4 shock seasons - re-run after the ERA5 backfill |
 | 8 | Validation & stats | Wilcoxon RL-vs-static done. **Real-outcome validation blocked**: no harvest records secured |
 | 9 | Serving/demo | Done - backend serves real model output over real data, or 503s; no placeholder path remains |
-| 10 | Public release + report | `benchmark_release/` carries real splits and real results; paper not yet written |
+| 10 | Public release + report | `benchmark_release/` carries real splits and real results; draft paper in `paper/HarvestWise_paper.md` |
 
 ## Honest summary of results
 

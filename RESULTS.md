@@ -330,29 +330,50 @@ its predicted mean yield for Kanzara (2.68 t/ha) lands close to the real mean
 
 Kalman and Shirapur fail for a specific, diagnosed reason, not a vague
 "domain gap." `agronomic_window.py`'s heading proxy takes the week of peak
-NDVI within the observed season as the heading date. On Kanzara's real NDVI
-curve, that peak sits at week 8 (~56 days after sowing - a plausible wheat
-heading date) and the resulting window tracks real harvest timing. On Kalman
-and Shirapur, NDVI is already at its highest value in week 0 - the week of
-sowing itself, most likely residual greenness from the plot's prior kharif
-crop - and then declines for the rest of the observed window, so the "peak"
-the proxy locks onto is week 0, not a wheat canopy peak that may never fully
-form within the pulled window. That yields a `min_harvest_week` of 4-5,
-agronomically meaningless for a wheat crop that needs 90-120 days, and both
-policies duly return that same too-early week (`static_recommended_week` and
-`rl_recommended_week` sit within 1-2 weeks of `min_harvest_week` on nearly
-every Kalman/Shirapur row - the bound is binding again, the same failure mode
-`agronomic_window.py`'s docstring describes fixing for the original 7
-fields, now recurring on real field data the proxy was not validated
-against).
+NDVI within the observed season as the heading date, which only works if the
+input curve actually has one clean rise-to-peak-and-decline shape. Checking
+the raw, un-interpolated Landsat scenes (not the weekly-resampled grid) over
+the real 2013-14 rabi season shows why that assumption holds for one village
+and not the other two: Kanzara's real per-scene NDVI traces a trough in
+Nov-Dec (~0.34-0.38, post-sowing establishment) rising to a real peak in
+early-mid Feb (~0.56-0.60, plausible wheat heading) and declining to ~0.28 by
+April harvest - a genuine, single-crop-shaped phenology curve, which is why a
+peak-NDVI proxy applied to it lands close to the truth (heading week 8,
+~56 days after sowing). Kalman's and Shirapur's real per-scene NDVI over the
+same months instead oscillates noisily between ~0.37 and ~0.54 with no clear
+rise-to-peak structure at all.
 
-This is exactly the kind of finding real-outcome validation exists to
-surface: a peak-NDVI heading proxy that is only safe when the observed
-window is known to start near bare soil, which held for this project's
-original satellite pulls but does not hold in general on real smallholder
-plots with crop rotation. It is reported here rather than patched, so the
+The most defensible explanation is spatial, not phenological: every village's
+satellite footprint here is a 1.1 km box (`BOX_DEG` in
+`ingestion/vdsa_satindia_outcomes.py`) chosen to match this project's
+original field polygons, because VDSA's public plot records carry a village
+centroid, not individual plot GPS. A 1.1 km box is roughly 120 ha - far
+larger than any one smallholder plot - so its NDVI is a village-wide average
+across whatever mix of crops is growing that season, not one plot's
+phenology. Kanzara's average still resolves a wheat-shaped curve, most likely
+because wheat is a large enough share of what surrounds that centroid;
+Kalman's and Shirapur's do not, most likely because they do not. This is a
+real limitation of using a village-centroid box as a stand-in for plot-level
+geolocation, not a bug in the peak-NDVI proxy itself, which is exactly why
+the same proxy that failed here was validated as directly reflecting real
+agronomic guidance for this project's original, individually-geolocated
+field polygons (S5a). It is reported here rather than patched, so the
 failure stays visible instead of being quietly smoothed over by widening the
-window or discarding the two affected villages.
+window or discarding the two affected villages. `min_harvest_week` lands at
+4-5 for both (agronomically meaningless for a 90-120 day wheat crop), and
+both policies duly return that same too-early week
+(`static_recommended_week` and `rl_recommended_week` sit within 1-2 weeks of
+`min_harvest_week` on nearly every Kalman/Shirapur row) - the same
+bound-is-binding failure mode `agronomic_window.py`'s docstring describes
+fixing for the original 7 fields, recurring here because the input, not the
+proxy, violated the assumption the proxy depends on.
+
+This connects to S5d's finding below on a shared theme worth stating
+plainly: this project now has evidence that spatial resolution matters on
+BOTH sides of the pipeline - coarse yield LABELS lose the signal a deep
+model needs (S5d), and a coarse satellite INPUT footprint can lose the
+single-plot phenology signal the harvest-timing policy depends on, even when
+the outcome data behind it is real and precisely dated.
 
 Per-plot output: `evaluation/outcome_validation/satindia_replay_records.csv`.
 Summary: `evaluation/outcome_validation/satindia_replay_results.json`.
@@ -499,12 +520,17 @@ labels it was trained against.
 
 ## 9. What is NOT established
 
-- Real-outcome validation. `data/raw/harvest_outcomes/` is **empty**; the
-  "recommended vs. actual harvest" claim has no evidence.
-- Any accuracy advantage for the multimodal architecture.
-- Any benefit from multimodal fusion.
-- Meaningful climate adaptivity.
-- The climate-shock benchmark ordering (single-seed, n=4).
+- Any accuracy advantage for the multimodal architecture over tree ensembles
+  at national or state label granularity (§2, §5d).
+- Any benefit from multimodal fusion (§3).
+- Meaningful climate adaptivity (§8).
+- The climate-shock benchmark ordering (single-seed, n=4, §4).
+- A proven granularity *threshold* — §5d gives a direction from 2 tiers
+  (n=11, 3 fields) with a real confound between them, not a curve.
+- Real-outcome timing agreement outside the one village (Kanzara) where the
+  satellite footprint resolves a real single-crop phenology signal (§5c) -
+  Kalman and Shirapur's real outcomes exist but cannot yet be matched to a
+  valid recommendation.
 
 ## 10. What IS established
 
@@ -515,3 +541,13 @@ labels it was trained against.
 - A rigorous negative result: multimodal deep learning fails to beat
   gradient-boosted trees *or* a mean-predictor for crop yield forecasting when
   labels are regional averages — with the mechanism identified in §5.
+- A real-outcome validation dataset (2,086 real plot-seasons, ICRISAT VDSA,
+  15 villages, 4 states) that this project could not previously obtain, and a
+  first real recommended-vs-actual comparison on it (§5c): 2.46-week MAE
+  against real farmer harvest timing at Kanzara, a genuinely plausible
+  zero-shot result for a model never trained on Maharashtra.
+- Evidence that label-granularity's effect on this deep model (§5d) has a
+  spatial-input analogue: a coarse satellite footprint can equally lose the
+  single-plot signal a harvest-timing policy depends on (§5c), even given
+  fully real, correctly-dated outcomes - the same resolution-sensitivity
+  finding, now shown on both sides of the pipeline.
