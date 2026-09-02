@@ -95,7 +95,13 @@ than the label side.
    project's line of work, built from independently-collected panel survey
    data, together with a diagnosed input-resolution failure mode that
    mirrors the label-granularity finding.
-4. A methodological record of retracted results — single-seed overclaiming,
+4. A SHAP-based diagnosis, on the best available baseline, of *why* weather
+   and vegetation signal go unused at this sample size: soil features (a
+   per-field constant, not a season-varying signal) dominate feature
+   attribution by an order of magnitude over any weather or vegetation
+   feature, indicating the model has learned field identity rather than
+   within-field seasonal variation.
+5. A methodological record of retracted results — single-seed overclaiming,
    an unbounded-interpolation artifact, a reward-discounting bug — kept
    visible rather than removed, because each changed a conclusion this
    project had already reported.
@@ -289,6 +295,25 @@ mismatch between what the pretraining distribution teaches (a real
 weather-yield relationship) and what the fine-tuning labels can actually
 supervise (a regional average with no field-specific variation) — motivating
 the granularity sweep below.
+
+SHAP analysis on the Random Forest baseline — chosen as the explanation
+target because it has the lowest MAE and lowest seed variance of any model
+in this paper, and because `TreeExplainer` attributes exactly rather than
+approximately — makes the mechanism concrete. Across 5 seeds, the three soil
+features (nitrogen, organic carbon, pH) each attribute roughly an order of
+magnitude more mean |SHAP value| (0.17–0.16 t/ha) than any weather or
+vegetation feature; `ndvi_mean`, the single feature most yield-forecasting
+work would expect to matter most, ranks lowest of all 19 features
+(0.0014 t/ha). Soil is a per-field constant in this dataset — every field's
+soil vector is identical across all of that field's real seasons — so a
+model attributing most of its predictive weight to soil has, in effect,
+learned to identify which field (and through it, which region and crop) an
+example came from, rather than to use that season's real weather or
+vegetation trajectory. Between-field yield-level differences dominate the
+21 real examples' variance so completely that the best available model
+learns field identity first; this is why making synthetic pretraining more
+realistic about weather sensitivity made real accuracy worse — it pulled the
+model away from the shortcut that actually minimizes error on this dataset.
 
 ### 4.5 Label-granularity sweep
 

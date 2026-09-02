@@ -440,6 +440,63 @@ gap."
 
 Raw output: `evaluation/label_granularity/results.json`.
 
+## 5e. SHAP on the Random Forest baseline — why weather/vegetation signal isn't used
+
+```
+python -m evaluation.explainability.shap_analysis --seeds 5
+```
+
+Random Forest is the SHAP target, not the multimodal deep model: it has the
+lowest MAE and the lowest seed variance of any model in every table in this
+project (S2, S4.3, S5d), and `shap.TreeExplainer` is exact for tree
+ensembles rather than an approximation. Mean |SHAP value| per feature,
+21 real season examples, mean ± sd over 5 seeds:
+
+| Feature | Mean \|SHAP\| (t/ha) | sd |
+|---|---|---|
+| soil_nitrogen | 0.173 | 0.018 |
+| soil_soc | 0.172 | 0.013 |
+| soil_ph | 0.158 | 0.026 |
+| soil_sand | 0.056 | 0.010 |
+| temp_mean | 0.048 | 0.002 |
+| temp_max | 0.034 | 0.009 |
+| *(remaining 13 weather/vegetation features)* | ≤0.030 each | — |
+| ndvi_max | 0.0015 | 0.0002 |
+| ndvi_mean | 0.0014 | 0.0003 |
+
+The three soil features dominate every weather and vegetation feature by
+roughly an order of magnitude - `ndvi_mean`, the single feature most crop
+-yield literature would expect to matter most, ranks dead last.
+
+This is not evidence that soil chemistry drives yield here. Soil is a
+per-field constant in this dataset - confirmed directly: every one of the 7
+fields has exactly one soil vector shared by all of its seasons (1-7 seasons
+per field, `ingestion/align_pipeline.py` attaches the same static SoilGrids
+row to every week of a field's record). A feature that never varies within
+a field cannot explain within-field, season-to-season yield variation; it
+can only encode which field an example came from. SHAP ranking soil highest
+means the model has learned to identify the field (and, through it, the
+region and crop - Punjab wheat, Coimbatore rice, etc., which sit at very
+different absolute yield levels) rather than to use that season's real
+weather or vegetation trajectory. This is the mechanism behind S5's
+otherwise puzzling finding that a more realistic weather-to-yield coupling
+in synthetic pretraining made real accuracy worse: between-field level
+differences dominate the 21 real examples' variance so completely that a
+model rewarded for minimizing error learns field identity first, and
+correcting the pretraining data to emphasize genuine weather sensitivity
+pulled it away from the shortcut that actually reduces error on this
+dataset.
+
+Practical implication: any reported feature importance, attention weight, or
+SHAP value from a model trained on this scale of real data should be read as
+telling you what distinguishes FIELDS in the training set, not what drives
+YIELD within a field across seasons, until the granularity gap identified in
+S5d is closed with enough within-field real seasons for the two signals to
+be separable.
+
+Plot: `evaluation/explainability/shap_feature_importance.png`.
+Raw output: `evaluation/explainability/shap_results.json`.
+
 ## 6. Harvest-window policy — the result that holds
 
 ```
@@ -531,6 +588,10 @@ labels it was trained against.
   satellite footprint resolves a real single-crop phenology signal (§5c) -
   Kalman and Shirapur's real outcomes exist but cannot yet be matched to a
   valid recommendation.
+- Any weather- or vegetation-driven yield signal separable from field
+  identity at the current sample size - §5e shows the best model available
+  (Random Forest) attributes an order of magnitude more importance to
+  per-field-constant soil features than to any weather or NDVI feature.
 
 ## 10. What IS established
 

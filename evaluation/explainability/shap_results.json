@@ -1,0 +1,101 @@
+{
+  "n_examples": 21,
+  "seeds": 5,
+  "ranked_features": [
+    {
+      "feature": "soil_nitrogen",
+      "mean_abs_shap": 0.1727,
+      "sd": 0.0183
+    },
+    {
+      "feature": "soil_soc",
+      "mean_abs_shap": 0.1721,
+      "sd": 0.0127
+    },
+    {
+      "feature": "soil_ph",
+      "mean_abs_shap": 0.1578,
+      "sd": 0.0261
+    },
+    {
+      "feature": "soil_sand",
+      "mean_abs_shap": 0.0561,
+      "sd": 0.0102
+    },
+    {
+      "feature": "temp_mean",
+      "mean_abs_shap": 0.0475,
+      "sd": 0.0018
+    },
+    {
+      "feature": "temp_max",
+      "mean_abs_shap": 0.0344,
+      "sd": 0.0085
+    },
+    {
+      "feature": "wind_mean",
+      "mean_abs_shap": 0.0289,
+      "sd": 0.0016
+    },
+    {
+      "feature": "humidity_mean",
+      "mean_abs_shap": 0.0197,
+      "sd": 0.005
+    },
+    {
+      "feature": "precip_total",
+      "mean_abs_shap": 0.0096,
+      "sd": 0.0005
+    },
+    {
+      "feature": "ndvi_std",
+      "mean_abs_shap": 0.0081,
+      "sd": 0.0014
+    },
+    {
+      "feature": "ndwi_min",
+      "mean_abs_shap": 0.0066,
+      "sd": 0.0018
+    },
+    {
+      "feature": "precip_max_week",
+      "mean_abs_shap": 0.0058,
+      "sd": 0.0009
+    },
+    {
+      "feature": "evi_mean",
+      "mean_abs_shap": 0.0058,
+      "sd": 0.0007
+    },
+    {
+      "feature": "ndvi_at_flowering",
+      "mean_abs_shap": 0.0056,
+      "sd": 0.0007
+    },
+    {
+      "feature": "evi_max",
+      "mean_abs_shap": 0.0047,
+      "sd": 0.0012
+    },
+    {
+      "feature": "soil_clay",
+      "mean_abs_shap": 0.0038,
+      "sd": 0.0017
+    },
+    {
+      "feature": "ndwi_mean",
+      "mean_abs_shap": 0.0021,
+      "sd": 0.0013
+    },
+    {
+      "feature": "ndvi_max",
+      "mean_abs_shap": 0.0015,
+      "sd": 0.0002
+    },
+    {
+      "feature": "ndvi_mean",
+      "mean_abs_shap": 0.0014,
+      "sd": 0.0003
+    }
+  ]
+}

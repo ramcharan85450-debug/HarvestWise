@@ -25,6 +25,8 @@ gymnasium>=0.29
 scikit-learn>=1.5
 xgboost>=2.0
 scipy>=1.13
+shap>=0.52
+matplotlib>=3.9
 
 # experiment tracking
 wandb>=0.17
