@@ -1,0 +1,311 @@
+{
+  "source": "IRRI Rice Knowledge Bank - When to harvest",
+  "wet_season_days_after_heading": [
+    32,
+    38
+  ],
+  "dry_season_days_after_heading": [
+    28,
+    35
+  ],
+  "heading_proxy": "week of peak NDVI",
+  "n_seasons": 21,
+  "n_agree": 1,
+  "agreement_rate": 0.0476,
+  "seasons": [
+    {
+      "field_id": "F001",
+      "season_start": "2022-08-07",
+      "crop": "rice",
+      "heading_week": 15,
+      "agronomic_window_weeks": [
+        19,
+        21
+      ],
+      "recommended_week": 12,
+      "weeks_outside": 7,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F001",
+      "season_start": "2025-08-03",
+      "crop": "rice",
+      "heading_week": 14,
+      "agronomic_window_weeks": [
+        18,
+        20
+      ],
+      "recommended_week": 13,
+      "weeks_outside": 5,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F002",
+      "season_start": "2020-08-02",
+      "crop": "rice",
+      "heading_week": 19,
+      "agronomic_window_weeks": [
+        23,
+        25
+      ],
+      "recommended_week": 12,
+      "weeks_outside": 11,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F002",
+      "season_start": "2022-08-07",
+      "crop": "rice",
+      "heading_week": 5,
+      "agronomic_window_weeks": [
+        9,
+        11
+      ],
+      "recommended_week": 12,
+      "weeks_outside": 1,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F002",
+      "season_start": "2023-08-06",
+      "crop": "rice",
+      "heading_week": 0,
+      "agronomic_window_weeks": [
+        4,
+        6
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 4,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F002",
+      "season_start": "2025-08-03",
+      "crop": "rice",
+      "heading_week": 14,
+      "agronomic_window_weeks": [
+        18,
+        20
+      ],
+      "recommended_week": 13,
+      "weeks_outside": 5,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F003",
+      "season_start": "2022-08-07",
+      "crop": "rice",
+      "heading_week": 12,
+      "agronomic_window_weeks": [
+        16,
+        18
+      ],
+      "recommended_week": 11,
+      "weeks_outside": 5,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F003",
+      "season_start": "2023-08-06",
+      "crop": "rice",
+      "heading_week": 15,
+      "agronomic_window_weeks": [
+        19,
+        21
+      ],
+      "recommended_week": 11,
+      "weeks_outside": 8,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F003",
+      "season_start": "2025-08-03",
+      "crop": "rice",
+      "heading_week": 13,
+      "agronomic_window_weeks": [
+        17,
+        19
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 7,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F004",
+      "season_start": "2019-06-16",
+      "crop": "rice_punjab",
+      "heading_week": 10,
+      "agronomic_window_weeks": [
+        14,
+        16
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 4,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F004",
+      "season_start": "2020-06-21",
+      "crop": "rice_punjab",
+      "heading_week": 13,
+      "agronomic_window_weeks": [
+        17,
+        19
+      ],
+      "recommended_week": 12,
+      "weeks_outside": 5,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F004",
+      "season_start": "2021-06-20",
+      "crop": "rice_punjab",
+      "heading_week": 14,
+      "agronomic_window_weeks": [
+        18,
+        20
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 8,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F004",
+      "season_start": "2022-06-19",
+      "crop": "rice_punjab",
+      "heading_week": 13,
+      "agronomic_window_weeks": [
+        17,
+        19
+      ],
+      "recommended_week": 11,
+      "weeks_outside": 6,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F004",
+      "season_start": "2023-06-18",
+      "crop": "rice_punjab",
+      "heading_week": 11,
+      "agronomic_window_weeks": [
+        15,
+        17
+      ],
+      "recommended_week": 11,
+      "weeks_outside": 4,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F004",
+      "season_start": "2024-06-16",
+      "crop": "rice_punjab",
+      "heading_week": 13,
+      "agronomic_window_weeks": [
+        17,
+        19
+      ],
+      "recommended_week": 13,
+      "weeks_outside": 4,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F004",
+      "season_start": "2025-06-15",
+      "crop": "rice_punjab",
+      "heading_week": 10,
+      "agronomic_window_weeks": [
+        14,
+        16
+      ],
+      "recommended_week": 14,
+      "weeks_outside": 0,
+      "agrees": true,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F005",
+      "season_start": "2023-07-02",
+      "crop": "rice_west_bengal",
+      "heading_week": 17,
+      "agronomic_window_weeks": [
+        21,
+        23
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 11,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F006",
+      "season_start": "2021-07-04",
+      "crop": "rice_andhra_pradesh",
+      "heading_week": 17,
+      "agronomic_window_weeks": [
+        21,
+        23
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 11,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F006",
+      "season_start": "2023-07-02",
+      "crop": "rice_andhra_pradesh",
+      "heading_week": 13,
+      "agronomic_window_weeks": [
+        17,
+        19
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 7,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F006",
+      "season_start": "2025-07-06",
+      "crop": "rice_andhra_pradesh",
+      "heading_week": 12,
+      "agronomic_window_weeks": [
+        16,
+        18
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 6,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    },
+    {
+      "field_id": "F007",
+      "season_start": "2023-11-05",
+      "crop": "wheat_punjab",
+      "heading_week": 13,
+      "agronomic_window_weeks": [
+        17,
+        18
+      ],
+      "recommended_week": 10,
+      "weeks_outside": 7,
+      "agrees": false,
+      "recommended_by": "RL adaptive policy"
+    }
+  ]
+}

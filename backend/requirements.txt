@@ -1,0 +1,16 @@
+fastapi>=0.111
+uvicorn[standard]>=0.30
+pydantic>=2.7
+numpy>=1.26
+pandas>=2.2
+pytest>=8.2
+httpx>=0.27
+
+# Real inference. The serving layer imports the project's own training/ and
+# models/ code (see app/config.py's PROJECT_ROOT) so a served forecast is
+# numerically identical to an evaluated one; that needs the same runtime.
+# Both are loaded lazily - the API still starts without them and reports
+# models_live=false rather than substituting placeholder output.
+torch>=2.2
+stable-baselines3>=2.3
+gymnasium>=0.29

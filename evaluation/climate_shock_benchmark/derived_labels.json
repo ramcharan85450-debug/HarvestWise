@@ -1,0 +1,43 @@
+{
+  "_method": "derived from real ERA5 growing-season anomalies; see derive_labels.py docstring",
+  "fields": {
+    "F001": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal"
+    },
+    "F002": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal"
+    },
+    "F003": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal"
+    },
+    "F004": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal",
+      "2025": "wet_extreme"
+    },
+    "F005": {
+      "2022": "drought",
+      "2023": "normal",
+      "2024": "wet_extreme",
+      "2025": "normal"
+    },
+    "F006": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal",
+      "2025": "drought"
+    },
+    "F007": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal"
+    }
+  }
+}

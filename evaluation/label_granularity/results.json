@@ -1,0 +1,93 @@
+{
+  "seeds": 5,
+  "fields_common_to_all_tiers": [
+    "F004",
+    "F005",
+    "F006"
+  ],
+  "n_examples_per_tier": {
+    "national": 11,
+    "state": 11,
+    "district": 11
+  },
+  "mae_t_ha": {
+    "national": {
+      "Naive": {
+        "mean": 0.8125,
+        "sd": 0.0245,
+        "min": 0.7917,
+        "max": 0.8537
+      },
+      "Random Forest": {
+        "mean": 0.2916,
+        "sd": 0.165,
+        "min": 0.1447,
+        "max": 0.5424
+      },
+      "XGBoost": {
+        "mean": 0.3071,
+        "sd": 0.2055,
+        "min": 0.1296,
+        "max": 0.5634
+      },
+      "HarvestWise": {
+        "mean": 0.3371,
+        "sd": 0.1788,
+        "min": 0.1892,
+        "max": 0.566
+      }
+    },
+    "state": {
+      "Naive": {
+        "mean": 0.5555,
+        "sd": 0.0067,
+        "min": 0.5442,
+        "max": 0.5611
+      },
+      "Random Forest": {
+        "mean": 0.9833,
+        "sd": 0.2664,
+        "min": 0.6668,
+        "max": 1.3822
+      },
+      "XGBoost": {
+        "mean": 1.0041,
+        "sd": 0.2814,
+        "min": 0.664,
+        "max": 1.255
+      },
+      "HarvestWise": {
+        "mean": 1.0647,
+        "sd": 0.3681,
+        "min": 0.6912,
+        "max": 1.683
+      }
+    },
+    "district": {
+      "Naive": {
+        "mean": 0.6739,
+        "sd": 0.0245,
+        "min": 0.6531,
+        "max": 0.7151
+      },
+      "Random Forest": {
+        "mean": 0.2855,
+        "sd": 0.1074,
+        "min": 0.1317,
+        "max": 0.4167
+      },
+      "XGBoost": {
+        "mean": 0.3286,
+        "sd": 0.1891,
+        "min": 0.1823,
+        "max": 0.6066
+      },
+      "HarvestWise": {
+        "mean": 0.295,
+        "sd": 0.2285,
+        "min": 0.1074,
+        "max": 0.6339
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "n_seeds": 5,
+  "n_train_normal_seasons": 20,
+  "n_test_shock_seasons": 4,
+  "test_seasons": [
+    {
+      "field_id": "F004",
+      "year": 2025,
+      "label": "wet_extreme",
+      "actual_yield_t_ha": 4.193
+    },
+    {
+      "field_id": "F005",
+      "year": 2022,
+      "label": "drought",
+      "actual_yield_t_ha": 2.995
+    },
+    {
+      "field_id": "F005",
+      "year": 2024,
+      "label": "wet_extreme",
+      "actual_yield_t_ha": 3.057
+    },
+    {
+      "field_id": "F006",
+      "year": 2025,
+      "label": "drought",
+      "actual_yield_t_ha": 3.393
+    }
+  ],
+  "mae_t_ha": {
+    "Naive baseline": 0.4602,
+    "Random Forest": 0.1887,
+    "XGBoost": 0.2222,
+    "HarvestWise multimodal": 0.3664
+  },
+  "mae_t_ha_spread": {
+    "Naive baseline": {
+      "sd": 0.0115,
+      "min": 0.4504,
+      "max": 0.4795
+    },
+    "Random Forest": {
+      "sd": 0.0604,
+      "min": 0.1434,
+      "max": 0.2944
+    },
+    "XGBoost": {
+      "sd": 0.0439,
+      "min": 0.1734,
+      "max": 0.289
+    },
+    "HarvestWise multimodal": {
+      "sd": 0.1459,
+      "min": 0.2213,
+      "max": 0.566
+    }
+  }
+}

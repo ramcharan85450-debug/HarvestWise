@@ -1,0 +1,8 @@
+INFO:     Started server process [5408]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:65319 - "GET /scenario/F001?temp_shift_c=2&rainfall_change_pct=-20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65321 - "GET /outcomes/F001 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60732 - "GET /scenario/F001?temp_shift_c=2.0&rainfall_change_pct=-20.0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60734 - "GET /outcomes/F001 HTTP/1.1" 200 OK

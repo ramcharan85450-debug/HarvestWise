@@ -1,0 +1,49 @@
+{
+  "_method": "Derived from real ERA5 growing-season anomalies per field-season, by evaluation/climate_shock_benchmark/derive_labels.py. Regenerate with `python -m evaluation.climate_shock_benchmark.derive_labels` and copy the result here - do not hand-edit.",
+  "_thresholds": {
+    "drought": "growing-season precipitation < 0.75x the field's own climatology",
+    "wet_extreme": "growing-season precipitation > 1.30x the field's own climatology",
+    "heatwave": "growing-season mean temperature > climatology + 1.0 C"
+  },
+  "_coverage": "7 real fields across Tamil Nadu, Punjab, West Bengal and Andhra Pradesh; rice and wheat. Seasons extending beyond the ingested ERA5 record are excluded rather than labelled, so a truncated season is never misread as a drought.",
+  "fields": {
+    "F001": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal"
+    },
+    "F002": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal"
+    },
+    "F003": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal"
+    },
+    "F004": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal",
+      "2025": "wet_extreme"
+    },
+    "F005": {
+      "2022": "drought",
+      "2023": "normal",
+      "2024": "wet_extreme",
+      "2025": "normal"
+    },
+    "F006": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal",
+      "2025": "drought"
+    },
+    "F007": {
+      "2022": "normal",
+      "2023": "normal",
+      "2024": "normal"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "Paddy": {
+    "n_real_plot_seasons": 712,
+    "real_days_to_harvest": {
+      "mean": 131.6,
+      "median": 128.5,
+      "p25": 110.0,
+      "p75": 148.0,
+      "min": 39.0,
+      "max": 249.0
+    },
+    "project_assumed_season_days": 154,
+    "old_min_harvest_week_bound_days": 77,
+    "old_bound_percentile_of_real_harvests": 0.039
+  },
+  "Wheat": {
+    "n_real_plot_seasons": 136,
+    "real_days_to_harvest": {
+      "mean": 134.0,
+      "median": 135.0,
+      "p25": 126.0,
+      "p75": 145.0,
+      "min": 54.0,
+      "max": 167.0
+    },
+    "project_assumed_season_days": 140,
+    "old_min_harvest_week_bound_days": 70,
+    "old_bound_percentile_of_real_harvests": 0.015
+  }
+}

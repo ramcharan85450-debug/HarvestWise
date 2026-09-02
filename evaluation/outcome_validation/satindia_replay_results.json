@@ -1,0 +1,21 @@
+{
+  "n_real_wheat_plot_seasons_replayed": 35,
+  "static_vs_real": {
+    "mae_weeks": 7.74,
+    "mean_signed_error_weeks": -7.74,
+    "within_2_weeks_pct": 28.6
+  },
+  "model_yield_at_static_week_vs_real": {
+    "mae_t_ha": 0.999,
+    "real_mean_t_ha": 1.997,
+    "predicted_mean_t_ha": 2.681
+  },
+  "rl_vs_real": {
+    "mae_weeks": 7.11,
+    "mean_signed_error_weeks": -6.71,
+    "within_2_weeks_pct": 37.1
+  },
+  "model_yield_at_rl_week_vs_real": {
+    "mae_t_ha": 0.998
+  }
+}

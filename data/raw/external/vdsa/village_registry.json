@@ -1,0 +1,23 @@
+{
+  "Kalman": {
+    "village_letter": "A",
+    "lat": 17.9306204,
+    "lon": 75.7793569,
+    "district": "Solapur",
+    "state": "Maharashtra"
+  },
+  "Kanzara": {
+    "village_letter": "B",
+    "lat": 20.6638469,
+    "lon": 77.3548919,
+    "district": "Akola",
+    "state": "Maharashtra"
+  },
+  "Shirapur": {
+    "village_letter": "D",
+    "lat": 17.6966114,
+    "lon": 75.7639198,
+    "district": "Solapur",
+    "state": "Maharashtra"
+  }
+}

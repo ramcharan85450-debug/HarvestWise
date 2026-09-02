@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, please cite it as below."
+title: "HarvestWise Climate-Shock Benchmark"
+version: 1.0.0
+date-released: "2026-09-01"
+authors:
+  - family-names: "REPLACE_WITH_YOUR_LAST_NAME"
+    given-names: "REPLACE_WITH_YOUR_FIRST_NAME"
+    email: "ramcharan85450@gmail.com"
+repository-code: "https://github.com/ramcharan85450-debug/HarvestWise"
+license: "MIT"
+keywords:
+  - crop yield prediction
+  - climate adaptation
+  - benchmark
+  - agricultural deep learning
