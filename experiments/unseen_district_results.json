@@ -1,0 +1,1429 @@
+{
+  "generated_utc": "2026-09-03T18:58:45.549274+00:00",
+  "dataset": {
+    "path": "data/processed/district_multimodal_examples.csv",
+    "total_collected": 868,
+    "used_fully_aligned": 561,
+    "excluded": 307,
+    "exclusion_reasons": {
+      "missing weather (season window not covered by any fetched data)": 307,
+      "missing satellite (season window not covered by any fetched data)": 307,
+      "missing soil": 0,
+      "_feature_nans_remaining_in_used_subset": 0
+    },
+    "target_column": "final_yield_t_ha",
+    "n_districts": 58,
+    "examples_by_state": {
+      "Andhra Pradesh": 260,
+      "Telangana": 227,
+      "Tamil Nadu": 74
+    }
+  },
+  "feature_configuration": {
+    "weather": [
+      "weather_temp_c_mean",
+      "weather_precip_mm_sum",
+      "weather_humidity_pct_mean",
+      "weather_wind_speed_ms_mean"
+    ],
+    "satellite": [
+      "satellite_ndvi_mean",
+      "satellite_evi_mean",
+      "satellite_ndwi_mean"
+    ],
+    "soil": [
+      "soil_phh2o",
+      "soil_soc",
+      "soil_clay",
+      "soil_sand",
+      "soil_nitrogen"
+    ],
+    "metadata_never_used_as_features": [
+      "state",
+      "district",
+      "canonical_district_name",
+      "crop",
+      "season",
+      "year",
+      "geographic_level"
+    ],
+    "forbidden_as_features": [
+      "administrative_boundary_notes",
+      "canonical_district_name",
+      "crop",
+      "district",
+      "district_id",
+      "final_yield_t_ha",
+      "geographic_level",
+      "prediction_cutoff_date",
+      "rejection_reason",
+      "satellite_available",
+      "satellite_date_range_coverage",
+      "satellite_scenes_observed",
+      "satellite_source",
+      "season",
+      "season_window_start",
+      "soil_available",
+      "soil_source",
+      "state",
+      "weather_available",
+      "weather_days_expected",
+      "weather_days_observed",
+      "weather_source",
+      "year",
+      "yield_retrieved_date",
+      "yield_source_name",
+      "yield_source_url",
+      "yield_valid"
+    ]
+  },
+  "split_design": {
+    "type": "repeated stratified grouped split on (state|canonical_district_name)",
+    "stratified_by": "state",
+    "val_frac_of_districts": 0.2,
+    "test_frac_of_districts": 0.2,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "assignments": {
+      "42": {
+        "groups": {
+          "train": [
+            "Andhra Pradesh|Chittoor",
+            "Andhra Pradesh|East Godavari",
+            "Andhra Pradesh|Guntur",
+            "Andhra Pradesh|Krishna",
+            "Andhra Pradesh|Vizianagaram",
+            "Andhra Pradesh|West Godavari",
+            "Tamil Nadu|Ariyalur",
+            "Tamil Nadu|Chennai",
+            "Tamil Nadu|Coimbatore",
+            "Tamil Nadu|Dindigul",
+            "Tamil Nadu|Kancheepuram",
+            "Tamil Nadu|Kanniyakumari",
+            "Tamil Nadu|Karur",
+            "Tamil Nadu|Krishnagiri",
+            "Tamil Nadu|Madurai",
+            "Tamil Nadu|Mayiladuthurai",
+            "Tamil Nadu|Nagapattinam",
+            "Tamil Nadu|Namakkal",
+            "Tamil Nadu|Nilgiris",
+            "Tamil Nadu|Pudukkottai",
+            "Tamil Nadu|Ramanathapuram",
+            "Tamil Nadu|Salem",
+            "Tamil Nadu|Tenkasi",
+            "Tamil Nadu|Theni",
+            "Tamil Nadu|Thiruvarur",
+            "Tamil Nadu|Tiruchchirappalli",
+            "Tamil Nadu|Tiruvannamalai",
+            "Tamil Nadu|Vellore",
+            "Telangana|Adilabad",
+            "Telangana|Hyderabad",
+            "Telangana|Karimnagar",
+            "Telangana|Khammam",
+            "Telangana|Nizamabad",
+            "Telangana|Rangareddi"
+          ],
+          "val": [
+            "Andhra Pradesh|Anantapur",
+            "Andhra Pradesh|Srikakulam",
+            "Tamil Nadu|Cuddalore",
+            "Tamil Nadu|Erode",
+            "Tamil Nadu|Perambalur",
+            "Tamil Nadu|Ranipet",
+            "Tamil Nadu|Sivaganga",
+            "Tamil Nadu|Thoothukudi",
+            "Tamil Nadu|Villupuram",
+            "Tamil Nadu|Virudhunagar",
+            "Telangana|Nalgonda",
+            "Telangana|Warangal"
+          ],
+          "test": [
+            "Andhra Pradesh|Kurnool",
+            "Andhra Pradesh|Prakasam",
+            "Tamil Nadu|Chengalputtu",
+            "Tamil Nadu|Dharmapuri",
+            "Tamil Nadu|Kallakurichi",
+            "Tamil Nadu|Thanjavur",
+            "Tamil Nadu|Thiruvallur",
+            "Tamil Nadu|Tirunelveli Kattabo",
+            "Tamil Nadu|Tirupathur",
+            "Tamil Nadu|Tiruppur",
+            "Telangana|Mahbubnagar",
+            "Telangana|Medak"
+          ]
+        },
+        "summary": {
+          "train": {
+            "examples": 325,
+            "districts": 34,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 156,
+              "Telangana": 127,
+              "Tamil Nadu": 42
+            }
+          },
+          "val": {
+            "examples": 118,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 50,
+              "Tamil Nadu": 16
+            }
+          },
+          "test": {
+            "examples": 118,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 50,
+              "Tamil Nadu": 16
+            }
+          }
+        }
+      },
+      "43": {
+        "groups": {
+          "train": [
+            "Andhra Pradesh|Anantapur",
+            "Andhra Pradesh|Chittoor",
+            "Andhra Pradesh|Guntur",
+            "Andhra Pradesh|Krishna",
+            "Andhra Pradesh|Prakasam",
+            "Andhra Pradesh|Srikakulam",
+            "Tamil Nadu|Ariyalur",
+            "Tamil Nadu|Chennai",
+            "Tamil Nadu|Cuddalore",
+            "Tamil Nadu|Dindigul",
+            "Tamil Nadu|Erode",
+            "Tamil Nadu|Kallakurichi",
+            "Tamil Nadu|Kancheepuram",
+            "Tamil Nadu|Kanniyakumari",
+            "Tamil Nadu|Karur",
+            "Tamil Nadu|Mayiladuthurai",
+            "Tamil Nadu|Nagapattinam",
+            "Tamil Nadu|Namakkal",
+            "Tamil Nadu|Pudukkottai",
+            "Tamil Nadu|Ramanathapuram",
+            "Tamil Nadu|Ranipet",
+            "Tamil Nadu|Theni",
+            "Tamil Nadu|Thiruvallur",
+            "Tamil Nadu|Tiruchchirappalli",
+            "Tamil Nadu|Tirunelveli Kattabo",
+            "Tamil Nadu|Tiruvannamalai",
+            "Tamil Nadu|Villupuram",
+            "Tamil Nadu|Virudhunagar",
+            "Telangana|Hyderabad",
+            "Telangana|Khammam",
+            "Telangana|Mahbubnagar",
+            "Telangana|Medak",
+            "Telangana|Nalgonda",
+            "Telangana|Warangal"
+          ],
+          "val": [
+            "Andhra Pradesh|Kurnool",
+            "Andhra Pradesh|West Godavari",
+            "Tamil Nadu|Coimbatore",
+            "Tamil Nadu|Krishnagiri",
+            "Tamil Nadu|Nilgiris",
+            "Tamil Nadu|Tenkasi",
+            "Tamil Nadu|Thanjavur",
+            "Tamil Nadu|Thiruvarur",
+            "Tamil Nadu|Thoothukudi",
+            "Tamil Nadu|Tiruppur",
+            "Telangana|Adilabad",
+            "Telangana|Karimnagar"
+          ],
+          "test": [
+            "Andhra Pradesh|East Godavari",
+            "Andhra Pradesh|Vizianagaram",
+            "Tamil Nadu|Chengalputtu",
+            "Tamil Nadu|Dharmapuri",
+            "Tamil Nadu|Madurai",
+            "Tamil Nadu|Perambalur",
+            "Tamil Nadu|Salem",
+            "Tamil Nadu|Sivaganga",
+            "Tamil Nadu|Tirupathur",
+            "Tamil Nadu|Vellore",
+            "Telangana|Nizamabad",
+            "Telangana|Rangareddi"
+          ]
+        },
+        "summary": {
+          "train": {
+            "examples": 325,
+            "districts": 34,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 156,
+              "Telangana": 127,
+              "Tamil Nadu": 42
+            }
+          },
+          "val": {
+            "examples": 118,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 50,
+              "Tamil Nadu": 16
+            }
+          },
+          "test": {
+            "examples": 118,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 50,
+              "Tamil Nadu": 16
+            }
+          }
+        }
+      },
+      "44": {
+        "groups": {
+          "train": [
+            "Andhra Pradesh|Chittoor",
+            "Andhra Pradesh|Krishna",
+            "Andhra Pradesh|Prakasam",
+            "Andhra Pradesh|Srikakulam",
+            "Andhra Pradesh|Vizianagaram",
+            "Andhra Pradesh|West Godavari",
+            "Tamil Nadu|Coimbatore",
+            "Tamil Nadu|Cuddalore",
+            "Tamil Nadu|Dindigul",
+            "Tamil Nadu|Kancheepuram",
+            "Tamil Nadu|Kanniyakumari",
+            "Tamil Nadu|Karur",
+            "Tamil Nadu|Madurai",
+            "Tamil Nadu|Mayiladuthurai",
+            "Tamil Nadu|Nilgiris",
+            "Tamil Nadu|Perambalur",
+            "Tamil Nadu|Pudukkottai",
+            "Tamil Nadu|Ranipet",
+            "Tamil Nadu|Sivaganga",
+            "Tamil Nadu|Tenkasi",
+            "Tamil Nadu|Thanjavur",
+            "Tamil Nadu|Thiruvarur",
+            "Tamil Nadu|Tiruchchirappalli",
+            "Tamil Nadu|Tirunelveli Kattabo",
+            "Tamil Nadu|Tirupathur",
+            "Tamil Nadu|Tiruppur",
+            "Tamil Nadu|Tiruvannamalai",
+            "Tamil Nadu|Villupuram",
+            "Telangana|Adilabad",
+            "Telangana|Karimnagar",
+            "Telangana|Khammam",
+            "Telangana|Medak",
+            "Telangana|Nizamabad",
+            "Telangana|Warangal"
+          ],
+          "val": [
+            "Andhra Pradesh|East Godavari",
+            "Andhra Pradesh|Kurnool",
+            "Tamil Nadu|Ariyalur",
+            "Tamil Nadu|Chengalputtu",
+            "Tamil Nadu|Krishnagiri",
+            "Tamil Nadu|Nagapattinam",
+            "Tamil Nadu|Namakkal",
+            "Tamil Nadu|Thoothukudi",
+            "Tamil Nadu|Vellore",
+            "Tamil Nadu|Virudhunagar",
+            "Telangana|Hyderabad",
+            "Telangana|Rangareddi"
+          ],
+          "test": [
+            "Andhra Pradesh|Anantapur",
+            "Andhra Pradesh|Guntur",
+            "Tamil Nadu|Chennai",
+            "Tamil Nadu|Dharmapuri",
+            "Tamil Nadu|Erode",
+            "Tamil Nadu|Kallakurichi",
+            "Tamil Nadu|Ramanathapuram",
+            "Tamil Nadu|Salem",
+            "Tamil Nadu|Theni",
+            "Tamil Nadu|Thiruvallur",
+            "Telangana|Mahbubnagar",
+            "Telangana|Nalgonda"
+          ]
+        },
+        "summary": {
+          "train": {
+            "examples": 349,
+            "districts": 34,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 156,
+              "Telangana": 150,
+              "Tamil Nadu": 43
+            }
+          },
+          "val": {
+            "examples": 95,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 27,
+              "Tamil Nadu": 16
+            }
+          },
+          "test": {
+            "examples": 117,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 50,
+              "Tamil Nadu": 15
+            }
+          }
+        }
+      },
+      "45": {
+        "groups": {
+          "train": [
+            "Andhra Pradesh|Anantapur",
+            "Andhra Pradesh|Chittoor",
+            "Andhra Pradesh|Guntur",
+            "Andhra Pradesh|Krishna",
+            "Andhra Pradesh|Kurnool",
+            "Andhra Pradesh|Vizianagaram",
+            "Tamil Nadu|Ariyalur",
+            "Tamil Nadu|Chengalputtu",
+            "Tamil Nadu|Cuddalore",
+            "Tamil Nadu|Dharmapuri",
+            "Tamil Nadu|Erode",
+            "Tamil Nadu|Kallakurichi",
+            "Tamil Nadu|Karur",
+            "Tamil Nadu|Madurai",
+            "Tamil Nadu|Namakkal",
+            "Tamil Nadu|Nilgiris",
+            "Tamil Nadu|Pudukkottai",
+            "Tamil Nadu|Ranipet",
+            "Tamil Nadu|Sivaganga",
+            "Tamil Nadu|Tenkasi",
+            "Tamil Nadu|Thanjavur",
+            "Tamil Nadu|Thiruvarur",
+            "Tamil Nadu|Thoothukudi",
+            "Tamil Nadu|Tiruchchirappalli",
+            "Tamil Nadu|Tirunelveli Kattabo",
+            "Tamil Nadu|Tirupathur",
+            "Tamil Nadu|Tiruppur",
+            "Tamil Nadu|Tiruvannamalai",
+            "Telangana|Karimnagar",
+            "Telangana|Khammam",
+            "Telangana|Medak",
+            "Telangana|Nizamabad",
+            "Telangana|Rangareddi",
+            "Telangana|Warangal"
+          ],
+          "val": [
+            "Andhra Pradesh|East Godavari",
+            "Andhra Pradesh|Srikakulam",
+            "Tamil Nadu|Chennai",
+            "Tamil Nadu|Kancheepuram",
+            "Tamil Nadu|Kanniyakumari",
+            "Tamil Nadu|Salem",
+            "Tamil Nadu|Theni",
+            "Tamil Nadu|Thiruvallur",
+            "Tamil Nadu|Vellore",
+            "Tamil Nadu|Virudhunagar",
+            "Telangana|Adilabad",
+            "Telangana|Hyderabad"
+          ],
+          "test": [
+            "Andhra Pradesh|Prakasam",
+            "Andhra Pradesh|West Godavari",
+            "Tamil Nadu|Coimbatore",
+            "Tamil Nadu|Dindigul",
+            "Tamil Nadu|Krishnagiri",
+            "Tamil Nadu|Mayiladuthurai",
+            "Tamil Nadu|Nagapattinam",
+            "Tamil Nadu|Perambalur",
+            "Tamil Nadu|Ramanathapuram",
+            "Tamil Nadu|Villupuram",
+            "Telangana|Mahbubnagar",
+            "Telangana|Nalgonda"
+          ]
+        },
+        "summary": {
+          "train": {
+            "examples": 350,
+            "districts": 34,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 156,
+              "Telangana": 150,
+              "Tamil Nadu": 44
+            }
+          },
+          "val": {
+            "examples": 94,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 27,
+              "Tamil Nadu": 15
+            }
+          },
+          "test": {
+            "examples": 117,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 50,
+              "Tamil Nadu": 15
+            }
+          }
+        }
+      },
+      "46": {
+        "groups": {
+          "train": [
+            "Andhra Pradesh|Chittoor",
+            "Andhra Pradesh|Guntur",
+            "Andhra Pradesh|Krishna",
+            "Andhra Pradesh|Srikakulam",
+            "Andhra Pradesh|Vizianagaram",
+            "Andhra Pradesh|West Godavari",
+            "Tamil Nadu|Chengalputtu",
+            "Tamil Nadu|Chennai",
+            "Tamil Nadu|Coimbatore",
+            "Tamil Nadu|Cuddalore",
+            "Tamil Nadu|Dindigul",
+            "Tamil Nadu|Kallakurichi",
+            "Tamil Nadu|Kancheepuram",
+            "Tamil Nadu|Kanniyakumari",
+            "Tamil Nadu|Krishnagiri",
+            "Tamil Nadu|Madurai",
+            "Tamil Nadu|Mayiladuthurai",
+            "Tamil Nadu|Namakkal",
+            "Tamil Nadu|Ramanathapuram",
+            "Tamil Nadu|Ranipet",
+            "Tamil Nadu|Salem",
+            "Tamil Nadu|Sivaganga",
+            "Tamil Nadu|Tenkasi",
+            "Tamil Nadu|Thanjavur",
+            "Tamil Nadu|Tiruchchirappalli",
+            "Tamil Nadu|Tirupathur",
+            "Tamil Nadu|Vellore",
+            "Tamil Nadu|Virudhunagar",
+            "Telangana|Adilabad",
+            "Telangana|Khammam",
+            "Telangana|Medak",
+            "Telangana|Nalgonda",
+            "Telangana|Nizamabad",
+            "Telangana|Rangareddi"
+          ],
+          "val": [
+            "Andhra Pradesh|Anantapur",
+            "Andhra Pradesh|Kurnool",
+            "Tamil Nadu|Erode",
+            "Tamil Nadu|Nilgiris",
+            "Tamil Nadu|Perambalur",
+            "Tamil Nadu|Theni",
+            "Tamil Nadu|Thiruvallur",
+            "Tamil Nadu|Thoothukudi",
+            "Tamil Nadu|Tirunelveli Kattabo",
+            "Tamil Nadu|Villupuram",
+            "Telangana|Mahbubnagar",
+            "Telangana|Warangal"
+          ],
+          "test": [
+            "Andhra Pradesh|East Godavari",
+            "Andhra Pradesh|Prakasam",
+            "Tamil Nadu|Ariyalur",
+            "Tamil Nadu|Dharmapuri",
+            "Tamil Nadu|Karur",
+            "Tamil Nadu|Nagapattinam",
+            "Tamil Nadu|Pudukkottai",
+            "Tamil Nadu|Thiruvarur",
+            "Tamil Nadu|Tiruppur",
+            "Tamil Nadu|Tiruvannamalai",
+            "Telangana|Hyderabad",
+            "Telangana|Karimnagar"
+          ]
+        },
+        "summary": {
+          "train": {
+            "examples": 348,
+            "districts": 34,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 156,
+              "Telangana": 150,
+              "Tamil Nadu": 42
+            }
+          },
+          "val": {
+            "examples": 118,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 50,
+              "Tamil Nadu": 16
+            }
+          },
+          "test": {
+            "examples": 95,
+            "districts": 12,
+            "states": [
+              "Andhra Pradesh",
+              "Tamil Nadu",
+              "Telangana"
+            ],
+            "examples_by_state": {
+              "Andhra Pradesh": 52,
+              "Telangana": 27,
+              "Tamil Nadu": 16
+            }
+          }
+        }
+      }
+    }
+  },
+  "model_configuration": {
+    "class": "training.district_model.DistrictMLP",
+    "epochs": 300,
+    "batch_size": 32,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "patience": 30,
+    "hidden_dims": [
+      32,
+      16
+    ],
+    "dropout": 0.2,
+    "loss": "MSELoss",
+    "optimizer": "Adam"
+  },
+  "training_settings": {
+    "epochs": 300,
+    "batch_size": 32,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "patience": 30,
+    "hidden_dims": [
+      32,
+      16
+    ],
+    "dropout": 0.2,
+    "loss": "MSELoss",
+    "optimizer": "Adam"
+  },
+  "results_per_seed": {
+    "42": {
+      "baseline": {
+        "label": "Baseline (train mean)",
+        "metrics": {
+          "mae": 0.5543556122456567,
+          "rmse": 0.6593511126289318,
+          "r2": -0.007681981483478095,
+          "n": 118
+        },
+        "history_summary": {
+          "selected_by": "n/a (no training)",
+          "train_mean_t_ha": 3.0963761806488037
+        }
+      },
+      "weather_only": {
+        "label": "A - Weather only",
+        "metrics": {
+          "mae": 0.48345391528081083,
+          "rmse": 0.5976222565854158,
+          "r2": 0.172165479721353,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 156,
+          "best_val_loss": 0.5048691034317017,
+          "epochs_run": 186,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "satellite_only": {
+        "label": "B - Satellite only",
+        "metrics": {
+          "mae": 0.5226569024182982,
+          "rmse": 0.6300203124265895,
+          "r2": 0.07997609952135376,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 80,
+          "best_val_loss": 0.3287927210330963,
+          "epochs_run": 110,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "weather_satellite": {
+        "label": "C - Weather + Satellite",
+        "metrics": {
+          "mae": 0.5080584621025344,
+          "rmse": 0.6185748742200707,
+          "r2": 0.11310019955640238,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 157,
+          "best_val_loss": 0.3698342740535736,
+          "epochs_run": 187,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "soil_only": {
+        "label": "D - Soil only (control)",
+        "metrics": {
+          "mae": 0.525731338282763,
+          "rmse": 0.6669059127492779,
+          "r2": -0.03090617716966282,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 298,
+          "best_val_loss": 0.23762470483779907,
+          "epochs_run": 300,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "full_multimodal": {
+        "label": "E - Full multimodal",
+        "metrics": {
+          "mae": 0.4610886644508879,
+          "rmse": 0.5911947304577628,
+          "r2": 0.1898767152723536,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 202,
+          "best_val_loss": 0.30074891448020935,
+          "epochs_run": 232,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      }
+    },
+    "43": {
+      "baseline": {
+        "label": "Baseline (train mean)",
+        "metrics": {
+          "mae": 0.7112136361962658,
+          "rmse": 0.8829371394115523,
+          "r2": -0.004609707706935584,
+          "n": 118
+        },
+        "history_summary": {
+          "selected_by": "n/a (no training)",
+          "train_mean_t_ha": 2.9655442237854004
+        }
+      },
+      "weather_only": {
+        "label": "A - Weather only",
+        "metrics": {
+          "mae": 0.6918551830922143,
+          "rmse": 0.8660309019982461,
+          "r2": 0.0334939473917526,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 120,
+          "best_val_loss": 0.4831336736679077,
+          "epochs_run": 150,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "satellite_only": {
+        "label": "B - Satellite only",
+        "metrics": {
+          "mae": 0.6859110341233722,
+          "rmse": 0.8339059148030394,
+          "r2": 0.10386815911897285,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 61,
+          "best_val_loss": 0.47756317257881165,
+          "epochs_run": 91,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "weather_satellite": {
+        "label": "C - Weather + Satellite",
+        "metrics": {
+          "mae": 0.6000059428861586,
+          "rmse": 0.7338818207457173,
+          "r2": 0.3059511167676926,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 67,
+          "best_val_loss": 0.3871465027332306,
+          "epochs_run": 97,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "soil_only": {
+        "label": "D - Soil only (control)",
+        "metrics": {
+          "mae": 1.1682164588217008,
+          "rmse": 1.5906581557296142,
+          "r2": -2.2605548717991564,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 9,
+          "best_val_loss": 2.4213833808898926,
+          "epochs_run": 39,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "full_multimodal": {
+        "label": "E - Full multimodal",
+        "metrics": {
+          "mae": 0.6797827391301171,
+          "rmse": 0.8447245320036499,
+          "r2": 0.08046552997549883,
+          "n": 118
+        },
+        "history_summary": {
+          "best_epoch": 54,
+          "best_val_loss": 0.6455312371253967,
+          "epochs_run": 84,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      }
+    },
+    "44": {
+      "baseline": {
+        "label": "Baseline (train mean)",
+        "metrics": {
+          "mae": 0.4892240416290414,
+          "rmse": 0.6029987451185497,
+          "r2": -9.958366020690335e-08,
+          "n": 117
+        },
+        "history_summary": {
+          "selected_by": "n/a (no training)",
+          "train_mean_t_ha": 2.9909541606903076
+        }
+      },
+      "weather_only": {
+        "label": "A - Weather only",
+        "metrics": {
+          "mae": 0.4096407737487402,
+          "rmse": 0.5355127812332993,
+          "r2": 0.21130895820573048,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 128,
+          "best_val_loss": 0.6416769623756409,
+          "epochs_run": 158,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "satellite_only": {
+        "label": "B - Satellite only",
+        "metrics": {
+          "mae": 0.4688557243754721,
+          "rmse": 0.5853351982129447,
+          "r2": 0.05772751937510456,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 122,
+          "best_val_loss": 0.614071249961853,
+          "epochs_run": 152,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "weather_satellite": {
+        "label": "C - Weather + Satellite",
+        "metrics": {
+          "mae": 0.41538361504546595,
+          "rmse": 0.527131140863773,
+          "r2": 0.2358043286552507,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 262,
+          "best_val_loss": 0.36663690209388733,
+          "epochs_run": 292,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "soil_only": {
+        "label": "D - Soil only (control)",
+        "metrics": {
+          "mae": 0.6562214356202346,
+          "rmse": 0.7742712599266367,
+          "r2": -0.6487450498616976,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 138,
+          "best_val_loss": 0.9261592626571655,
+          "epochs_run": 168,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "full_multimodal": {
+        "label": "E - Full multimodal",
+        "metrics": {
+          "mae": 0.4666867938816038,
+          "rmse": 0.6371494650738279,
+          "r2": -0.11647723497273033,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 154,
+          "best_val_loss": 0.45800551772117615,
+          "epochs_run": 184,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      }
+    },
+    "45": {
+      "baseline": {
+        "label": "Baseline (train mean)",
+        "metrics": {
+          "mae": 0.5776611800886627,
+          "rmse": 0.731875267180566,
+          "r2": -0.03177813713762556,
+          "n": 117
+        },
+        "history_summary": {
+          "selected_by": "n/a (no training)",
+          "train_mean_t_ha": 3.006749153137207
+        }
+      },
+      "weather_only": {
+        "label": "A - Weather only",
+        "metrics": {
+          "mae": 0.5408453778323964,
+          "rmse": 0.6827730322039551,
+          "r2": 0.1020236522030501,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 124,
+          "best_val_loss": 0.8683488965034485,
+          "epochs_run": 154,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "satellite_only": {
+        "label": "B - Satellite only",
+        "metrics": {
+          "mae": 0.5726766953101525,
+          "rmse": 0.6844445940401962,
+          "r2": 0.09762142680521935,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 31,
+          "best_val_loss": 0.8036896586418152,
+          "epochs_run": 61,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "weather_satellite": {
+        "label": "C - Weather + Satellite",
+        "metrics": {
+          "mae": 0.49414060258457804,
+          "rmse": 0.5967233242666531,
+          "r2": 0.3141041008053178,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 69,
+          "best_val_loss": 0.5541619062423706,
+          "epochs_run": 99,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "soil_only": {
+        "label": "D - Soil only (control)",
+        "metrics": {
+          "mae": 0.6301629421038505,
+          "rmse": 0.8628030504820848,
+          "r2": -0.4339550013350433,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 114,
+          "best_val_loss": 1.1688376665115356,
+          "epochs_run": 144,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "full_multimodal": {
+        "label": "E - Full multimodal",
+        "metrics": {
+          "mae": 0.5315838675213675,
+          "rmse": 0.6546816557290832,
+          "r2": 0.17439460272177798,
+          "n": 117
+        },
+        "history_summary": {
+          "best_epoch": 149,
+          "best_val_loss": 0.7214992642402649,
+          "epochs_run": 179,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      }
+    },
+    "46": {
+      "baseline": {
+        "label": "Baseline (train mean)",
+        "metrics": {
+          "mae": 0.6624035521557456,
+          "rmse": 0.8535630702927162,
+          "r2": -0.3963834214260449,
+          "n": 95
+        },
+        "history_summary": {
+          "selected_by": "n/a (no training)",
+          "train_mean_t_ha": 2.9511666297912598
+        }
+      },
+      "weather_only": {
+        "label": "A - Weather only",
+        "metrics": {
+          "mae": 0.6826022085390593,
+          "rmse": 0.8483224820390662,
+          "r2": -0.37928941587202214,
+          "n": 95
+        },
+        "history_summary": {
+          "best_epoch": 119,
+          "best_val_loss": 0.3088614046573639,
+          "epochs_run": 149,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "satellite_only": {
+        "label": "B - Satellite only",
+        "metrics": {
+          "mae": 0.7124115429426494,
+          "rmse": 0.8583618690395843,
+          "r2": -0.4121287129397846,
+          "n": 95
+        },
+        "history_summary": {
+          "best_epoch": 83,
+          "best_val_loss": 0.275724321603775,
+          "epochs_run": 113,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "weather_satellite": {
+        "label": "C - Weather + Satellite",
+        "metrics": {
+          "mae": 0.6096646522220812,
+          "rmse": 0.70248689387416,
+          "r2": 0.054176930998799167,
+          "n": 95
+        },
+        "history_summary": {
+          "best_epoch": 99,
+          "best_val_loss": 0.3368254601955414,
+          "epochs_run": 129,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "soil_only": {
+        "label": "D - Soil only (control)",
+        "metrics": {
+          "mae": 0.79828175118095,
+          "rmse": 1.006615483718414,
+          "r2": -0.9420511444860813,
+          "n": 95
+        },
+        "history_summary": {
+          "best_epoch": 291,
+          "best_val_loss": 0.24204237759113312,
+          "epochs_run": 300,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      },
+      "full_multimodal": {
+        "label": "E - Full multimodal",
+        "metrics": {
+          "mae": 0.6742085293719643,
+          "rmse": 0.7668772676330147,
+          "r2": -0.12715898864025355,
+          "n": 95
+        },
+        "history_summary": {
+          "best_epoch": 251,
+          "best_val_loss": 0.33991026878356934,
+          "epochs_run": 281,
+          "selected_by": "validation loss only (test set not consulted)"
+        }
+      }
+    }
+  },
+  "results_aggregated": {
+    "baseline": {
+      "label": "Baseline (train mean)",
+      "mae_mean": 0.5989716044630744,
+      "mae_std": 0.08819174305490955,
+      "rmse_mean": 0.7461450669264632,
+      "rmse_std": 0.12091152310313823,
+      "r2_mean": -0.08809066946754887,
+      "r2_std": 0.17277883174004297,
+      "n_seeds_with_r2": 5,
+      "per_seed_mae": [
+        0.5543556122456567,
+        0.7112136361962658,
+        0.4892240416290414,
+        0.5776611800886627,
+        0.6624035521557456
+      ]
+    },
+    "weather_only": {
+      "label": "A - Weather only",
+      "mae_mean": 0.5616794916986442,
+      "mae_std": 0.12373064185985391,
+      "rmse_mean": 0.7060522908119965,
+      "rmse_std": 0.14766235461342905,
+      "r2_mean": 0.027940524329972804,
+      "r2_std": 0.2375816674534127,
+      "n_seeds_with_r2": 5,
+      "per_seed_mae": [
+        0.48345391528081083,
+        0.6918551830922143,
+        0.4096407737487402,
+        0.5408453778323964,
+        0.6826022085390593
+      ]
+    },
+    "satellite_only": {
+      "label": "B - Satellite only",
+      "mae_mean": 0.5925023798339889,
+      "mae_std": 0.1044788590839248,
+      "rmse_mean": 0.7184135777044708,
+      "rmse_std": 0.12206670354960389,
+      "r2_mean": -0.014587101623826815,
+      "r2_std": 0.2229536604311464,
+      "n_seeds_with_r2": 5,
+      "per_seed_mae": [
+        0.5226569024182982,
+        0.6859110341233722,
+        0.4688557243754721,
+        0.5726766953101525,
+        0.7124115429426494
+      ]
+    },
+    "weather_satellite": {
+      "label": "C - Weather + Satellite",
+      "mae_mean": 0.5254506549681637,
+      "mae_std": 0.080697040404684,
+      "rmse_mean": 0.6357596107940748,
+      "rmse_std": 0.08321626900644397,
+      "r2_mean": 0.20462733535669253,
+      "r2_std": 0.1164433515952222,
+      "n_seeds_with_r2": 5,
+      "per_seed_mae": [
+        0.5080584621025344,
+        0.6000059428861586,
+        0.41538361504546595,
+        0.49414060258457804,
+        0.6096646522220812
+      ]
+    },
+    "soil_only": {
+      "label": "D - Soil only (control)",
+      "mae_mean": 0.7557227852018997,
+      "mae_std": 0.2502619401671489,
+      "rmse_mean": 0.9802507725212055,
+      "rmse_std": 0.3632143993697844,
+      "r2_mean": -0.8632424489303283,
+      "r2_std": 0.8487893339570898,
+      "n_seeds_with_r2": 5,
+      "per_seed_mae": [
+        0.525731338282763,
+        1.1682164588217008,
+        0.6562214356202346,
+        0.6301629421038505,
+        0.79828175118095
+      ]
+    },
+    "full_multimodal": {
+      "label": "E - Full multimodal",
+      "mae_mean": 0.5626701188711881,
+      "mae_std": 0.10799783380019212,
+      "rmse_mean": 0.6989255301794677,
+      "rmse_std": 0.10398859962861241,
+      "r2_mean": 0.04022012487132931,
+      "r2_std": 0.15377695569470193,
+      "n_seeds_with_r2": 5,
+      "per_seed_mae": [
+        0.4610886644508879,
+        0.6797827391301171,
+        0.4666867938816038,
+        0.5315838675213675,
+        0.6742085293719643
+      ]
+    }
+  },
+  "results_per_state_pooled": {
+    "baseline": {
+      "Andhra Pradesh": {
+        "mae": 0.635617863214933,
+        "rmse": 0.8154872046568884,
+        "r2": -0.07649372702972967,
+        "n": 260
+      },
+      "Tamil Nadu": {
+        "mae": 0.9002677049392309,
+        "rmse": 1.0076884046548404,
+        "r2": -1.5935507705906908,
+        "n": 78
+      },
+      "Telangana": {
+        "mae": 0.44761918189767175,
+        "rmse": 0.5376044253639549,
+        "r2": -0.37712146775484556,
+        "n": 227
+      }
+    },
+    "weather_only": {
+      "Andhra Pradesh": {
+        "mae": 0.6216403557704046,
+        "rmse": 0.7932434019078439,
+        "r2": -0.01856825775912374,
+        "n": 260
+      },
+      "Tamil Nadu": {
+        "mae": 0.8776941849635198,
+        "rmse": 0.9814848550044402,
+        "r2": -1.4604210652454737,
+        "n": 78
+      },
+      "Telangana": {
+        "mae": 0.372924776329343,
+        "rmse": 0.4616000938880895,
+        "r2": -0.015262523767898273,
+        "n": 227
+      }
+    },
+    "satellite_only": {
+      "Andhra Pradesh": {
+        "mae": 0.6670120239257813,
+        "rmse": 0.7989465853831518,
+        "r2": -0.033267313368988916,
+        "n": 260
+      },
+      "Tamil Nadu": {
+        "mae": 0.8573291118328388,
+        "rmse": 0.9620332503389388,
+        "r2": -1.3638635110035886,
+        "n": 78
+      },
+      "Telangana": {
+        "mae": 0.40464585573137596,
+        "rmse": 0.4950582383873778,
+        "r2": -0.16777497083427528,
+        "n": 227
+      }
+    },
+    "weather_satellite": {
+      "Andhra Pradesh": {
+        "mae": 0.5579302503512455,
+        "rmse": 0.6622346963925861,
+        "r2": 0.2900936465088443,
+        "n": 260
+      },
+      "Tamil Nadu": {
+        "mae": 0.8210392517921252,
+        "rmse": 0.9319203966723574,
+        "r2": -1.2181957345164829,
+        "n": 78
+      },
+      "Telangana": {
+        "mae": 0.37877157921307936,
+        "rmse": 0.45979947160973234,
+        "r2": -0.0073572447908845096,
+        "n": 227
+      }
+    },
+    "soil_only": {
+      "Andhra Pradesh": {
+        "mae": 0.9300583527638362,
+        "rmse": 1.2523137730270508,
+        "r2": -1.538654008069464,
+        "n": 260
+      },
+      "Tamil Nadu": {
+        "mae": 1.0018564753043346,
+        "rmse": 1.2408665849985172,
+        "r2": -2.93271442369942,
+        "n": 78
+      },
+      "Telangana": {
+        "mae": 0.468148025647134,
+        "rmse": 0.581239029403764,
+        "r2": -0.6097414099110359,
+        "n": 227
+      }
+    },
+    "full_multimodal": {
+      "Andhra Pradesh": {
+        "mae": 0.6017163359201871,
+        "rmse": 0.7358956130530221,
+        "r2": 0.12338352392211482,
+        "n": 260
+      },
+      "Tamil Nadu": {
+        "mae": 0.8699318231680454,
+        "rmse": 1.0160468671721727,
+        "r2": -1.6367546088894223,
+        "n": 78
+      },
+      "Telangana": {
+        "mae": 0.4016271971395887,
+        "rmse": 0.5038700840678322,
+        "r2": -0.2097168406710228,
+        "n": 227
+      }
+    }
+  },
+  "figures": [
+    "experiments\\figures\\unseen_district\\unseen_district_mae.png",
+    "experiments\\figures\\unseen_district\\unseen_district_rmse.png",
+    "experiments\\figures\\unseen_district\\unseen_district_r2.png",
+    "experiments\\figures\\unseen_district\\unseen_district_actual_vs_predicted.png"
+  ],
+  "leakage_audit": {
+    "passed": true,
+    "checks": [
+      {
+        "id": 1,
+        "check": "No overlapping districts between TRAIN and TEST",
+        "passed": true,
+        "detail": "Checked all 5 seeds; train\u2229test was empty in every one."
+      },
+      {
+        "id": 2,
+        "check": "No overlapping districts between VALIDATION and TEST",
+        "passed": true,
+        "detail": "Checked all 5 seeds; val\u2229test was empty in every one. (train\u2229val was also empty in every seed.)"
+      },
+      {
+        "id": 3,
+        "check": "Scalers fit ONLY on training data",
+        "passed": true,
+        "detail": "StandardScaler.fitted_on='train', fitted on 325 rows, which equals the training split's row count (325). build_split_datasets() computes the scaler from the training frame and then applies that same fitted object to val and test."
+      },
+      {
+        "id": 4,
+        "check": "Imputers fit ONLY on training data",
+        "passed": true,
+        "detail": "No imputation is performed anywhere in this pipeline, because none is needed: the 561 fully-aligned examples contain 0 missing values across all 12 features. Rows lacking any modality were excluded up front (counted in the exclusion report) rather than imputed. Vacuously satisfied."
+      },
+      {
+        "id": 5,
+        "check": "Baseline mean computed ONLY from training labels",
+        "passed": true,
+        "detail": "TrainMeanBaseline.fit() received 325 labels (= training rows) and produced 3.0964 t/ha, exactly the training-label mean. The test split's own mean is 3.0388 t/ha and is never read during fitting - the two differ, confirming the baseline is not secretly the test mean."
+      },
+      {
+        "id": 6,
+        "check": "Test data never used for early stopping / checkpoint selection",
+        "passed": true,
+        "detail": "train_model()'s signature is (train_ds, val_ds, seed, epochs, batch_size, lr, weight_decay, patience, hidden_dims, dropout) - it accepts no test dataset, so it is structurally incapable of reading one. An AST walk of its executable body (docstring excluded) finds 0 referenced name(s) containing 'test' (none), and confirms early stopping keys on `val_loss`/`best_val`. The test split is touched exactly once per (seed, configuration), by the caller, after training returns."
+      },
+      {
+        "id": 7,
+        "check": "Target not included as a feature",
+        "passed": true,
+        "detail": "Target column is 'final_yield_t_ha'. The 12 feature columns across all configurations are ['satellite_evi_mean', 'satellite_ndvi_mean', 'satellite_ndwi_mean', 'soil_clay', 'soil_nitrogen', 'soil_phh2o', 'soil_sand', 'soil_soc', 'weather_humidity_pct_mean', 'weather_precip_mm_sum', 'weather_temp_c_mean', 'weather_wind_speed_ms_mean'] - the target is not among them. training/district_dataset.assert_no_forbidden_features() raises at dataset construction if it ever were."
+      },
+      {
+        "id": 8,
+        "check": "Source URLs / provenance strings not used as features",
+        "passed": true,
+        "detail": "No feature column contains a source or URL (none found). yield_source_url, weather_source, satellite_source and soil_source are all in FORBIDDEN_AS_FEATURES. This matters concretely here: Tamil Nadu's rows cite different source URLs than Andhra Pradesh's, so a source string is a perfect region fingerprint."
+      },
+      {
+        "id": 9,
+        "check": "District / state identifiers not used as features",
+        "passed": true,
+        "detail": "No feature column is an identifier (none found). state, district, canonical_district_name and district_id are all in FORBIDDEN_AS_FEATURES and are kept as metadata only. Additionally `year` and `season` are excluded despite being ordinary columns: in this dataset every Tamil Nadu example is 'Whole Year' in 2019/2024 while every AP/Telangana example is Kharif/Rabi in 1999-2012, so either column would identify the region perfectly and defeat the unseen-district design."
+      }
+    ],
+    "path": "experiments\\UNSEEN_DISTRICT_LEAKAGE_AUDIT.md"
+  },
+  "torch_version": "2.13.0+cpu"
+}
