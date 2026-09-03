@@ -4,7 +4,7 @@ Soil properties from ISRIC SoilGrids via Earth Engine.
 Replaces ingestion/soil_fetch.py's REST path, which was silently returning
 nulls: of the project's 7 fields, only F002 and F003 ever got real values.
 The other five - including Punjab, West Bengal and Andhra Pradesh - were being
-filled by training/dataset.py's _impute_missing_soil with the MEAN OF THE TWO
+filled by training/dataset.py's impute_missing_soil with the MEAN OF THE TWO
 COIMBATORE FIELDS, so five fields in four states were all training on
 Coimbatore soil. That is not a localized no-data pixel as previously assumed:
 the REST endpoint returns HTTP 200 with every value null for points that Earth

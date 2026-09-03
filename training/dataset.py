@@ -88,7 +88,7 @@ def _match_yield_label(labels: pd.DataFrame, season_start: pd.Timestamp, toleran
 
 
 def build_dataset_from_processed(
-    season_length_weeks: int = 20, granularity: str | None = None
+    season_length_weeks: int = 20, granularity: str | None = None, impute: bool = True
 ) -> list[SeasonExample]:
     """granularity selects which tier of yield labels to attach:
 
@@ -111,6 +111,14 @@ def build_dataset_from_processed(
     filling gaps with a coarser stand-in would destroy the very contrast the
     sweep is measuring. The default (None) tier still raises, preserving the
     original behaviour that catches a missing label file during training.
+
+    impute=True (default) fills any missing soil values using the mean of
+    ALL returned examples - correct only when the caller has no train/val/
+    test split yet, which is the normal case. A caller that IS about to
+    split the real examples (see training/dataset.py::impute_missing_soil's
+    docstring) must pass impute=False here and call impute_missing_soil()
+    itself afterward with fit_examples=train_examples, or the fill-in value
+    would be computed using information from outside the training set.
     """
     examples: list[SeasonExample] = []
     labels_dir = YIELD_LABELS_DIR if granularity is None else YIELD_LABELS_DIR / granularity
@@ -171,19 +179,44 @@ def build_dataset_from_processed(
                 )
             )
 
-    _impute_missing_soil(examples)
+    if impute:
+        impute_missing_soil(examples)
     return examples
 
 
-def _impute_missing_soil(examples: list[SeasonExample]) -> None:
+def impute_missing_soil(examples: list[SeasonExample], fit_examples: "list[SeasonExample] | None" = None) -> None:
     """Fills a field's missing SoilGrids values (a genuine no-data pixel, e.g.
-    F001/Sulur - see data/raw/soil/soil_properties.csv) with the mean of the
+    F001/Sulur - see data/raw/soil/soil_properties.csv) with the mean of
     other real fields' soil vectors, in place, so NaNs don't propagate into
-    the loss. Documented imputation, not a fabricated reading."""
-    soil_stack = np.stack([ex.soil_x for ex in examples]) if examples else np.empty((0, 5))
-    if not np.isnan(soil_stack).any():
+    the loss. Documented imputation, not a fabricated reading.
+
+    `fit_examples` is which examples the fill-in mean is computed from -
+    defaults to `examples` itself, which is exactly this function's original
+    behaviour and is safe for build_dataset_from_processed()'s default call
+    (impute=True), since at that point there is no train/val/test split yet
+    to leak across.
+
+    A caller that HAS already split its data - e.g.
+    experiments/run_experiment1.py, which needs a chronological train/val/
+    test split of the real examples - must call
+    build_dataset_from_processed(impute=False) to get UNIMPUTED examples,
+    split them, and then call impute_missing_soil(examples,
+    fit_examples=train_examples) itself. Passing anything other than
+    train-only data as fit_examples here reintroduces the exact leakage this
+    parameter exists to prevent: a fill-in value computed using information
+    from examples the model is not supposed to have seen yet.
+
+    Was previously flagged (experiments/EXPERIMENT_1_REPORT.md S9) as a real,
+    if then-inactive (0 of 21 real examples currently need imputation),
+    leakage vector - always fit on the full pool with no way for a
+    split-aware caller to restrict it. This parameter is the fix.
+    """
+    fit_pool = fit_examples if fit_examples is not None else examples
+    needs_fill = any(np.isnan(ex.soil_x).any() for ex in examples)
+    if not needs_fill:
         return
-    col_mean = np.nanmean(soil_stack, axis=0)
+    fit_stack = np.stack([ex.soil_x for ex in fit_pool]) if fit_pool else np.empty((0, 5))
+    col_mean = np.nanmean(fit_stack, axis=0)
     for ex in examples:
         if np.isnan(ex.soil_x).any():
             ex.soil_x = np.where(np.isnan(ex.soil_x), col_mean, ex.soil_x).astype(np.float32)

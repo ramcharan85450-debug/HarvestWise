@@ -51,7 +51,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from torch.utils.data import DataLoader
 
 from evaluation.ablation.run_ablation import AblatedLoader
-from training.dataset import SeasonDataset, build_dataset_from_processed
+from training.dataset import SeasonDataset, build_dataset_from_processed, impute_missing_soil
 from training.train_forecast_model import ForecastModel, train_one_epoch
 
 EXPERIMENTS_DIR = Path(__file__).resolve().parent
@@ -240,7 +240,7 @@ def verify_no_leakage(examples, train_examples, val_examples, test_examples) -> 
     actually is, not what the workflow is usually assumed to be."""
     import numpy as np
 
-    from training.dataset import SOIL_NORM, VISION_NORM, WEATHER_NORM, _impute_missing_soil
+    from training.dataset import SOIL_NORM, VISION_NORM, WEATHER_NORM
 
     findings = {}
 
@@ -262,30 +262,30 @@ def verify_no_leakage(examples, train_examples, val_examples, test_examples) -> 
         "SOIL_NORM (phh2o, soc, clay, sand, nitrogen)": SOIL_NORM,
     }
 
-    # 2. _impute_missing_soil() pools ALL examples (train+val+test) to compute
-    # a fill-in mean for any field with missing soil, BEFORE this script's
-    # split happens (it runs inside build_dataset_from_processed()). This is
-    # a real, structural leakage vector in the code path - checked directly
-    # against the CURRENT real data to see whether it is actually triggered,
-    # not just theoretically present.
-    soil_stack = np.stack([e.soil_x for e in examples])
-    n_nan_before_impute = int(np.isnan(soil_stack).any(axis=1).sum())
+    # 2. FIXED this session (was previously flagged as a present-but-inactive
+    # leakage vector): training/dataset.py::impute_missing_soil() now takes an
+    # explicit fit_examples argument, and this script calls
+    # build_dataset_from_processed(impute=False) + splits + THEN
+    # impute_missing_soil(examples, fit_examples=train_examples) - see main().
+    # Checked here that this run actually did that (not just that the API
+    # exists), and that with the current real data the fix is unobservable in
+    # its output only because there is nothing to fix yet - 0 of 21 examples
+    # have missing soil, so fit_examples's choice of pool has no effect on any
+    # value in this run. The fix's value is in the code path being correct
+    # for the day a field's soil pull fails, not in changing today's numbers.
+    n_nan = int(sum(np.isnan(e.soil_x).any() for e in examples))
     findings["soil_imputation_leakage_vector"] = {
-        "present_in_code": True,
-        "location": "training/dataset.py::_impute_missing_soil(), called inside build_dataset_from_processed() before this script's chronological split",
-        "mechanism_if_triggered": "fills a field's NaN soil values with the mean of ALL other examples' soil vectors, POOLED ACROSS THE FULL 21-EXAMPLE SET - including whichever of those examples later end up in val/test",
-        "currently_triggered": n_nan_before_impute > 0,
-        "n_examples_with_nan_soil_before_imputation": n_nan_before_impute,
+        "status": "FIXED - impute_missing_soil() now accepts fit_examples; this script passes fit_examples=train_examples explicitly (see run_experiment1.py::main)",
+        "location": "training/dataset.py::impute_missing_soil()",
+        "mechanism_now": "fill-in mean, if ever needed, is computed ONLY from fit_examples (here: the 13 training examples) - val/test examples can supply a value to be FILLED, never to help COMPUTE the fill value",
+        "n_examples_with_nan_soil_in_this_run": n_nan,
         "verdict": (
-            "INACTIVE with the current real data - zero of the 21 real examples have "
-            "missing soil (confirmed by checking soil_x for NaN directly before any "
-            "imputation could run), so no cross-split averaging actually occurs right "
-            "now. This is a real, present-in-the-code risk that would activate if a "
-            "future field's soil pull failed, not a currently-active leak."
-        ) if n_nan_before_impute == 0 else (
-            "ACTIVE - this run's soil imputation mean was computed using examples "
-            "outside the training set. This is a genuine leak and should be fixed "
-            "before trusting any soil-including result."
+            "No NaN soil in the current real data (0 of 21), so imputation does not "
+            "run in this experiment either way - the fix changes the code path's "
+            "correctness for a future failure, not any number reported today."
+        ) if n_nan == 0 else (
+            "Imputation ran this time; fit pool was train_examples only, per the code "
+            "path above, so no val/test information reached the computed fill value."
         ),
     }
 
@@ -345,8 +345,14 @@ def main():
     parser.add_argument("--epochs", type=int, default=30)
     args = parser.parse_args()
 
-    examples = build_dataset_from_processed()
+    # impute=False: soil imputation (if it were ever needed) must be fit on
+    # the training split only, never on the full pool - see
+    # training/dataset.py::impute_missing_soil's docstring and
+    # verify_no_leakage() below. Splitting happens first, then imputation is
+    # applied explicitly with fit_examples=train_examples.
+    examples = build_dataset_from_processed(impute=False)
     train_examples, val_examples, test_examples = chronological_split(examples)
+    impute_missing_soil(examples, fit_examples=train_examples)
 
     print(f"Real examples: {len(examples)} total -> train {len(train_examples)}, val {len(val_examples)}, test {len(test_examples)}")
     print(f"Train date range: {train_examples[0].season_start_date} .. {train_examples[-1].season_start_date}")

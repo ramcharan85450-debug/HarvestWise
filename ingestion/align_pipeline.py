@@ -103,7 +103,7 @@ def _load_soil() -> "pd.DataFrame | None":
 
     ingestion/soil_fetch.py's REST path returned HTTP 200 with every value
     null for 5 of the 7 fields, so those fields were being filled by
-    training/dataset.py's _impute_missing_soil with the mean of the two
+    training/dataset.py's impute_missing_soil with the mean of the two
     Coimbatore fields that did resolve - i.e. Punjab, West Bengal and Andhra
     Pradesh were all training on Coimbatore soil. ingestion/soil_fetch_ee.py
     resolves all 7 with real, regionally-distinct values (Punjab pH 7.8
