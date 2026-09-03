@@ -1,0 +1,54 @@
+{
+  "resource_id": "35be999b-0208-4354-b557-f6ca9a5355de",
+  "source_name": "District-wise, season-wise crop production statistics - Government of India, Ministry of Agriculture and Farmers Welfare (via data.gov.in)",
+  "source_url": "https://data.gov.in/resource/35be999b-0208-4354-b557-f6ca9a5355de",
+  "retrieved_date": "2026-09-04",
+  "geographic_level": "district",
+  "states": [
+    "Andhra Pradesh",
+    "Telangana",
+    "Tamil Nadu"
+  ],
+  "fetch_log": {
+    "Andhra Pradesh": {
+      "raw_records": 9628,
+      "usable_rows": 9628
+    },
+    "Telangana": {
+      "raw_records": 5649,
+      "usable_rows": 5649
+    },
+    "Tamil Nadu": {
+      "raw_records": 13547,
+      "usable_rows": 13547
+    }
+  },
+  "covariate_definitions": {
+    "non_rice_cropped_area_ha": {
+      "definition": "Sum of reported Area across every crop EXCEPT Rice, for that district, year and season. A measure of the non-rice agricultural footprint.",
+      "unit": "hectares",
+      "yield_denominator_overlap": false
+    },
+    "n_crops_grown": {
+      "definition": "Count of distinct crops with positive reported Area in that district, year and season. A crop-diversity measure.",
+      "unit": "count",
+      "yield_denominator_overlap": false
+    },
+    "n_rice_seasons": {
+      "definition": "Count of distinct seasons in which Rice is reported with positive area for that district and year. A district reporting rice in both Kharif and Rabi is double-cropping rice; this is a genuine cropping-intensity signal.",
+      "unit": "count",
+      "yield_denominator_overlap": false
+    },
+    "gross_cropped_area_ha": {
+      "definition": "Sum of reported Area across ALL crops including Rice, for that district, year and season.",
+      "unit": "hectares",
+      "yield_denominator_overlap": true
+    },
+    "rice_area_share": {
+      "definition": "Rice area divided by gross cropped area for that district, year and season.",
+      "unit": "fraction",
+      "yield_denominator_overlap": true
+    }
+  },
+  "note": "Area units are hectares on the same evidence documented for this resource in data/raw/external/official_yield/andhra_pradesh/validation_report.md section 5. No state-level value is ever used as a district-level value: every row here is aggregated from district rows of the same resource."
+}

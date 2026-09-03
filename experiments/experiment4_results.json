@@ -1,0 +1,992 @@
+{
+  "generated_utc": "2026-09-03T20:21:36.809354+00:00",
+  "experiment": "Experiment 4 - satellite provenance completion and geographic yield covariate investigation",
+  "language_note": "All relationships reported are ASSOCIATIONS. No causal claim is made or supported by this observational district panel.",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "hyperparameters_unchanged_from_experiment1": {
+    "epochs": 300,
+    "batch_size": 32,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "patience": 30,
+    "hidden_dims": [
+      32,
+      16
+    ],
+    "dropout": 0.2
+  },
+  "B4_geographic_matching": {
+    "aligned_examples": 704,
+    "exact_or_alias_matched_agricultural": 630,
+    "aliases_applied": {
+      "KANCHIPURAM": "KANCHEEPURAM",
+      "SIVAGANGA": "SIVAGANGAI",
+      "THIRUVARUR": "TIRUVARUR",
+      "TIRUCHIRAPPALLI": "TIRUCHIRAPALLI",
+      "TUTICORIN": "THOOTHUKUDI"
+    },
+    "unmatched_districts_agricultural": [
+      "ARIYALUR",
+      "CHENGALPATTU",
+      "CHENNAI",
+      "COIMBATORE",
+      "CUDDALORE",
+      "DHARMAPURI",
+      "DINDIGUL",
+      "ERODE",
+      "KALLAKURICHI",
+      "KANCHEEPURAM",
+      "KANNIYAKUMARI",
+      "KARUR",
+      "KRISHNAGIRI",
+      "MADURAI",
+      "MAYILADUTHURAI",
+      "NAGAPATTINAM",
+      "NAMAKKAL",
+      "PERAMBALUR",
+      "PUDUKKOTTAI",
+      "RAMANATHAPURAM",
+      "RANIPET",
+      "SALEM",
+      "SIVAGANGAI",
+      "TENKASI",
+      "THANJAVUR",
+      "THE NILGIRIS",
+      "THENI",
+      "THIRUVALLUR",
+      "THOOTHUKUDI",
+      "TIRUCHIRAPALLI",
+      "TIRUNELVELI",
+      "TIRUPATHUR",
+      "TIRUPPUR",
+      "TIRUVALLUR",
+      "TIRUVANNAMALAI",
+      "TIRUVARUR",
+      "VELLORE",
+      "VILLUPURAM",
+      "VIRUDHUNAGAR"
+    ],
+    "matched_terrain": 703,
+    "unmatched_districts_terrain": [
+      "CHENNAI"
+    ]
+  },
+  "B10_missingness": {
+    "non_rice_cropped_area_ha": {
+      "expected_records": 704,
+      "matched_records": 630,
+      "missing_records": 74,
+      "missing_pct": 10.51,
+      "reason": "district-year-season absent from the source resource, or district not resolvable in the terrain fetch",
+      "eligible_for_main_analysis": true
+    },
+    "n_crops_grown": {
+      "expected_records": 704,
+      "matched_records": 630,
+      "missing_records": 74,
+      "missing_pct": 10.51,
+      "reason": "district-year-season absent from the source resource, or district not resolvable in the terrain fetch",
+      "eligible_for_main_analysis": true
+    },
+    "n_rice_seasons": {
+      "expected_records": 704,
+      "matched_records": 630,
+      "missing_records": 74,
+      "missing_pct": 10.51,
+      "reason": "district-year-season absent from the source resource, or district not resolvable in the terrain fetch",
+      "eligible_for_main_analysis": true
+    },
+    "gross_cropped_area_ha": {
+      "expected_records": 704,
+      "matched_records": 630,
+      "missing_records": 74,
+      "missing_pct": 10.51,
+      "reason": "district-year-season absent from the source resource, or district not resolvable in the terrain fetch",
+      "eligible_for_main_analysis": true
+    },
+    "rice_area_share": {
+      "expected_records": 704,
+      "matched_records": 630,
+      "missing_records": 74,
+      "missing_pct": 10.51,
+      "reason": "district-year-season absent from the source resource, or district not resolvable in the terrain fetch",
+      "eligible_for_main_analysis": true
+    },
+    "elevation_m_mean": {
+      "expected_records": 704,
+      "matched_records": 703,
+      "missing_records": 1,
+      "missing_pct": 0.14,
+      "reason": "district-year-season absent from the source resource, or district not resolvable in the terrain fetch",
+      "eligible_for_main_analysis": true
+    },
+    "slope_deg_mean": {
+      "expected_records": 704,
+      "matched_records": 703,
+      "missing_records": 1,
+      "missing_pct": 0.14,
+      "reason": "district-year-season absent from the source resource, or district not resolvable in the terrain fetch",
+      "eligible_for_main_analysis": true
+    }
+  },
+  "matched_condition_subset": {
+    "season": "Kharif",
+    "years": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ],
+    "n": 382,
+    "n_tamil_nadu": 143,
+    "n_ap_telangana": 239,
+    "n_districts": 32
+  },
+  "B5_covariate_comparison": [
+    {
+      "covariate": "non_rice_cropped_area_ha",
+      "ap_tg": {
+        "n": 239,
+        "mean": 254203.96652719667,
+        "median": 209750.0,
+        "std": 209550.50725366376,
+        "min": 0.0,
+        "max": 979971.0
+      },
+      "tamil_nadu": {
+        "n": 143,
+        "mean": 49973.51748251748,
+        "median": 31701.0,
+        "std": 62442.125027997055,
+        "min": 0.0,
+        "max": 409621.0
+      },
+      "standardized_mean_difference": -1.3209127942682461,
+      "ks_statistic": 0.6258887555958685
+    },
+    {
+      "covariate": "n_crops_grown",
+      "ap_tg": {
+        "n": 239,
+        "mean": 16.188284518828453,
+        "median": 16.0,
+        "std": 4.328199111519826,
+        "min": 1.0,
+        "max": 33.0
+      },
+      "tamil_nadu": {
+        "n": 143,
+        "mean": 8.804195804195805,
+        "median": 9.0,
+        "std": 6.049396130098897,
+        "min": 1.0,
+        "max": 19.0
+      },
+      "standardized_mean_difference": -1.4039041285745062,
+      "ks_statistic": 0.5891388945782251
+    },
+    {
+      "covariate": "n_rice_seasons",
+      "ap_tg": {
+        "n": 239,
+        "mean": 1.99581589958159,
+        "median": 2.0,
+        "std": 0.06468462273531506,
+        "min": 1.0,
+        "max": 2.0
+      },
+      "tamil_nadu": {
+        "n": 143,
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "standardized_mean_difference": -21.771733238326192,
+      "ks_statistic": 0.99581589958159
+    },
+    {
+      "covariate": "gross_cropped_area_ha",
+      "ap_tg": {
+        "n": 239,
+        "mean": 377369.22594142257,
+        "median": 332322.0,
+        "std": 186360.05915807848,
+        "min": 16.0,
+        "max": 1004306.0
+      },
+      "tamil_nadu": {
+        "n": 143,
+        "mean": 101702.13286713287,
+        "median": 90874.0,
+        "std": 77454.0742558733,
+        "min": 2581.0,
+        "max": 471229.0
+      },
+      "standardized_mean_difference": -1.9317323660973305,
+      "ks_statistic": 0.800304298212248
+    },
+    {
+      "covariate": "rice_area_share",
+      "ap_tg": {
+        "n": 239,
+        "mean": 0.3846786277427744,
+        "median": 0.3253756190214756,
+        "std": 0.2841373489863405,
+        "min": 0.0207651633707971,
+        "max": 1.0
+      },
+      "tamil_nadu": {
+        "n": 143,
+        "mean": 0.6042538412879298,
+        "median": 0.6525451724729132,
+        "std": 0.34496394617126364,
+        "min": 0.0191236940995927,
+        "max": 1.0
+      },
+      "standardized_mean_difference": 0.6948197280476498,
+      "ks_statistic": 0.3517277701378119
+    },
+    {
+      "covariate": "elevation_m_mean",
+      "ap_tg": {
+        "n": 239,
+        "mean": 262.9698472893816,
+        "median": 268.534760487876,
+        "std": 180.6556483319786,
+        "min": 39.97011261691317,
+        "max": 572.5937224749598
+      },
+      "tamil_nadu": {
+        "n": 143,
+        "mean": 223.67934166864276,
+        "median": 180.04580259941062,
+        "std": 193.0779333821767,
+        "min": 10.542744473141406,
+        "max": 639.8355274837352
+      },
+      "standardized_mean_difference": -0.2101433838445265,
+      "ks_statistic": 0.21833396728794216
+    },
+    {
+      "covariate": "slope_deg_mean",
+      "ap_tg": {
+        "n": 239,
+        "mean": 2.3324926688340044,
+        "median": 2.1590646521702115,
+        "std": 0.7501608072421486,
+        "min": 1.483470965994641,
+        "max": 4.469186683606451
+      },
+      "tamil_nadu": {
+        "n": 143,
+        "mean": 2.3912595529607725,
+        "median": 2.2070906835324524,
+        "std": 1.1213586969093126,
+        "min": 1.074907361081775,
+        "max": 4.784410897144959
+      },
+      "standardized_mean_difference": 0.06160127631248483,
+      "ks_statistic": 0.3006993006993007
+    }
+  ],
+  "B6_yield_association": [
+    {
+      "covariate": "non_rice_cropped_area_ha",
+      "n": 382,
+      "pearson_r": -0.2217573467533235,
+      "pearson_p": 1.2166127131910271e-05,
+      "spearman_rho": -0.33052729348723997,
+      "spearman_p": 3.447454678771181e-11,
+      "within_region": {
+        "AP+Telangana": {
+          "pearson_r": 0.08552459742962833,
+          "spearman_rho": 0.09454413442603553,
+          "n": 239
+        },
+        "Tamil Nadu": {
+          "pearson_r": -0.1716153445676063,
+          "spearman_rho": -0.2566135983284596,
+          "n": 143
+        }
+      }
+    },
+    {
+      "covariate": "n_crops_grown",
+      "n": 382,
+      "pearson_r": -0.4335302653790312,
+      "pearson_p": 6.17791274383464e-19,
+      "spearman_rho": -0.4834510835901376,
+      "spearman_p": 9.05418022123316e-24,
+      "within_region": {
+        "AP+Telangana": {
+          "pearson_r": -0.21394522280064174,
+          "spearman_rho": -0.32001845576297433,
+          "n": 239
+        },
+        "Tamil Nadu": {
+          "pearson_r": -0.2402594296911834,
+          "spearman_rho": -0.2617654637785863,
+          "n": 143
+        }
+      }
+    },
+    {
+      "covariate": "n_rice_seasons",
+      "n": 382,
+      "pearson_r": -0.4628001661189157,
+      "pearson_p": 1.1304685452521268e-21,
+      "spearman_rho": -0.4868575409718592,
+      "spearman_p": 3.95515782700993e-24,
+      "within_region": {
+        "AP+Telangana": {
+          "pearson_r": -0.01353989455494618,
+          "spearman_rho": -0.011274312144072733,
+          "n": 239
+        },
+        "Tamil Nadu": {
+          "pearson_r": NaN,
+          "spearman_rho": NaN,
+          "n": 143
+        }
+      }
+    },
+    {
+      "covariate": "gross_cropped_area_ha",
+      "n": 382,
+      "pearson_r": -0.32095881992342123,
+      "pearson_p": 1.3339663362821337e-10,
+      "spearman_rho": -0.3994611873060671,
+      "spearman_p": 4.569419491646245e-16,
+      "within_region": {
+        "AP+Telangana": {
+          "pearson_r": 0.15240750837243813,
+          "spearman_rho": 0.1882769387101442,
+          "n": 239
+        },
+        "Tamil Nadu": {
+          "pearson_r": -0.4310621100109916,
+          "spearman_rho": -0.4696805541875964,
+          "n": 143
+        }
+      }
+    },
+    {
+      "covariate": "rice_area_share",
+      "n": 382,
+      "pearson_r": 0.18538851876898113,
+      "pearson_p": 0.00026933217407803226,
+      "spearman_rho": 0.2051191689211249,
+      "spearman_p": 5.370132547821817e-05,
+      "within_region": {
+        "AP+Telangana": {
+          "pearson_r": -0.02451571831945307,
+          "spearman_rho": 0.04890132010365861,
+          "n": 239
+        },
+        "Tamil Nadu": {
+          "pearson_r": 0.08947770223889619,
+          "spearman_rho": 0.12952160555078968,
+          "n": 143
+        }
+      }
+    },
+    {
+      "covariate": "elevation_m_mean",
+      "n": 382,
+      "pearson_r": 0.04436886448998347,
+      "pearson_p": 0.3871675128869416,
+      "spearman_rho": 0.0355952141917259,
+      "spearman_p": 0.48790677241763203,
+      "within_region": {
+        "AP+Telangana": {
+          "pearson_r": -0.01698584297190405,
+          "spearman_rho": -0.06271458367781085,
+          "n": 239
+        },
+        "Tamil Nadu": {
+          "pearson_r": 0.21354803123897306,
+          "spearman_rho": 0.29059109722385695,
+          "n": 143
+        }
+      }
+    },
+    {
+      "covariate": "slope_deg_mean",
+      "n": 382,
+      "pearson_r": 0.12098366761728668,
+      "pearson_p": 0.018003306948629758,
+      "spearman_rho": 0.02789250448349663,
+      "spearman_p": 0.5868040617949126,
+      "within_region": {
+        "AP+Telangana": {
+          "pearson_r": -0.2627411201698824,
+          "spearman_rho": -0.26324870983427257,
+          "n": 239
+        },
+        "Tamil Nadu": {
+          "pearson_r": 0.35086829028093297,
+          "spearman_rho": 0.4417852316831403,
+          "n": 143
+        }
+      }
+    }
+  ],
+  "B7_yield_gap": {
+    "tamil_nadu_mean": 3.5856888111888114,
+    "ap_telangana_mean": 2.7606485355648536,
+    "raw_gap_t_ha": 0.8250402756239579,
+    "gap_by_year": {
+      "2000": 1.2127399999999997,
+      "2001": 1.154446842105263,
+      "2002": 0.7678494736842105,
+      "2003": 0.13562842105263195,
+      "2004": 0.2618330143540666,
+      "2005": 0.1774569377990427,
+      "2006": 1.1335444976076565,
+      "2007": 0.4211440191387563,
+      "2008": 1.1412803827751197,
+      "2009": 0.9194763157894741,
+      "2010": 1.187319298245613,
+      "2011": 1.2893035087719293,
+      "2012": 0.669074999999999
+    }
+  },
+  "region_fingerprint_screen": {
+    "rule": "A covariate is treated as a region proxy if the TN-vs-AP/TG KS statistic is >= 0.95, or |SMD| >= 3.0, or it has zero variance within either region. Pre-stated and applied identically to every covariate.",
+    "flagged": [
+      "n_rice_seasons"
+    ],
+    "detail": {
+      "non_rice_cropped_area_ha": {
+        "ks": 0.6258887555958685,
+        "smd": -1.3209127942682461,
+        "zero_variance_within_a_region": false,
+        "flagged_as_region_proxy": false
+      },
+      "n_crops_grown": {
+        "ks": 0.5891388945782251,
+        "smd": -1.4039041285745062,
+        "zero_variance_within_a_region": false,
+        "flagged_as_region_proxy": false
+      },
+      "n_rice_seasons": {
+        "ks": 0.99581589958159,
+        "smd": -21.771733238326192,
+        "zero_variance_within_a_region": true,
+        "flagged_as_region_proxy": true
+      },
+      "gross_cropped_area_ha": {
+        "ks": 0.800304298212248,
+        "smd": -1.9317323660973305,
+        "zero_variance_within_a_region": false,
+        "flagged_as_region_proxy": false
+      },
+      "rice_area_share": {
+        "ks": 0.3517277701378119,
+        "smd": 0.6948197280476498,
+        "zero_variance_within_a_region": false,
+        "flagged_as_region_proxy": false
+      },
+      "elevation_m_mean": {
+        "ks": 0.21833396728794216,
+        "smd": -0.2101433838445265,
+        "zero_variance_within_a_region": false,
+        "flagged_as_region_proxy": false
+      },
+      "slope_deg_mean": {
+        "ks": 0.3006993006993007,
+        "smd": 0.06160127631248483,
+        "zero_variance_within_a_region": false,
+        "flagged_as_region_proxy": false
+      }
+    }
+  },
+  "B8_covariates_used": [
+    "non_rice_cropped_area_ha",
+    "n_crops_grown",
+    "elevation_m_mean",
+    "slope_deg_mean"
+  ],
+  "B8_covariates_excluded_as_yield_denominator_overlap": [
+    "gross_cropped_area_ha",
+    "rice_area_share"
+  ],
+  "B8_covariates_excluded_as_region_proxy": [
+    "n_rice_seasons"
+  ],
+  "B8_main_analysis": {
+    "n": 382,
+    "model_A_region_only": {
+      "region_coefficient_t_ha": 0.8250402756239574,
+      "std_error": 0.08065338844274304,
+      "ci95": [
+        0.666457454291701,
+        0.9836230969562139
+      ],
+      "r2": 0.21591570102903657
+    },
+    "model_B_region_plus_covariates": {
+      "region_coefficient_t_ha": 0.5646324405173224,
+      "std_error": 0.10198533567429743,
+      "ci95": [
+        0.36409936550550337,
+        0.7651655155291415
+      ],
+      "r2": 0.2819093102303144,
+      "covariate_coefficients": {
+        "non_rice_cropped_area_ha": {
+          "coef": 1.2036364294143453e-07,
+          "se": 2.532419046173789e-07,
+          "ci95": [
+            -3.775841994518647e-07,
+            6.183114853347338e-07
+          ]
+        },
+        "n_crops_grown": {
+          "coef": -0.04009202980311111,
+          "se": 0.0077791454525186505,
+          "ci95": [
+            -0.05538811083518955,
+            -0.024795948771032666
+          ]
+        },
+        "elevation_m_mean": {
+          "coef": 0.0004161567122248932,
+          "se": 0.0002434366032148569,
+          "ci95": [
+            -6.251103241057722e-05,
+            0.0008948244568603636
+          ]
+        },
+        "slope_deg_mean": {
+          "coef": 0.09014700786803229,
+          "se": 0.04488594866365812,
+          "ci95": [
+            0.0018880709254489314,
+            0.17840594481061564
+          ]
+        }
+      }
+    },
+    "ridge_region_coefficient_t_ha": 0.5656969220743803,
+    "region_coefficient_change": -0.260407835106635,
+    "pct_of_region_effect_accounted_for": 31.56304519918074
+  },
+  "B9_sensitivity": {
+    "rule": "Symmetric 1st/99th percentile winsorization of the TARGET, applied to the pooled matched-condition subset, i.e. identically to every state. No Tamil Nadu observation is selectively removed, and nothing is deleted - extreme values are clipped, not dropped.",
+    "n_values_clipped": 8,
+    "clipped_by_state": {
+      "Tamil Nadu": 7,
+      "Andhra Pradesh": 1
+    },
+    "winsorized_gap_t_ha": 0.791415425286011,
+    "models": {
+      "n": 382,
+      "model_A_region_only": {
+        "region_coefficient_t_ha": 0.7914154252860103,
+        "std_error": 0.0721476829010965,
+        "ci95": [
+          0.6495567467115413,
+          0.9332741038604793
+        ],
+        "r2": 0.24049720170106825
+      },
+      "model_B_region_plus_covariates": {
+        "region_coefficient_t_ha": 0.5616321704958663,
+        "std_error": 0.09108330510659027,
+        "ci95": [
+          0.38253568437362173,
+          0.7407286566181109
+        ],
+        "r2": 0.3066564490739184,
+        "covariate_coefficients": {
+          "non_rice_cropped_area_ha": {
+            "coef": 1.549012091928148e-07,
+            "se": 2.2617084614697133e-07,
+            "ci95": [
+              -2.898169942234396e-07,
+              5.996194126090693e-07
+            ]
+          },
+          "n_crops_grown": {
+            "coef": -0.03632039775353841,
+            "se": 0.006947570197573717,
+            "ci95": [
+              -0.04998135799226664,
+              -0.022659437514810178
+            ]
+          },
+          "elevation_m_mean": {
+            "coef": 0.000312132680438291,
+            "se": 0.00021741371206094733,
+            "ci95": [
+              -0.00011536642951761033,
+              0.0007396317903941923
+            ]
+          },
+          "slope_deg_mean": {
+            "coef": 0.09341332369160381,
+            "se": 0.04008772957503809,
+            "ci95": [
+              0.014589092455086772,
+              0.17223755492812085
+            ]
+          }
+        }
+      },
+      "ridge_region_coefficient_t_ha": 0.5625579448647531,
+      "region_coefficient_change": -0.22978325479014394,
+      "pct_of_region_effect_accounted_for": 29.034467543654763
+    }
+  },
+  "leakage_audit": {
+    "passed": true,
+    "n_checks": 10,
+    "checks": [
+      {
+        "check": "No yield-derived covariates",
+        "passed": true
+      },
+      {
+        "check": "No future information",
+        "passed": true
+      },
+      {
+        "check": "No test districts influencing preprocessing",
+        "passed": true
+      },
+      {
+        "check": "No test data used for feature selection",
+        "passed": true
+      },
+      {
+        "check": "No state identifier encoded as a feature",
+        "passed": true
+      },
+      {
+        "check": "No district identifier encoded as a feature",
+        "passed": true
+      },
+      {
+        "check": "Static covariates tested separately",
+        "passed": true
+      },
+      {
+        "check": "Train/test geographic separation maintained",
+        "passed": true
+      },
+      {
+        "check": "Missing-value imputation is train-only",
+        "passed": true
+      },
+      {
+        "check": "Scaling is train-only",
+        "passed": true
+      }
+    ]
+  },
+  "phaseC_prediction": {
+    "design": "AP+Telangana -> Tamil Nadu, Kharif, matched overlapping years. Train and test share no district. Hyperparameters unchanged from Experiment 1.",
+    "n_train": 239,
+    "n_test": 143,
+    "arms": {
+      "baseline": {
+        "features": [],
+        "per_seed": [
+          {
+            "mae": 1.0597271981772842,
+            "rmse": 1.3309040095032119,
+            "r2": -0.6939542342520482,
+            "n": 143
+          },
+          {
+            "mae": 1.008213998137654,
+            "rmse": 1.2802630742104122,
+            "r2": -0.5674967358079144,
+            "n": 143
+          },
+          {
+            "mae": 1.0593830484610338,
+            "rmse": 1.3305793337001945,
+            "r2": -0.6931278502867857,
+            "n": 143
+          },
+          {
+            "mae": 1.0681737448785689,
+            "rmse": 1.3389081878705902,
+            "r2": -0.7143906945920864,
+            "n": 143
+          },
+          {
+            "mae": 1.0657989824568475,
+            "rmse": 1.3366509192849243,
+            "r2": -0.7086149764257261,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.0522593944222778,
+        "mae_std": 0.0222849656416528,
+        "rmse_mean": 1.3234611049138665,
+        "rmse_std": 0.021839045040715745,
+        "r2_mean": -0.6755168982729121,
+        "r2_std": 0.05463532063689466
+      },
+      "weather_satellite": {
+        "features": [
+          "weather_temp_c_mean",
+          "weather_precip_mm_sum",
+          "weather_humidity_pct_mean",
+          "weather_wind_speed_ms_mean",
+          "satellite_ndvi_mean",
+          "satellite_evi_mean",
+          "satellite_ndwi_mean"
+        ],
+        "per_seed": [
+          {
+            "mae": 1.037228823958577,
+            "rmse": 1.3652105160633339,
+            "r2": -0.7824093669055749,
+            "n": 143
+          },
+          {
+            "mae": 1.1169669857391944,
+            "rmse": 1.4111663042679503,
+            "r2": -0.904428190912979,
+            "n": 143
+          },
+          {
+            "mae": 1.1250390952283686,
+            "rmse": 1.4392532886375085,
+            "r2": -0.9809917499057559,
+            "n": 143
+          },
+          {
+            "mae": 1.0522381771694531,
+            "rmse": 1.362603589887494,
+            "r2": -0.7756086967774218,
+            "n": 143
+          },
+          {
+            "mae": 1.0410480044938468,
+            "rmse": 1.3455964263205427,
+            "r2": -0.7315612407332752,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.074504217317888,
+        "mae_std": 0.038370327749289036,
+        "rmse_mean": 1.3847660250353657,
+        "rmse_std": 0.03485307895933136,
+        "r2_mean": -0.8349998490470014,
+        "r2_std": 0.09287253979542931
+      },
+      "covariates_only": {
+        "features": [
+          "non_rice_cropped_area_ha",
+          "n_crops_grown",
+          "elevation_m_mean",
+          "slope_deg_mean"
+        ],
+        "per_seed": [
+          {
+            "mae": 1.0094339393235587,
+            "rmse": 1.2891795395454448,
+            "r2": -0.5894066084928449,
+            "n": 143
+          },
+          {
+            "mae": 1.198102662196526,
+            "rmse": 1.4920351684167614,
+            "r2": -1.128954235014422,
+            "n": 143
+          },
+          {
+            "mae": 0.9730813782531899,
+            "rmse": 1.2690801180041245,
+            "r2": -0.5402325122523075,
+            "n": 143
+          },
+          {
+            "mae": 1.0101786972759488,
+            "rmse": 1.3066902695582774,
+            "r2": -0.6328771815465717,
+            "n": 143
+          },
+          {
+            "mae": 1.0152351060113707,
+            "rmse": 1.3182295949762415,
+            "r2": -0.6618442587198485,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.0412063566121188,
+        "mae_std": 0.07988012441708751,
+        "rmse_mean": 1.33504293810017,
+        "rmse_std": 0.08023424164562148,
+        "r2_mean": -0.7106629592051988,
+        "r2_std": 0.21314367172298734
+      },
+      "weather_satellite_covariates": {
+        "features": [
+          "weather_temp_c_mean",
+          "weather_precip_mm_sum",
+          "weather_humidity_pct_mean",
+          "weather_wind_speed_ms_mean",
+          "satellite_ndvi_mean",
+          "satellite_evi_mean",
+          "satellite_ndwi_mean",
+          "non_rice_cropped_area_ha",
+          "n_crops_grown",
+          "elevation_m_mean",
+          "slope_deg_mean"
+        ],
+        "per_seed": [
+          {
+            "mae": 0.9332606654900771,
+            "rmse": 1.2471335797467673,
+            "r2": -0.4874218328599389,
+            "n": 143
+          },
+          {
+            "mae": 0.8874063537671015,
+            "rmse": 1.195337500823523,
+            "r2": -0.36643599954134576,
+            "n": 143
+          },
+          {
+            "mae": 0.8826123863667041,
+            "rmse": 1.1969085102883563,
+            "r2": -0.37003012180372097,
+            "n": 143
+          },
+          {
+            "mae": 0.9950194054550224,
+            "rmse": 1.3122663795917389,
+            "r2": -0.6468430469039608,
+            "n": 143
+          },
+          {
+            "mae": 0.8506316167491299,
+            "rmse": 1.1603146746611948,
+            "r2": -0.2875371702077094,
+            "n": 143
+          }
+        ],
+        "mae_mean": 0.9097860855656071,
+        "mae_std": 0.05010845881981765,
+        "rmse_mean": 1.222392129022316,
+        "rmse_std": 0.0527721486583135,
+        "r2_mean": -0.4316536342633352,
+        "r2_std": 0.1250895100844313
+      },
+      "static_only": {
+        "features": [
+          "elevation_m_mean",
+          "slope_deg_mean"
+        ],
+        "per_seed": [
+          {
+            "mae": 1.1687746710710591,
+            "rmse": 1.4694719854998977,
+            "r2": -1.0650512189636494,
+            "n": 143
+          },
+          {
+            "mae": 1.5134023056997286,
+            "rmse": 1.822896631607643,
+            "r2": -2.177841928229337,
+            "n": 143
+          },
+          {
+            "mae": 1.133407774088266,
+            "rmse": 1.4142653730546317,
+            "r2": -0.9128020226848055,
+            "n": 143
+          },
+          {
+            "mae": 1.1433082864834712,
+            "rmse": 1.4642098354466375,
+            "r2": -1.0502878850144666,
+            "n": 143
+          },
+          {
+            "mae": 1.1577002897962823,
+            "rmse": 1.4583160917064042,
+            "r2": -1.033815449069238,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.2233186654277615,
+        "mae_std": 0.14554378448742178,
+        "rmse_mean": 1.525831983463043,
+        "rmse_std": 0.14981765441466027,
+        "r2_mean": -1.2479597007922991,
+        "r2_std": 0.4680596214418564
+      },
+      "soil_only": {
+        "features": [
+          "soil_phh2o",
+          "soil_soc",
+          "soil_clay",
+          "soil_sand",
+          "soil_nitrogen"
+        ],
+        "per_seed": [
+          {
+            "mae": 1.1270921642963703,
+            "rmse": 1.4241556427750044,
+            "r2": -0.939648861486847,
+            "n": 143
+          },
+          {
+            "mae": 1.6067425958760135,
+            "rmse": 1.946176416713952,
+            "r2": -2.6222015916866233,
+            "n": 143
+          },
+          {
+            "mae": 1.5344385396350513,
+            "rmse": 1.8814354514828022,
+            "r2": -2.385219641813088,
+            "n": 143
+          },
+          {
+            "mae": 1.3538894365717482,
+            "rmse": 1.6805801099384978,
+            "r2": -1.7010128133167486,
+            "n": 143
+          },
+          {
+            "mae": 1.5739397264860726,
+            "rmse": 1.9155790531109222,
+            "r2": -2.509201971499902,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.439220492573051,
+        "mae_std": 0.1788769890167844,
+        "rmse_mean": 1.7695853348042359,
+        "rmse_std": 0.1960880551103893,
+        "r2_mean": -2.0314569759606416,
+        "r2_std": 0.6330254037523805
+      }
+    }
+  }
+}
