@@ -32,6 +32,7 @@ Run:
 
 import argparse
 import csv
+import json
 import time
 from pathlib import Path
 
@@ -46,11 +47,27 @@ ROOT = Path(__file__).resolve().parent.parent
 REGISTRY_PATH = ROOT / "data" / "metadata" / "district_registry.csv"
 WEATHER_OUT = ROOT / "data" / "raw" / "weather" / "southern_districts"
 SATELLITE_OUT = ROOT / "data" / "raw" / "satellite" / "southern_districts"
+GEOBOUNDARIES_CACHE_DIR = ROOT / "data" / "metadata" / "boundary_sources" / "tn_districts_geoboundaries"
+
+
+def _resolve_geometry(rec) -> "ee.Geometry":
+    """GAUL-matched districts (the majority) resolve via a server-side GAUL
+    FeatureCollection filter, as before. The 9 districts resolved by
+    ingestion/district_registry_add_geoboundaries.py instead have a cached
+    real GeoJSON polygon on disk (fetched from geoBoundaries, not GAUL) -
+    those are loaded and turned into an ee.Geometry.Polygon directly, never
+    silently routed through the GAUL path with a name that happens to
+    coincidentally match something else."""
+    if str(rec.geometry_source).startswith("geoBoundaries"):
+        cache_path = GEOBOUNDARIES_CACHE_DIR / f"{rec.district_id}_geoboundaries.geojson"
+        feat = json.loads(cache_path.read_text(encoding="utf-8"))
+        return ee.Geometry(feat["geometry"])
+    return district_geometry(rec.canonical_district_name)
 
 
 def _load_registry(states: list[str] | None) -> pd.DataFrame:
     df = pd.read_csv(REGISTRY_PATH)
-    df = df[df["latitude"].notna()]  # only districts with a real GAUL match
+    df = df[df["latitude"].notna()]  # only districts with a real boundary match (GAUL or geoBoundaries)
     if states:
         df = df[df["state"].isin(states)]
     return df
@@ -90,7 +107,7 @@ def pull_weather(df: pd.DataFrame, windows: list[tuple[int, int]]) -> dict:
                 skipped += 1
                 continue
             if geom is None:
-                geom = district_geometry(rec.canonical_district_name)
+                geom = _resolve_geometry(rec)
             try:
                 rows = fetch_district_weather(geom, f"{y0}-01-01", f"{y1}-12-31")
                 all_rows.extend(rows)
@@ -133,7 +150,7 @@ def pull_satellite(df: pd.DataFrame, windows: list[tuple[int, int]]) -> dict:
                 skipped += 1
                 continue
             if geom is None:
-                geom = district_geometry(rec.canonical_district_name)
+                geom = _resolve_geometry(rec)
             mid_year = (y0 + y1) // 2
             mask = cropland_mask_year(mid_year)
             try:

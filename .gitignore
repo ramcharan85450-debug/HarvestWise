@@ -6,3 +6,4 @@ __pycache__/
 venv/
 *.egg-info/
 .ipynb_checkpoints/
+data/metadata/boundary_sources/geoboundaries_IND_ADM2.geojson

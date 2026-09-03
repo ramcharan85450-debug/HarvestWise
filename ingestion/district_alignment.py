@@ -33,7 +33,7 @@ Run:
 
 import csv
 import json
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 import pandas as pd
@@ -137,16 +137,21 @@ def _aggregate_satellite(path: Path, window_start: date, cutoff: date) -> dict:
     # Satellite revisits are sparse by nature (Landsat: ~16 days, fewer once
     # cloud cover is accounted for), so a scene-count floor like weather's
     # would unfairly reject legitimately sparse-but-real coverage. Instead,
-    # check whether the SOURCE FILE'S OWN fetched date range actually spans
-    # the season window - this catches the real risk (e.g. Tamil Nadu's
-    # 2019/2024 satellite pull only covers those single calendar years, so a
-    # "Whole Year" window that crosses into the next year is only half-
-    # coverable) without penalizing genuine cloud-driven sparsity.
-    file_min, file_max = df["date"].min().date(), df["date"].max().date()
+    # check whether the CALENDAR YEARS actually present in the file cover the
+    # season window - NOT the file's min/max date range, which is wrong
+    # whenever a district's file was built from multiple disjoint per-year
+    # fetches (exactly Tamil Nadu's case: one file holds 2019 and 2024 rows
+    # only, nothing in between - file_min=2019, file_max=2024 would make a
+    # 2019 "Whole Year" window spanning into mid-2020 look 100% covered,
+    # when 2020 was never fetched at all. Found and fixed during this task's
+    # own review - see experiments/ENVIRONMENTAL_COVERAGE_RECOVERY_REPORT.md).
+    years_present = set(df["date"].dt.year.unique())
     window_days = (cutoff - window_start).days + 1
-    overlap_start, overlap_end = max(window_start, file_min), min(cutoff, file_max)
-    overlap_days = max(0, (overlap_end - overlap_start).days + 1)
-    date_range_coverage = overlap_days / window_days
+    covered_days = sum(
+        1 for offset in range(window_days)
+        if (window_start + timedelta(days=offset)).year in years_present
+    )
+    date_range_coverage = covered_days / window_days
 
     if in_window.empty or in_window["mean_ndvi"].isna().all():
         return {"available": False, "scenes_observed": 0, "date_range_coverage": round(date_range_coverage, 3),
@@ -279,9 +284,15 @@ def build_alignment() -> tuple[list[dict], dict]:
             row["satellite_evi_mean"] = satellite["evi_mean"]
             row["satellite_ndwi_mean"] = satellite["ndwi_mean"]
             row["satellite_scenes_observed"] = satellite["scenes_observed"]
+            row["satellite_date_range_coverage"] = satellite.get("date_range_coverage")
         else:
             row["satellite_ndvi_mean"] = row["satellite_evi_mean"] = row["satellite_ndwi_mean"] = None
-            row["satellite_scenes_observed"] = 0
+            # Preserve the real scene count and coverage fraction even on
+            # rejection - a near-miss (e.g. 48% coverage, just under the 50%
+            # floor) had REAL scenes, and reporting 0 here would misrepresent
+            # "insufficient window coverage" as "no data existed at all".
+            row["satellite_scenes_observed"] = satellite.get("scenes_observed", 0)
+            row["satellite_date_range_coverage"] = satellite.get("date_range_coverage")
             reason = satellite.get("reason", "unknown")
             rejection_reasons[f"satellite_missing:{reason}"] = rejection_reasons.get(f"satellite_missing:{reason}", 0) + 1
 
@@ -291,7 +302,7 @@ def build_alignment() -> tuple[list[dict], dict]:
             counters["soil_matched"] += 1
             for c in SOIL_COLS:
                 row[f"soil_{c}"] = soil_row[c]
-            row["soil_source"] = "ISRIC SoilGrids REST API v2.0, district GAUL centroid"
+            row["soil_source"] = soil_row.get("source", "ISRIC SoilGrids")
         else:
             for c in SOIL_COLS:
                 row[f"soil_{c}"] = None
