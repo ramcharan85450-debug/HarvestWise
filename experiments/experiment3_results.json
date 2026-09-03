@@ -1,0 +1,854 @@
+{
+  "generated_utc": "2026-09-03T19:54:57.973127+00:00",
+  "experiment": "Experiment 3 - overlapping-year recovery and satellite sensor analysis",
+  "model_policy": "No model optimization (Phase 11). Architecture, hyperparameters and seeds are taken unchanged from Experiment 1.",
+  "hyperparameters_unchanged_from_experiment1": {
+    "epochs": 300,
+    "batch_size": 32,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "patience": 30,
+    "hidden_dims": [
+      32,
+      16
+    ],
+    "dropout": 0.2
+  },
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "phase10_confound_reduction": {
+    "before": {
+      "source_years": [
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "tamil_nadu_years": [
+        2019,
+        2024
+      ],
+      "overlapping_years": [],
+      "overlapping_seasons": []
+    },
+    "after": {
+      "source_years": [
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "tamil_nadu_years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2019,
+        2024
+      ],
+      "overlapping_years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "overlapping_seasons": [
+        "Kharif"
+      ]
+    },
+    "state_year_matrix_after": {
+      "1999": {
+        "Andhra Pradesh": 10,
+        "Tamil Nadu": 0,
+        "Telangana": 10
+      },
+      "2000": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 10,
+        "Telangana": 19
+      },
+      "2001": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 10,
+        "Telangana": 18
+      },
+      "2002": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 10,
+        "Telangana": 18
+      },
+      "2003": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 10,
+        "Telangana": 18
+      },
+      "2004": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 11,
+        "Telangana": 18
+      },
+      "2005": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 11,
+        "Telangana": 18
+      },
+      "2006": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 11,
+        "Telangana": 18
+      },
+      "2007": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 11,
+        "Telangana": 18
+      },
+      "2008": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 11,
+        "Telangana": 18
+      },
+      "2009": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 12,
+        "Telangana": 18
+      },
+      "2010": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 12,
+        "Telangana": 18
+      },
+      "2011": {
+        "Andhra Pradesh": 20,
+        "Tamil Nadu": 12,
+        "Telangana": 18
+      },
+      "2012": {
+        "Andhra Pradesh": 10,
+        "Tamil Nadu": 12,
+        "Telangana": 0
+      },
+      "2019": {
+        "Andhra Pradesh": 0,
+        "Tamil Nadu": 36,
+        "Telangana": 0
+      },
+      "2024": {
+        "Andhra Pradesh": 0,
+        "Tamil Nadu": 38,
+        "Telangana": 0
+      }
+    },
+    "n_aligned_before": 561,
+    "n_aligned_after": 704,
+    "new_rows_aligned": 143
+  },
+  "isolation1_pure_geography": {
+    "label": "PURE CROSS-REGION GENERALIZATION - year, season and Landsat era held fixed; only the state differs",
+    "train_states": [
+      "Andhra Pradesh",
+      "Telangana"
+    ],
+    "test_state": "Tamil Nadu",
+    "season": "Kharif",
+    "years": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ],
+    "n_train": 239,
+    "n_train_districts": 20,
+    "n_test": 143,
+    "n_test_districts": 12,
+    "results": {
+      "baseline": {
+        "per_seed": [
+          {
+            "mae": 1.0597271981772842,
+            "rmse": 1.3309040095032119,
+            "r2": -0.6939542342520482,
+            "n": 143
+          },
+          {
+            "mae": 1.008213998137654,
+            "rmse": 1.2802630742104122,
+            "r2": -0.5674967358079144,
+            "n": 143
+          },
+          {
+            "mae": 1.0593830484610338,
+            "rmse": 1.3305793337001945,
+            "r2": -0.6931278502867857,
+            "n": 143
+          },
+          {
+            "mae": 1.0681737448785689,
+            "rmse": 1.3389081878705902,
+            "r2": -0.7143906945920864,
+            "n": 143
+          },
+          {
+            "mae": 1.0657989824568475,
+            "rmse": 1.3366509192849243,
+            "r2": -0.7086149764257261,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.0522593944222778,
+        "mae_std": 0.0222849656416528,
+        "rmse_mean": 1.3234611049138665,
+        "rmse_std": 0.021839045040715745,
+        "r2_mean": -0.6755168982729121,
+        "r2_std": 0.05463532063689466
+      },
+      "weather_only": {
+        "per_seed": [
+          {
+            "mae": 0.9300951253284108,
+            "rmse": 1.2280719657883474,
+            "r2": -0.4423007882962344,
+            "n": 143
+          },
+          {
+            "mae": 1.0269058230039956,
+            "rmse": 1.333721556834836,
+            "r2": -0.7011340883144321,
+            "n": 143
+          },
+          {
+            "mae": 1.125444831964853,
+            "rmse": 1.4210712534768908,
+            "r2": -0.9312563044976001,
+            "n": 143
+          },
+          {
+            "mae": 1.1433384647736182,
+            "rmse": 1.4510993540127732,
+            "r2": -1.0137358578888715,
+            "n": 143
+          },
+          {
+            "mae": 1.0485587682757345,
+            "rmse": 1.370465919979703,
+            "r2": -0.7961586177657518,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.0548686026693224,
+        "mae_std": 0.0764173702069857,
+        "rmse_mean": 1.36088601001851,
+        "rmse_std": 0.07775598176497549,
+        "r2_mean": -0.776917131352578,
+        "r2_std": 0.1989899952546717
+      },
+      "satellite_only": {
+        "per_seed": [
+          {
+            "mae": 1.0528560514216656,
+            "rmse": 1.3215136308854531,
+            "r2": -0.6701347026653608,
+            "n": 143
+          },
+          {
+            "mae": 1.1187442628653732,
+            "rmse": 1.3916032142002737,
+            "r2": -0.8519917693884966,
+            "n": 143
+          },
+          {
+            "mae": 1.0150826973514957,
+            "rmse": 1.2911755359268786,
+            "r2": -0.594332075651214,
+            "n": 143
+          },
+          {
+            "mae": 1.0260405119482454,
+            "rmse": 1.3047100527811935,
+            "r2": -0.6279318615924263,
+            "n": 143
+          },
+          {
+            "mae": 1.0828982912577116,
+            "rmse": 1.3543630834988385,
+            "r2": -0.7541972300823137,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.0591243629688982,
+        "mae_std": 0.03792949609027876,
+        "rmse_mean": 1.3326731034585275,
+        "rmse_std": 0.036253902765135966,
+        "r2_mean": -0.6997175278759622,
+        "r2_std": 0.09304826871311175
+      },
+      "weather_satellite": {
+        "per_seed": [
+          {
+            "mae": 1.037228823958577,
+            "rmse": 1.3652105160633339,
+            "r2": -0.7824093669055749,
+            "n": 143
+          },
+          {
+            "mae": 1.1169669857391944,
+            "rmse": 1.4111663042679503,
+            "r2": -0.904428190912979,
+            "n": 143
+          },
+          {
+            "mae": 1.1250390952283686,
+            "rmse": 1.4392532886375085,
+            "r2": -0.9809917499057559,
+            "n": 143
+          },
+          {
+            "mae": 1.0522381771694531,
+            "rmse": 1.362603589887494,
+            "r2": -0.7756086967774218,
+            "n": 143
+          },
+          {
+            "mae": 1.0410480044938468,
+            "rmse": 1.3455964263205427,
+            "r2": -0.7315612407332752,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.074504217317888,
+        "mae_std": 0.038370327749289036,
+        "rmse_mean": 1.3847660250353657,
+        "rmse_std": 0.03485307895933136,
+        "r2_mean": -0.8349998490470014,
+        "r2_std": 0.09287253979542931
+      },
+      "soil_only": {
+        "per_seed": [
+          {
+            "mae": 1.1270921642963703,
+            "rmse": 1.4241556427750044,
+            "r2": -0.939648861486847,
+            "n": 143
+          },
+          {
+            "mae": 1.6067425958760135,
+            "rmse": 1.946176416713952,
+            "r2": -2.6222015916866233,
+            "n": 143
+          },
+          {
+            "mae": 1.5344385396350513,
+            "rmse": 1.8814354514828022,
+            "r2": -2.385219641813088,
+            "n": 143
+          },
+          {
+            "mae": 1.3538894365717482,
+            "rmse": 1.6805801099384978,
+            "r2": -1.7010128133167486,
+            "n": 143
+          },
+          {
+            "mae": 1.5739397264860726,
+            "rmse": 1.9155790531109222,
+            "r2": -2.509201971499902,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.439220492573051,
+        "mae_std": 0.1788769890167844,
+        "rmse_mean": 1.7695853348042359,
+        "rmse_std": 0.1960880551103893,
+        "r2_mean": -2.0314569759606416,
+        "r2_std": 0.6330254037523805
+      },
+      "full_multimodal": {
+        "per_seed": [
+          {
+            "mae": 1.3137589021996186,
+            "rmse": 1.6404179514919008,
+            "r2": -1.5734588747392935,
+            "n": 143
+          },
+          {
+            "mae": 1.1582381004220121,
+            "rmse": 1.520080857328875,
+            "r2": -1.2097420784409372,
+            "n": 143
+          },
+          {
+            "mae": 1.029069023949283,
+            "rmse": 1.338457220961125,
+            "r2": -0.7132360175530663,
+            "n": 143
+          },
+          {
+            "mae": 1.0014895788439504,
+            "rmse": 1.2806224152290857,
+            "r2": -0.5683767813753995,
+            "n": 143
+          },
+          {
+            "mae": 1.167283257821223,
+            "rmse": 1.5137748515972955,
+            "r2": -1.1914460221057293,
+            "n": 143
+          }
+        ],
+        "mae_mean": 1.1339677726472175,
+        "mae_std": 0.11187317814397875,
+        "rmse_mean": 1.4586706593216565,
+        "rmse_std": 0.13114283100784543,
+        "r2_mean": -1.0512519548428851,
+        "r2_std": 0.3646633433660937
+      }
+    },
+    "feature_shift_source_vs_target": [
+      {
+        "feature": "weather_temp_c_mean",
+        "a_mean": 26.677820083682008,
+        "a_std": 0.9643125545113618,
+        "b_mean": 26.537664335664335,
+        "b_std": 1.8151577200088784,
+        "smd": -0.09643355267523435,
+        "ks": 0.3304561547239372,
+        "wasserstein_sd_units": 0.9844682963261123
+      },
+      {
+        "feature": "weather_precip_mm_sum",
+        "a_mean": 905.8626359832635,
+        "a_std": 293.2394953683128,
+        "b_mean": 801.8079720279721,
+        "b_std": 207.23212248131776,
+        "smd": -0.40981880940335946,
+        "ks": 0.1643795535008925,
+        "wasserstein_sd_units": 0.3552098690391218
+      },
+      {
+        "feature": "weather_humidity_pct_mean",
+        "a_mean": 72.14100418410042,
+        "a_std": 4.70267229545817,
+        "b_mean": 71.38944055944054,
+        "b_std": 5.819044834284555,
+        "smd": -0.14206210027736543,
+        "ks": 0.13453492114579985,
+        "wasserstein_sd_units": 0.27038735917820034
+      },
+      {
+        "feature": "weather_wind_speed_ms_mean",
+        "a_mean": 2.3858744769874476,
+        "a_std": 0.6099703403531557,
+        "b_mean": 2.505671328671329,
+        "b_std": 0.6937110123669713,
+        "smd": 0.18340443738215453,
+        "ks": 0.12909266465751812,
+        "wasserstein_sd_units": 0.22607113130322834
+      },
+      {
+        "feature": "satellite_ndvi_mean",
+        "a_mean": 0.4773179916317991,
+        "a_std": 0.08705606646612603,
+        "b_mean": 0.4299944055944056,
+        "b_std": 0.08642808601947208,
+        "smd": -0.545563099805902,
+        "ks": 0.23624074670099776,
+        "wasserstein_sd_units": 0.5435989467294322
+      },
+      {
+        "feature": "satellite_evi_mean",
+        "a_mean": 0.33008870292887027,
+        "a_std": 0.055386166078257776,
+        "b_mean": 0.30934335664335666,
+        "b_std": 0.06094658889973052,
+        "smd": -0.3562485789919511,
+        "ks": 0.192322322029435,
+        "wasserstein_sd_units": 0.3896759688574768
+      },
+      {
+        "feature": "satellite_ndwi_mean",
+        "a_mean": 0.12590041841004185,
+        "a_std": 0.08447784329768107,
+        "b_mean": 0.122506993006993,
+        "b_std": 0.08403485079380203,
+        "smd": -0.04027487300923717,
+        "ks": 0.06554115340726224,
+        "wasserstein_sd_units": 0.0844929216324378
+      }
+    ],
+    "yield_shift": {
+      "source_mean": 2.7606485355648536,
+      "target_mean": 3.5856888111888114,
+      "smd": 1.0027305072634953,
+      "ks": 0.5274599877110338
+    }
+  },
+  "isolation2_era_season_within_region": {
+    "label": "ERA + SEASON contrast within ONE region. Varies era and season together, so it bounds their JOINT contribution and does not separate them.",
+    "cohort_a": {
+      "season": "Kharif",
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "n": 143,
+      "districts": 12,
+      "yield_mean": 3.5856888111888114,
+      "yield_std": 1.0261710203336092
+    },
+    "cohort_b": {
+      "season": "Whole Year",
+      "years": [
+        2019,
+        2024
+      ],
+      "n": 74,
+      "districts": 38,
+      "yield_mean": 3.7655810810810815,
+      "yield_std": 0.5985391120706043
+    },
+    "feature_shift": [
+      {
+        "feature": "weather_temp_c_mean",
+        "a_mean": 26.537664335664335,
+        "a_std": 1.8151577200088784,
+        "b_mean": 26.331540540540537,
+        "b_std": 1.7750394183482558,
+        "smd": -0.1148187240599568,
+        "ks": 0.2615762615762617,
+        "wasserstein_sd_units": 0.3763360255580992
+      },
+      {
+        "feature": "weather_precip_mm_sum",
+        "a_mean": 801.8079720279721,
+        "a_std": 207.23212248131776,
+        "b_mean": 904.5506756756758,
+        "b_std": 160.96735902703983,
+        "smd": 0.5537276595999977,
+        "ks": 0.372991872991873,
+        "wasserstein_sd_units": 0.5118812393228215
+      },
+      {
+        "feature": "weather_humidity_pct_mean",
+        "a_mean": 71.38944055944054,
+        "a_std": 5.819044834284555,
+        "b_mean": 75.63918918918918,
+        "b_std": 3.42327959261241,
+        "smd": 0.8902059237254766,
+        "ks": 0.5328860328860329,
+        "wasserstein_sd_units": 0.7421365398461923
+      },
+      {
+        "feature": "weather_wind_speed_ms_mean",
+        "a_mean": 2.505671328671329,
+        "a_std": 0.6937110123669713,
+        "b_mean": 2.119608108108108,
+        "b_std": 0.550854624124786,
+        "smd": -0.6163512791883068,
+        "ks": 0.30268380268380274,
+        "wasserstein_sd_units": 0.5565188005967449
+      },
+      {
+        "feature": "satellite_ndvi_mean",
+        "a_mean": 0.4299944055944056,
+        "a_std": 0.08642808601947208,
+        "b_mean": 0.5546378378378378,
+        "b_std": 0.07784809532638513,
+        "smd": 1.5154208286470625,
+        "ks": 0.6289926289926291,
+        "wasserstein_sd_units": 1.4421635140149962
+      },
+      {
+        "feature": "satellite_evi_mean",
+        "a_mean": 0.30934335664335666,
+        "a_std": 0.06094658889973052,
+        "b_mean": 0.3724162162162162,
+        "b_std": 0.04687041309656894,
+        "smd": 1.1601528170820588,
+        "ks": 0.546021546021546,
+        "wasserstein_sd_units": 1.0367025049987781
+      },
+      {
+        "feature": "satellite_ndwi_mean",
+        "a_mean": 0.122506993006993,
+        "a_std": 0.08403485079380203,
+        "b_mean": 0.1945121621621622,
+        "b_std": 0.05411882652369793,
+        "smd": 1.018780530930621,
+        "ks": 0.532035532035532,
+        "wasserstein_sd_units": 0.8772369329167874
+      }
+    ],
+    "yield_smd": 0.21415169527721875,
+    "shared_districts": 12
+  },
+  "phases5_7_sensor": {
+    "inventory_sample": [
+      {
+        "state": "Andhra Pradesh",
+        "year": 2003,
+        "sensor": "Landsat 5 TM",
+        "scenes": 2
+      },
+      {
+        "state": "Andhra Pradesh",
+        "year": 2003,
+        "sensor": "Landsat 7 ETM+",
+        "scenes": 31
+      },
+      {
+        "state": "Andhra Pradesh",
+        "year": 2003,
+        "sensor": "Landsat 8 OLI",
+        "scenes": 0
+      },
+      {
+        "state": "Andhra Pradesh",
+        "year": 2003,
+        "sensor": "Landsat 9 OLI-2",
+        "scenes": 0
+      },
+      {
+        "state": "Andhra Pradesh",
+        "year": 2007,
+        "sensor": "Landsat 5 TM",
+        "scenes": 29
+      },
+      {
+        "state": "Andhra Pradesh",
+        "year": 2007,
+        "sensor": "Landsat 7 ETM+",
+        "scenes": 43
+      },
+      {
+        "state": "Andhra Pradesh",
+        "year": 2007,
+        "sensor": "Landsat 8 OLI",
+        "scenes": 0
+      },
+      {
+        "state": "Andhra Pradesh",
+        "year": 2007,
+        "sensor": "Landsat 9 OLI-2",
+        "scenes": 0
+      },
+      {
+        "state": "Telangana",
+        "year": 2003,
+        "sensor": "Landsat 5 TM",
+        "scenes": 2
+      },
+      {
+        "state": "Telangana",
+        "year": 2003,
+        "sensor": "Landsat 7 ETM+",
+        "scenes": 18
+      },
+      {
+        "state": "Telangana",
+        "year": 2003,
+        "sensor": "Landsat 8 OLI",
+        "scenes": 0
+      },
+      {
+        "state": "Telangana",
+        "year": 2003,
+        "sensor": "Landsat 9 OLI-2",
+        "scenes": 0
+      },
+      {
+        "state": "Telangana",
+        "year": 2007,
+        "sensor": "Landsat 5 TM",
+        "scenes": 12
+      },
+      {
+        "state": "Telangana",
+        "year": 2007,
+        "sensor": "Landsat 7 ETM+",
+        "scenes": 28
+      },
+      {
+        "state": "Telangana",
+        "year": 2007,
+        "sensor": "Landsat 8 OLI",
+        "scenes": 0
+      },
+      {
+        "state": "Telangana",
+        "year": 2007,
+        "sensor": "Landsat 9 OLI-2",
+        "scenes": 0
+      }
+    ],
+    "paired_l5_l7": [
+      {
+        "state": "Andhra Pradesh",
+        "district": "Anantapur",
+        "year": 2007,
+        "l5_ndvi": 0.3746435560151074,
+        "l7_ndvi": 0.4152669780765845,
+        "l5_evi": 0.31989544896291383,
+        "l7_evi": 0.2908414464102187,
+        "l5_ndwi": 0.05055808570797261,
+        "l7_ndwi": 0.02763711414121793,
+        "l5_scenes": 12,
+        "l7_scenes": 24
+      },
+      {
+        "state": "Andhra Pradesh",
+        "district": "Chittoor",
+        "year": 2003,
+        "l5_ndvi": 0.42906809524441747,
+        "l7_ndvi": 0.41768330412895227,
+        "l5_evi": 0.32105296349067985,
+        "l7_evi": 0.40440234995687946,
+        "l5_ndwi": 0.13720479849819617,
+        "l7_ndwi": 0.08960015877186661,
+        "l5_scenes": 2,
+        "l7_scenes": 12
+      },
+      {
+        "state": "Andhra Pradesh",
+        "district": "Chittoor",
+        "year": 2007,
+        "l5_ndvi": 0.38733771222278446,
+        "l7_ndvi": 0.44357436977870945,
+        "l5_evi": 0.3015524542208946,
+        "l7_evi": 0.3010480546531113,
+        "l5_ndwi": 0.05515754334293265,
+        "l7_ndwi": 0.06592922144053624,
+        "l5_scenes": 17,
+        "l7_scenes": 19
+      },
+      {
+        "state": "Telangana",
+        "district": "Adilabad",
+        "year": 2003,
+        "l5_ndvi": 0.5213319793360374,
+        "l7_ndvi": 0.6115230780651039,
+        "l5_evi": 0.34177740271233004,
+        "l7_evi": 0.3908149750547578,
+        "l5_ndwi": 0.0912558648715095,
+        "l7_ndwi": 0.18970068938406714,
+        "l5_scenes": 2,
+        "l7_scenes": 16
+      },
+      {
+        "state": "Telangana",
+        "district": "Adilabad",
+        "year": 2007,
+        "l5_ndvi": 0.6019326037466592,
+        "l7_ndvi": 0.5204362363801918,
+        "l5_evi": 0.4659656588489589,
+        "l7_evi": 0.36179905986757727,
+        "l5_ndwi": 0.25134443373454785,
+        "l7_ndwi": 0.13745832348214526,
+        "l5_scenes": 11,
+        "l7_scenes": 24
+      },
+      {
+        "state": "Telangana",
+        "district": "Hyderabad",
+        "year": 2007,
+        "l5_ndvi": 0.3393976738371347,
+        "l7_ndvi": 0.4391437064710182,
+        "l5_evi": 0.3322696268404416,
+        "l7_evi": 0.31059274737059134,
+        "l5_ndwi": 0.1783558690092707,
+        "l7_ndwi": 0.1365764093766435,
+        "l5_scenes": 1,
+        "l7_scenes": 4
+      }
+    ],
+    "n_paired_district_years": 6,
+    "paired_tests": {
+      "ndvi": {
+        "mean_difference_l7_minus_l5": 0.032319342083069906,
+        "std_difference": 0.0684113463042225,
+        "cohens_dz": 0.4724266343092722,
+        "paired_t_p": 0.2994642768795136,
+        "wilcoxon_p": 0.3125,
+        "n_pairs": 6
+      },
+      "evi": {
+        "mean_difference_l7_minus_l5": -0.0038358202938471586,
+        "std_difference": 0.06546522672644614,
+        "cohens_dz": -0.058593248441276585,
+        "paired_t_p": 0.8914816979741902,
+        "wilcoxon_p": 0.84375,
+        "n_pairs": 6
+      },
+      "ndwi": {
+        "mean_difference_l7_minus_l5": -0.019495779761325462,
+        "std_difference": 0.07075880435392949,
+        "cohens_dz": -0.2755244374086543,
+        "paired_t_p": 0.5296856345298323,
+        "wilcoxon_p": 0.4375,
+        "n_pairs": 6
+      }
+    },
+    "design_note": "Each pair is the SAME district, SAME year, SAME season window, processed identically - only the mission differs. Geography, time and season are held fixed by construction, so a difference here IS a sensor effect."
+  }
+}

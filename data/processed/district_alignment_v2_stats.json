@@ -1,0 +1,30 @@
+{
+  "counters": {
+    "total_yield_records": 1249,
+    "has_district_metadata": 1249,
+    "no_district_metadata": 0,
+    "weather_matched": 942,
+    "satellite_matched": 704,
+    "soil_matched": 1249,
+    "fully_aligned_weather_satellite": 704,
+    "fully_aligned_multimodal": 704,
+    "duplicate_examples_dropped": 0,
+    "invalid_yield_records": 0
+  },
+  "rejection_reasons": {
+    "weather_missing:district weather file exists but has no rows inside the season window": 186,
+    "satellite_missing:district satellite file exists but has no usable scenes inside the season window": 424,
+    "weather_missing:only 33% of the season window has weather data (below the 50% minimum) - the fetched calendar year(s) only partially overlap the season window": 10,
+    "satellite_missing:the source file's own fetched date range only overlaps 34% of the season window (below the 50% minimum) - the fetched calendar year(s) only partially cover the window": 10,
+    "weather_missing:no weather file exists for this district (real fetch never attempted or district has no boundary)": 111,
+    "satellite_missing:no satellite file exists for this district (real fetch never attempted or district has no boundary)": 111
+  },
+  "new_cohort": {
+    "collected": 381,
+    "geometry_matched": 381,
+    "weather_matched": 381,
+    "satellite_matched": 143,
+    "soil_matched": 381,
+    "fully_aligned": 143
+  }
+}

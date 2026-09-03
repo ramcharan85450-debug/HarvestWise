@@ -1,0 +1,266 @@
+{
+  "note": "Sensor identity is NOT stored in the project satellite CSVs; recovered by re-querying each Landsat collection separately with processing identical to ingestion/landsat_fetch.py. SAMPLE, not a census.",
+  "collections": {
+    "LANDSAT/LT05/C02/T1_L2": "Landsat 5 TM",
+    "LANDSAT/LE07/C02/T1_L2": "Landsat 7 ETM+",
+    "LANDSAT/LC08/C02/T1_L2": "Landsat 8 OLI",
+    "LANDSAT/LC09/C02/T1_L2": "Landsat 9 OLI-2"
+  },
+  "max_cloud_cover_pct": 70,
+  "results": [
+    {
+      "state": "Andhra Pradesh",
+      "district_id": "SD000",
+      "district": "Anantapur",
+      "year": 2003,
+      "season": "Kharif",
+      "window_start": "2003-06-01",
+      "window_cutoff": "2003-11-30",
+      "sensors": {
+        "Landsat 5 TM": {
+          "scenes": 0
+        },
+        "Landsat 7 ETM+": {
+          "scenes": 19,
+          "ndvi_mean": 0.4108097764716382,
+          "evi_mean": 0.3183773267357518,
+          "ndwi_mean": 0.02529704151089817,
+          "first_date": "2003-10-03",
+          "last_date": "2003-11-20"
+        },
+        "Landsat 8 OLI": {
+          "scenes": 0
+        },
+        "Landsat 9 OLI-2": {
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district_id": "SD000",
+      "district": "Anantapur",
+      "year": 2007,
+      "season": "Kharif",
+      "window_start": "2007-06-01",
+      "window_cutoff": "2007-11-30",
+      "sensors": {
+        "Landsat 5 TM": {
+          "scenes": 12,
+          "ndvi_mean": 0.3746435560151074,
+          "evi_mean": 0.31989544896291383,
+          "ndwi_mean": 0.05055808570797261,
+          "first_date": "2007-06-09",
+          "last_date": "2007-09-29"
+        },
+        "Landsat 7 ETM+": {
+          "scenes": 24,
+          "ndvi_mean": 0.4152669780765845,
+          "evi_mean": 0.2908414464102187,
+          "ndwi_mean": 0.02763711414121793,
+          "first_date": "2007-06-01",
+          "last_date": "2007-11-24"
+        },
+        "Landsat 8 OLI": {
+          "scenes": 0
+        },
+        "Landsat 9 OLI-2": {
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district_id": "SD001",
+      "district": "Chittoor",
+      "year": 2003,
+      "season": "Kharif",
+      "window_start": "2003-06-01",
+      "window_cutoff": "2003-11-30",
+      "sensors": {
+        "Landsat 5 TM": {
+          "scenes": 2,
+          "ndvi_mean": 0.42906809524441747,
+          "evi_mean": 0.32105296349067985,
+          "ndwi_mean": 0.13720479849819617,
+          "first_date": "2003-11-14",
+          "last_date": "2003-11-14"
+        },
+        "Landsat 7 ETM+": {
+          "scenes": 12,
+          "ndvi_mean": 0.41768330412895227,
+          "evi_mean": 0.40440234995687946,
+          "ndwi_mean": 0.08960015877186661,
+          "first_date": "2003-10-03",
+          "last_date": "2003-11-20"
+        },
+        "Landsat 8 OLI": {
+          "scenes": 0
+        },
+        "Landsat 9 OLI-2": {
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "state": "Andhra Pradesh",
+      "district_id": "SD001",
+      "district": "Chittoor",
+      "year": 2007,
+      "season": "Kharif",
+      "window_start": "2007-06-01",
+      "window_cutoff": "2007-11-30",
+      "sensors": {
+        "Landsat 5 TM": {
+          "scenes": 17,
+          "ndvi_mean": 0.38733771222278446,
+          "evi_mean": 0.3015524542208946,
+          "ndwi_mean": 0.05515754334293265,
+          "first_date": "2007-06-02",
+          "last_date": "2007-09-29"
+        },
+        "Landsat 7 ETM+": {
+          "scenes": 19,
+          "ndvi_mean": 0.44357436977870945,
+          "evi_mean": 0.3010480546531113,
+          "ndwi_mean": 0.06592922144053624,
+          "first_date": "2007-06-01",
+          "last_date": "2007-11-24"
+        },
+        "Landsat 8 OLI": {
+          "scenes": 0
+        },
+        "Landsat 9 OLI-2": {
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "state": "Telangana",
+      "district_id": "SD052",
+      "district": "Adilabad",
+      "year": 2003,
+      "season": "Kharif",
+      "window_start": "2003-06-01",
+      "window_cutoff": "2003-11-30",
+      "sensors": {
+        "Landsat 5 TM": {
+          "scenes": 2,
+          "ndvi_mean": 0.5213319793360374,
+          "evi_mean": 0.34177740271233004,
+          "ndwi_mean": 0.0912558648715095,
+          "first_date": "2003-11-21",
+          "last_date": "2003-11-21"
+        },
+        "Landsat 7 ETM+": {
+          "scenes": 16,
+          "ndvi_mean": 0.6115230780651039,
+          "evi_mean": 0.3908149750547578,
+          "ndwi_mean": 0.18970068938406714,
+          "first_date": "2003-10-03",
+          "last_date": "2003-11-20"
+        },
+        "Landsat 8 OLI": {
+          "scenes": 0
+        },
+        "Landsat 9 OLI-2": {
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "state": "Telangana",
+      "district_id": "SD052",
+      "district": "Adilabad",
+      "year": 2007,
+      "season": "Kharif",
+      "window_start": "2007-06-01",
+      "window_cutoff": "2007-11-30",
+      "sensors": {
+        "Landsat 5 TM": {
+          "scenes": 11,
+          "ndvi_mean": 0.6019326037466592,
+          "evi_mean": 0.4659656588489589,
+          "ndwi_mean": 0.25134443373454785,
+          "first_date": "2007-07-02",
+          "last_date": "2007-09-29"
+        },
+        "Landsat 7 ETM+": {
+          "scenes": 24,
+          "ndvi_mean": 0.5204362363801918,
+          "evi_mean": 0.36179905986757727,
+          "ndwi_mean": 0.13745832348214526,
+          "first_date": "2007-06-01",
+          "last_date": "2007-11-24"
+        },
+        "Landsat 8 OLI": {
+          "scenes": 0
+        },
+        "Landsat 9 OLI-2": {
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "state": "Telangana",
+      "district_id": "SD053",
+      "district": "Hyderabad",
+      "year": 2003,
+      "season": "Kharif",
+      "window_start": "2003-06-01",
+      "window_cutoff": "2003-11-30",
+      "sensors": {
+        "Landsat 5 TM": {
+          "scenes": 0
+        },
+        "Landsat 7 ETM+": {
+          "scenes": 2,
+          "ndvi_mean": 0.4875580042358889,
+          "evi_mean": 0.3326368760809605,
+          "ndwi_mean": 0.14009715329143302,
+          "first_date": "2003-11-04",
+          "last_date": "2003-11-20"
+        },
+        "Landsat 8 OLI": {
+          "scenes": 0
+        },
+        "Landsat 9 OLI-2": {
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "state": "Telangana",
+      "district_id": "SD053",
+      "district": "Hyderabad",
+      "year": 2007,
+      "season": "Kharif",
+      "window_start": "2007-06-01",
+      "window_cutoff": "2007-11-30",
+      "sensors": {
+        "Landsat 5 TM": {
+          "scenes": 1,
+          "ndvi_mean": 0.3393976738371347,
+          "evi_mean": 0.3322696268404416,
+          "ndwi_mean": 0.1783558690092707,
+          "first_date": "2007-09-04",
+          "last_date": "2007-09-04"
+        },
+        "Landsat 7 ETM+": {
+          "scenes": 4,
+          "ndvi_mean": 0.4391437064710182,
+          "evi_mean": 0.31059274737059134,
+          "ndwi_mean": 0.1365764093766435,
+          "first_date": "2007-06-08",
+          "last_date": "2007-11-15"
+        },
+        "Landsat 8 OLI": {
+          "scenes": 0
+        },
+        "Landsat 9 OLI-2": {
+          "scenes": 0
+        }
+      }
+    }
+  ]
+}
