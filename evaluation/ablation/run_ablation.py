@@ -24,19 +24,29 @@ def zero_modality(batch: dict, modality: str) -> dict:
         batch["vision_x"] = torch.zeros_like(batch["vision_x"])
     elif modality == "weather":
         batch["weather_x"] = torch.zeros_like(batch["weather_x"])
+    elif modality == "soil":
+        # Added for evaluation/experiments/run_experiment1.py, which needs a
+        # weather+satellite-only configuration (soil excluded) alongside the
+        # vision/weather-only ones this file already supported. Same
+        # zero-out convention, same architecture and parameter count as
+        # every other variant - only the input is masked, nothing about the
+        # model changes.
+        batch["soil_x"] = torch.zeros_like(batch["soil_x"])
     return batch
 
 
 class AblatedLoader:
-    """Wraps a DataLoader, zeroing one modality's input on every batch."""
+    """Wraps a DataLoader, zeroing one or more modalities' input on every batch."""
 
-    def __init__(self, loader: DataLoader, zero_out: str | None):
+    def __init__(self, loader: DataLoader, zero_out: "str | list[str] | None"):
         self.loader = loader
-        self.zero_out = zero_out
+        self.zero_out = [zero_out] if isinstance(zero_out, str) else (zero_out or [])
 
     def __iter__(self):
         for batch in self.loader:
-            yield zero_modality(batch, self.zero_out) if self.zero_out else batch
+            for modality in self.zero_out:
+                batch = zero_modality(batch, modality)
+            yield batch
 
     def __len__(self):
         return len(self.loader)

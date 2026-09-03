@@ -1,0 +1,206 @@
+[
+  {
+    "experiment_name": "baseline_weather_only",
+    "data_sources": [
+      "weather"
+    ],
+    "feature_list": [
+      "temp_c",
+      "precip_mm",
+      "humidity_pct",
+      "wind_speed_ms"
+    ],
+    "dataset_version": "training.dataset.build_dataset_from_processed(), default granularity, commit-time snapshot",
+    "n_train": 13,
+    "n_val": 3,
+    "n_test": 5,
+    "split_strategy": "chronological by season_start_date, global (pooled across fields): earliest 13 = train, next 3 = val, latest 5 = test",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "model_configuration": "training.train_forecast_model.ForecastModel(), default hyperparameters, unmodified across all 4 experiments",
+    "training_configuration": "AdamW lr=1e-3, 30 epochs, batch_size=8, no early stopping (fixed epoch count - see script docstring for why this differs from the production training script's val-based checkpoint selection)",
+    "evaluation_metrics": {
+      "mae": {
+        "mean": 0.18571892738342285,
+        "sd": 0.1262620310466415,
+        "min": 0.08179717063903809,
+        "max": 0.3991257190704346
+      },
+      "rmse": {
+        "mean": 0.2211724250297281,
+        "sd": 0.153725771725723,
+        "min": 0.11039281527405911,
+        "max": 0.4854059943884069
+      },
+      "r2": {
+        "mean": 0.7652270787701316,
+        "sd": 0.3286675569732639,
+        "min": 0.18438674387036647,
+        "max": 0.9578152360515461
+      }
+    },
+    "timestamp": "2026-09-03T12:49:40.708892+00:00"
+  },
+  {
+    "experiment_name": "baseline_satellite_only",
+    "data_sources": [
+      "satellite"
+    ],
+    "feature_list": [
+      "ndvi",
+      "ndvi_delta",
+      "evi",
+      "ndwi"
+    ],
+    "dataset_version": "training.dataset.build_dataset_from_processed(), default granularity, commit-time snapshot",
+    "n_train": 13,
+    "n_val": 3,
+    "n_test": 5,
+    "split_strategy": "chronological by season_start_date, global (pooled across fields): earliest 13 = train, next 3 = val, latest 5 = test",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "model_configuration": "training.train_forecast_model.ForecastModel(), default hyperparameters, unmodified across all 4 experiments",
+    "training_configuration": "AdamW lr=1e-3, 30 epochs, batch_size=8, no early stopping (fixed epoch count - see script docstring for why this differs from the production training script's val-based checkpoint selection)",
+    "evaluation_metrics": {
+      "mae": {
+        "mean": 0.5623901653289796,
+        "sd": 0.0773375471268602,
+        "min": 0.49724717140197755,
+        "max": 0.6800537109375
+      },
+      "rmse": {
+        "mean": 0.6827936546060329,
+        "sd": 0.12759838915761854,
+        "min": 0.5560163930451453,
+        "max": 0.8214218501556092
+      },
+      "r2": {
+        "mean": -0.6588993809534756,
+        "sd": 0.6133550595141828,
+        "min": -1.3356432434734589,
+        "max": -0.07016119112661978
+      }
+    },
+    "timestamp": "2026-09-03T12:49:40.708892+00:00"
+  },
+  {
+    "experiment_name": "baseline_weather_satellite",
+    "data_sources": [
+      "weather",
+      "satellite"
+    ],
+    "feature_list": [
+      "temp_c",
+      "precip_mm",
+      "humidity_pct",
+      "wind_speed_ms",
+      "ndvi",
+      "ndvi_delta",
+      "evi",
+      "ndwi"
+    ],
+    "dataset_version": "training.dataset.build_dataset_from_processed(), default granularity, commit-time snapshot",
+    "n_train": 13,
+    "n_val": 3,
+    "n_test": 5,
+    "split_strategy": "chronological by season_start_date, global (pooled across fields): earliest 13 = train, next 3 = val, latest 5 = test",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "model_configuration": "training.train_forecast_model.ForecastModel(), default hyperparameters, unmodified across all 4 experiments",
+    "training_configuration": "AdamW lr=1e-3, 30 epochs, batch_size=8, no early stopping (fixed epoch count - see script docstring for why this differs from the production training script's val-based checkpoint selection)",
+    "evaluation_metrics": {
+      "mae": {
+        "mean": 0.2065131664276123,
+        "sd": 0.0981508580602236,
+        "min": 0.1420987606048584,
+        "max": 0.3787644386291504
+      },
+      "rmse": {
+        "mean": 0.25676070401690027,
+        "sd": 0.11069750287565276,
+        "min": 0.1608610433781937,
+        "max": 0.44675082532909755
+      },
+      "r2": {
+        "mean": 0.737857507201754,
+        "sd": 0.2436415403260547,
+        "min": 0.3091166408186836,
+        "max": 0.910427278864572
+      }
+    },
+    "timestamp": "2026-09-03T12:49:40.708892+00:00"
+  },
+  {
+    "experiment_name": "full_harvestwise",
+    "data_sources": [
+      "weather",
+      "satellite",
+      "soil"
+    ],
+    "feature_list": [
+      "temp_c",
+      "precip_mm",
+      "humidity_pct",
+      "wind_speed_ms",
+      "ndvi",
+      "ndvi_delta",
+      "evi",
+      "ndwi",
+      "phh2o",
+      "soc",
+      "clay",
+      "sand",
+      "nitrogen"
+    ],
+    "dataset_version": "training.dataset.build_dataset_from_processed(), default granularity, commit-time snapshot",
+    "n_train": 13,
+    "n_val": 3,
+    "n_test": 5,
+    "split_strategy": "chronological by season_start_date, global (pooled across fields): earliest 13 = train, next 3 = val, latest 5 = test",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "model_configuration": "training.train_forecast_model.ForecastModel(), default hyperparameters, unmodified across all 4 experiments",
+    "training_configuration": "AdamW lr=1e-3, 30 epochs, batch_size=8, no early stopping (fixed epoch count - see script docstring for why this differs from the production training script's val-based checkpoint selection)",
+    "evaluation_metrics": {
+      "mae": {
+        "mean": 0.08545757293701173,
+        "sd": 0.040690873646961605,
+        "min": 0.055140209197998044,
+        "max": 0.15166945457458497
+      },
+      "rmse": {
+        "mean": 0.10480350443042877,
+        "sd": 0.041254007791588984,
+        "min": 0.0629175075045091,
+        "max": 0.16354348661089715
+      },
+      "r2": {
+        "mean": 0.9572658304490039,
+        "sd": 0.032786545587421154,
+        "min": 0.9074150257970589,
+        "max": 0.9862969568765625
+      }
+    },
+    "timestamp": "2026-09-03T12:49:40.708892+00:00"
+  }
+]
