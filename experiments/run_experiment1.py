@@ -82,6 +82,18 @@ CONFIGS = {
         "zero_out": [],
         "feature_list": ["temp_c", "precip_mm", "humidity_pct", "wind_speed_ms", "ndvi", "ndvi_delta", "evi", "ndwi", "phh2o", "soc", "clay", "sand", "nitrogen"],
     },
+    "baseline_soil_only": {
+        # Added as a control after Experiment D's result (see report section 8):
+        # soil is a static per-field constant, so a model given ONLY soil has
+        # no season-varying signal at all - it can only ever predict a
+        # per-field constant. This configuration exists specifically to make
+        # that explicit and measurable, not to be a serious forecasting
+        # baseline in its own right.
+        "label": "Experiment E - Soil only (control)",
+        "data_sources": ["soil"],
+        "zero_out": ["vision", "weather"],
+        "feature_list": ["phh2o", "soc", "clay", "sand", "nitrogen"],
+    },
 }
 
 # No real forecast data exists in this project - ingestion/weather_fetch.py and
@@ -220,6 +232,113 @@ def make_figures(results: list[dict], naive: dict):
     return best["name"]
 
 
+def verify_no_leakage(examples, train_examples, val_examples, test_examples) -> dict:
+    """Checks the specific leakage vectors that matter for THIS pipeline, by
+    reading what training/dataset.py actually does rather than assuming a
+    generic sklearn-style fit(train)/transform(val,test) workflow - this
+    project's normalization is not that, and the honest report is what it
+    actually is, not what the workflow is usually assumed to be."""
+    import numpy as np
+
+    from training.dataset import SOIL_NORM, VISION_NORM, WEATHER_NORM, _impute_missing_soil
+
+    findings = {}
+
+    # 1. Is normalization a scaler FIT on any split, or fixed constants?
+    findings["normalization_mechanism"] = (
+        "FIXED CONSTANTS, not a fitted scaler. VISION_NORM/WEATHER_NORM/SOIL_NORM "
+        "in training/dataset.py are literal (center, scale) tuples baked into the "
+        "module, identical across every run, every split, and every experiment in "
+        "this project - they are never computed from this experiment's train split "
+        "(or from any split). This means the risk this check is usually run to catch "
+        "- a scaler fit on data that includes the test set - cannot occur here by "
+        "construction, but it is also not a 'fit-on-train-only' scaler in the usual "
+        "sense: nothing is fit on train either. Verified by reading the literal "
+        "values, not assumed:"
+    )
+    findings["normalization_constants"] = {
+        "VISION_NORM (ndvi, ndvi_delta, evi, ndwi)": VISION_NORM,
+        "WEATHER_NORM (temp_c, precip_mm, humidity_pct, wind_speed_ms)": WEATHER_NORM,
+        "SOIL_NORM (phh2o, soc, clay, sand, nitrogen)": SOIL_NORM,
+    }
+
+    # 2. _impute_missing_soil() pools ALL examples (train+val+test) to compute
+    # a fill-in mean for any field with missing soil, BEFORE this script's
+    # split happens (it runs inside build_dataset_from_processed()). This is
+    # a real, structural leakage vector in the code path - checked directly
+    # against the CURRENT real data to see whether it is actually triggered,
+    # not just theoretically present.
+    soil_stack = np.stack([e.soil_x for e in examples])
+    n_nan_before_impute = int(np.isnan(soil_stack).any(axis=1).sum())
+    findings["soil_imputation_leakage_vector"] = {
+        "present_in_code": True,
+        "location": "training/dataset.py::_impute_missing_soil(), called inside build_dataset_from_processed() before this script's chronological split",
+        "mechanism_if_triggered": "fills a field's NaN soil values with the mean of ALL other examples' soil vectors, POOLED ACROSS THE FULL 21-EXAMPLE SET - including whichever of those examples later end up in val/test",
+        "currently_triggered": n_nan_before_impute > 0,
+        "n_examples_with_nan_soil_before_imputation": n_nan_before_impute,
+        "verdict": (
+            "INACTIVE with the current real data - zero of the 21 real examples have "
+            "missing soil (confirmed by checking soil_x for NaN directly before any "
+            "imputation could run), so no cross-split averaging actually occurs right "
+            "now. This is a real, present-in-the-code risk that would activate if a "
+            "future field's soil pull failed, not a currently-active leak."
+        ) if n_nan_before_impute == 0 else (
+            "ACTIVE - this run's soil imputation mean was computed using examples "
+            "outside the training set. This is a genuine leak and should be fixed "
+            "before trusting any soil-including result."
+        ),
+    }
+
+    # 3. Structural check: did the val/test DataLoaders used in run_config()
+    # ever appear in a training_loader / optimizer.step() call? By
+    # construction they cannot - train_one_config() only ever receives
+    # train_ds, and predict() (used for both val and test) is wrapped in
+    # @torch.no_grad() and is only called after training completes for that
+    # seed. Confirmed here by checking the actual example objects are disjoint.
+    train_ids = {id(e) for e in train_examples}
+    val_ids = {id(e) for e in val_examples}
+    test_ids = {id(e) for e in test_examples}
+    findings["split_disjointness"] = {
+        "train_val_overlap": len(train_ids & val_ids),
+        "train_test_overlap": len(train_ids & test_ids),
+        "val_test_overlap": len(val_ids & test_ids),
+        "verdict": "disjoint (0 overlap in all three pairs)" if not (train_ids & val_ids or train_ids & test_ids or val_ids & test_ids) else "OVERLAP FOUND - invalid split",
+    }
+    findings["training_loop_leakage"] = (
+        "train_one_config() (see this file) is called with ONLY train_ds - val_ds and "
+        "test_ds are never passed to it, never appear in an optimizer.step() call, and "
+        "are only read inside predict(), which is decorated @torch.no_grad() and is "
+        "called strictly after training for that seed has finished. No early-stopping "
+        "or best-epoch selection on val is performed (see report section 5) - a fixed "
+        "epoch count is used for every seed, so val also never influences which "
+        "weights are kept."
+    )
+
+    return findings
+
+
+def document_test_set(test_examples) -> list[dict]:
+    """Field ID, crop, season/year, and actual yield for every test example -
+    the exact 5 real examples every configuration in this experiment is
+    scored against."""
+    from ingestion.config import FIELDS
+
+    fields_by_id = {f["field_id"]: f for f in FIELDS}
+    rows = []
+    for e in test_examples:
+        f = fields_by_id[e.field_id]
+        year = e.season_start_date[:4] if e.season_start_date else "unknown"
+        rows.append({
+            "field_id": e.field_id,
+            "field_name": f["name"],
+            "crop": f["crop"],
+            "season_start_date": e.season_start_date,
+            "season_year": year,
+            "actual_yield_t_ha": round(e.final_yield, 3),
+        })
+    return rows
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--seeds", type=int, default=5)
@@ -237,6 +356,17 @@ def main():
     naive = naive_baseline(train_examples, test_examples)
     print(f"\nNaive (predict train mean = {statistics.mean(e.final_yield for e in train_examples):.3f} t/ha): "
           f"MAE={naive['mae']:.3f} RMSE={naive['rmse']:.3f} R2={naive['r2']:.3f}")
+
+    leakage = verify_no_leakage(examples, train_examples, val_examples, test_examples)
+    (EXPERIMENTS_DIR / "leakage_verification.json").write_text(json.dumps(leakage, indent=2, default=str))
+    print(f"\nLeakage check - soil imputation: {leakage['soil_imputation_leakage_vector']['verdict']}")
+    print(f"Leakage check - split disjointness: {leakage['split_disjointness']['verdict']}")
+
+    test_doc = document_test_set(test_examples)
+    (EXPERIMENTS_DIR / "test_set_documentation.json").write_text(json.dumps(test_doc, indent=2))
+    print("\nTest set:")
+    for row in test_doc:
+        print(f"  {row['field_id']:<6} {row['crop']:<20} {row['season_year']:<6} actual={row['actual_yield_t_ha']}")
 
     results = []
     repro_entries = []

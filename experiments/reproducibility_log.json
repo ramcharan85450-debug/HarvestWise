@@ -44,7 +44,7 @@
         "max": 0.9578152360515461
       }
     },
-    "timestamp": "2026-09-03T12:49:40.708892+00:00"
+    "timestamp": "2026-09-03T13:04:04.149346+00:00"
   },
   {
     "experiment_name": "baseline_satellite_only",
@@ -91,7 +91,7 @@
         "max": -0.07016119112661978
       }
     },
-    "timestamp": "2026-09-03T12:49:40.708892+00:00"
+    "timestamp": "2026-09-03T13:04:04.149346+00:00"
   },
   {
     "experiment_name": "baseline_weather_satellite",
@@ -143,7 +143,7 @@
         "max": 0.910427278864572
       }
     },
-    "timestamp": "2026-09-03T12:49:40.708892+00:00"
+    "timestamp": "2026-09-03T13:04:04.149346+00:00"
   },
   {
     "experiment_name": "full_harvestwise",
@@ -201,6 +201,54 @@
         "max": 0.9862969568765625
       }
     },
-    "timestamp": "2026-09-03T12:49:40.708892+00:00"
+    "timestamp": "2026-09-03T13:04:04.149346+00:00"
+  },
+  {
+    "experiment_name": "baseline_soil_only",
+    "data_sources": [
+      "soil"
+    ],
+    "feature_list": [
+      "phh2o",
+      "soc",
+      "clay",
+      "sand",
+      "nitrogen"
+    ],
+    "dataset_version": "training.dataset.build_dataset_from_processed(), default granularity, commit-time snapshot",
+    "n_train": 13,
+    "n_val": 3,
+    "n_test": 5,
+    "split_strategy": "chronological by season_start_date, global (pooled across fields): earliest 13 = train, next 3 = val, latest 5 = test",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "model_configuration": "training.train_forecast_model.ForecastModel(), default hyperparameters, unmodified across all 4 experiments",
+    "training_configuration": "AdamW lr=1e-3, 30 epochs, batch_size=8, no early stopping (fixed epoch count - see script docstring for why this differs from the production training script's val-based checkpoint selection)",
+    "evaluation_metrics": {
+      "mae": {
+        "mean": 0.09280241012573243,
+        "sd": 0.04620733876271338,
+        "min": 0.04347085952758789,
+        "max": 0.15520148277282714
+      },
+      "rmse": {
+        "mean": 0.11926975374468592,
+        "sd": 0.05185192786706843,
+        "min": 0.06072085655473335,
+        "max": 0.1976752416206554
+      },
+      "r2": {
+        "mean": 0.9433126181864815,
+        "sd": 0.047991297304639365,
+        "min": 0.8647371412505604,
+        "max": 0.9872370877345641
+      }
+    },
+    "timestamp": "2026-09-03T13:04:04.149346+00:00"
   }
 ]

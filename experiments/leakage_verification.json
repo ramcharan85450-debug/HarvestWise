@@ -1,0 +1,78 @@
+{
+  "normalization_mechanism": "FIXED CONSTANTS, not a fitted scaler. VISION_NORM/WEATHER_NORM/SOIL_NORM in training/dataset.py are literal (center, scale) tuples baked into the module, identical across every run, every split, and every experiment in this project - they are never computed from this experiment's train split (or from any split). This means the risk this check is usually run to catch - a scaler fit on data that includes the test set - cannot occur here by construction, but it is also not a 'fit-on-train-only' scaler in the usual sense: nothing is fit on train either. Verified by reading the literal values, not assumed:",
+  "normalization_constants": {
+    "VISION_NORM (ndvi, ndvi_delta, evi, ndwi)": [
+      [
+        0.45,
+        0.25
+      ],
+      [
+        0.0,
+        0.08
+      ],
+      [
+        0.35,
+        0.25
+      ],
+      [
+        0.0,
+        0.3
+      ]
+    ],
+    "WEATHER_NORM (temp_c, precip_mm, humidity_pct, wind_speed_ms)": [
+      [
+        25.0,
+        8.0
+      ],
+      [
+        5.0,
+        8.0
+      ],
+      [
+        65.0,
+        15.0
+      ],
+      [
+        2.0,
+        1.0
+      ]
+    ],
+    "SOIL_NORM (phh2o, soc, clay, sand, nitrogen)": [
+      [
+        70.0,
+        10.0
+      ],
+      [
+        220.0,
+        70.0
+      ],
+      [
+        280.0,
+        80.0
+      ],
+      [
+        480.0,
+        90.0
+      ],
+      [
+        200.0,
+        60.0
+      ]
+    ]
+  },
+  "soil_imputation_leakage_vector": {
+    "present_in_code": true,
+    "location": "training/dataset.py::_impute_missing_soil(), called inside build_dataset_from_processed() before this script's chronological split",
+    "mechanism_if_triggered": "fills a field's NaN soil values with the mean of ALL other examples' soil vectors, POOLED ACROSS THE FULL 21-EXAMPLE SET - including whichever of those examples later end up in val/test",
+    "currently_triggered": false,
+    "n_examples_with_nan_soil_before_imputation": 0,
+    "verdict": "INACTIVE with the current real data - zero of the 21 real examples have missing soil (confirmed by checking soil_x for NaN directly before any imputation could run), so no cross-split averaging actually occurs right now. This is a real, present-in-the-code risk that would activate if a future field's soil pull failed, not a currently-active leak."
+  },
+  "split_disjointness": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0,
+    "verdict": "disjoint (0 overlap in all three pairs)"
+  },
+  "training_loop_leakage": "train_one_config() (see this file) is called with ONLY train_ds - val_ds and test_ds are never passed to it, never appear in an optimizer.step() call, and are only read inside predict(), which is decorated @torch.no_grad() and is called strictly after training for that seed has finished. No early-stopping or best-epoch selection on val is performed (see report section 5) - a fixed epoch count is used for every seed, so val also never influences which weights are kept."
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "field_id": "F004",
+    "field_name": "Ajnala, Amritsar - Rice",
+    "crop": "rice_punjab",
+    "season_start_date": "2025-06-15",
+    "season_year": "2025",
+    "actual_yield_t_ha": 4.193
+  },
+  {
+    "field_id": "F006",
+    "field_name": "Amalapuram, East Godavari - Rice",
+    "crop": "rice_andhra_pradesh",
+    "season_start_date": "2025-07-06",
+    "season_year": "2025",
+    "actual_yield_t_ha": 3.393
+  },
+  {
+    "field_id": "F001",
+    "field_name": "Sulur - Rice",
+    "crop": "rice",
+    "season_start_date": "2025-08-03",
+    "season_year": "2025",
+    "actual_yield_t_ha": 2.825
+  },
+  {
+    "field_id": "F002",
+    "field_name": "Kinathukadavu - Rice",
+    "crop": "rice",
+    "season_start_date": "2025-08-03",
+    "season_year": "2025",
+    "actual_yield_t_ha": 2.825
+  },
+  {
+    "field_id": "F003",
+    "field_name": "Annur - Rice",
+    "crop": "rice",
+    "season_start_date": "2025-08-03",
+    "season_year": "2025",
+    "actual_yield_t_ha": 2.825
+  }
+]
