@@ -1,0 +1,2514 @@
+{
+  "generated_utc": "2026-09-03T19:10:03.049570+00:00",
+  "experiment": "Experiment 2 - Tamil Nadu failure analysis and cross-region + temporal domain shift",
+  "reads_but_does_not_modify": [
+    "experiments/unseen_district_results.json",
+    "experiments/run_unseen_district_experiment.py"
+  ],
+  "dataset": {
+    "path": "data/processed/district_multimodal_examples.csv",
+    "total_collected": 868,
+    "used_fully_aligned": 561,
+    "excluded": 307,
+    "exclusion_reasons": {
+      "missing weather (season window not covered by any fetched data)": 307,
+      "missing satellite (season window not covered by any fetched data)": 307,
+      "missing soil": 0,
+      "_feature_nans_remaining_in_used_subset": 0
+    }
+  },
+  "features": {
+    "weather": [
+      "weather_temp_c_mean",
+      "weather_precip_mm_sum",
+      "weather_humidity_pct_mean",
+      "weather_wind_speed_ms_mean"
+    ],
+    "satellite": [
+      "satellite_ndvi_mean",
+      "satellite_evi_mean",
+      "satellite_ndwi_mean"
+    ],
+    "soil": [
+      "soil_phh2o",
+      "soil_soc",
+      "soil_clay",
+      "soil_sand",
+      "soil_nitrogen"
+    ],
+    "target": "final_yield_t_ha",
+    "metadata_never_used_as_input": [
+      "state",
+      "district",
+      "canonical_district_name",
+      "crop",
+      "season",
+      "year",
+      "geographic_level"
+    ],
+    "forbidden_as_features": [
+      "administrative_boundary_notes",
+      "canonical_district_name",
+      "crop",
+      "district",
+      "district_id",
+      "final_yield_t_ha",
+      "geographic_level",
+      "prediction_cutoff_date",
+      "rejection_reason",
+      "satellite_available",
+      "satellite_date_range_coverage",
+      "satellite_scenes_observed",
+      "satellite_source",
+      "season",
+      "season_window_start",
+      "soil_available",
+      "soil_source",
+      "state",
+      "weather_available",
+      "weather_days_expected",
+      "weather_days_observed",
+      "weather_source",
+      "year",
+      "yield_retrieved_date",
+      "yield_source_name",
+      "yield_source_url",
+      "yield_valid"
+    ]
+  },
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "model_config": {
+    "class": "DistrictMLP",
+    "epochs": 300,
+    "batch_size": 32,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "patience": 30,
+    "hidden_dims": [
+      32,
+      16
+    ],
+    "dropout": 0.2
+  },
+  "preprocessing": {
+    "scaler": "training.district_dataset.StandardScaler (mean/std)",
+    "fit_on": "source-domain TRAINING rows only, then applied unchanged to val and test",
+    "imputation": "none - 0 missing values in the analysis subset"
+  },
+  "leakage_audit": {
+    "passed": true,
+    "n_checks": 9,
+    "checks": [
+      {
+        "check": "Tamil Nadu test rows never influence preprocessing (AP/TG -> TN)",
+        "passed": true
+      },
+      {
+        "check": "No target leakage",
+        "passed": true
+      },
+      {
+        "check": "No district identity features",
+        "passed": true
+      },
+      {
+        "check": "No state identity features",
+        "passed": true
+      },
+      {
+        "check": "No test data used for model selection",
+        "passed": true
+      },
+      {
+        "check": "No imputer fit on test data",
+        "passed": true
+      },
+      {
+        "check": "No scaler fit on test data (both transfer directions)",
+        "passed": true
+      },
+      {
+        "check": "Within-Tamil-Nadu evaluation keeps districts disjoint",
+        "passed": true
+      },
+      {
+        "check": "Source and target domains share no district",
+        "passed": true
+      }
+    ]
+  },
+  "2A_profile": {
+    "Andhra Pradesh": {
+      "examples": 260,
+      "districts": 10,
+      "n_years": 14,
+      "years": [
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "seasons": [
+        "Kharif",
+        "Rabi"
+      ],
+      "yield_mean": 3.022433461538461,
+      "yield_median": 2.96565,
+      "yield_std": 0.7682372870310857,
+      "yield_min": 0.8136,
+      "yield_max": 5.257,
+      "features": {
+        "weather_temp_c_mean": {
+          "mean": 26.34533076923077,
+          "std": 1.1371417014790415,
+          "min": 23.56,
+          "max": 29.293
+        },
+        "weather_precip_mm_sum": {
+          "mean": 521.5971153846153,
+          "std": 453.3823627835039,
+          "min": 27.53,
+          "max": 1763.38
+        },
+        "weather_humidity_pct_mean": {
+          "mean": 68.07392307692308,
+          "std": 8.349351811352523,
+          "min": 44.12,
+          "max": 84.48
+        },
+        "weather_wind_speed_ms_mean": {
+          "mean": 2.0102192307692306,
+          "std": 0.6265951951817765,
+          "min": 0.784,
+          "max": 3.767
+        },
+        "satellite_ndvi_mean": {
+          "mean": 0.44717038461538466,
+          "std": 0.1060428710923276,
+          "min": 0.2249,
+          "max": 0.6839
+        },
+        "satellite_evi_mean": {
+          "mean": 0.2974961538461538,
+          "std": 0.07240742341669786,
+          "min": 0.144,
+          "max": 0.4575
+        },
+        "satellite_ndwi_mean": {
+          "mean": 0.09421384615384613,
+          "std": 0.11650052363966443,
+          "min": -0.1445,
+          "max": 0.3687
+        },
+        "soil_phh2o": {
+          "mean": 66.9,
+          "std": 3.3365878578000205,
+          "min": 63.0,
+          "max": 72.0
+        },
+        "soil_soc": {
+          "mean": 260.1,
+          "std": 72.44359808481978,
+          "min": 171.0,
+          "max": 421.0
+        },
+        "soil_clay": {
+          "mean": 311.0,
+          "std": 18.792506516117033,
+          "min": 272.0,
+          "max": 333.0
+        },
+        "soil_sand": {
+          "mean": 395.3,
+          "std": 26.914608282420517,
+          "min": 349.0,
+          "max": 447.0
+        },
+        "soil_nitrogen": {
+          "mean": 172.3,
+          "std": 31.550572261666034,
+          "min": 130.0,
+          "max": 224.0
+        }
+      }
+    },
+    "Tamil Nadu": {
+      "examples": 74,
+      "districts": 38,
+      "n_years": 2,
+      "years": [
+        2019,
+        2024
+      ],
+      "seasons": [
+        "Whole Year"
+      ],
+      "yield_mean": 3.7655810810810815,
+      "yield_median": 3.7915,
+      "yield_std": 0.5985391120706043,
+      "yield_min": 1.966,
+      "yield_max": 5.271,
+      "features": {
+        "weather_temp_c_mean": {
+          "mean": 26.331540540540537,
+          "std": 1.7750394183482558,
+          "min": 19.509,
+          "max": 28.361
+        },
+        "weather_precip_mm_sum": {
+          "mean": 904.5506756756758,
+          "std": 160.96735902703983,
+          "min": 616.04,
+          "max": 1691.52
+        },
+        "weather_humidity_pct_mean": {
+          "mean": 75.63918918918918,
+          "std": 3.42327959261241,
+          "min": 69.9,
+          "max": 87.16
+        },
+        "weather_wind_speed_ms_mean": {
+          "mean": 2.119608108108108,
+          "std": 0.550854624124786,
+          "min": 0.999,
+          "max": 3.415
+        },
+        "satellite_ndvi_mean": {
+          "mean": 0.5546378378378378,
+          "std": 0.07784809532638513,
+          "min": 0.3599,
+          "max": 0.7076
+        },
+        "satellite_evi_mean": {
+          "mean": 0.3724162162162162,
+          "std": 0.04687041309656894,
+          "min": 0.2547,
+          "max": 0.5054
+        },
+        "satellite_ndwi_mean": {
+          "mean": 0.1945121621621622,
+          "std": 0.05411882652369793,
+          "min": 0.0585,
+          "max": 0.3155
+        },
+        "soil_phh2o": {
+          "mean": 69.30972972972972,
+          "std": 4.027854037217764,
+          "min": 58.0,
+          "max": 77.0
+        },
+        "soil_soc": {
+          "mean": 340.20864864864865,
+          "std": 94.80974807294702,
+          "min": 184.0,
+          "max": 690.0
+        },
+        "soil_clay": {
+          "mean": 317.789054054054,
+          "std": 27.927436363416078,
+          "min": 263.0,
+          "max": 387.0
+        },
+        "soil_sand": {
+          "mean": 388.6477027027027,
+          "std": 40.17984472403284,
+          "min": 331.0,
+          "max": 539.0
+        },
+        "soil_nitrogen": {
+          "mean": 248.19121621621625,
+          "std": 47.680689522017985,
+          "min": 182.0,
+          "max": 378.0
+        }
+      }
+    },
+    "Telangana": {
+      "examples": 227,
+      "districts": 10,
+      "n_years": 13,
+      "years": [
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "seasons": [
+        "Kharif",
+        "Rabi"
+      ],
+      "yield_mean": 2.780796035242291,
+      "yield_median": 2.785,
+      "yield_std": 0.4683398903150546,
+      "yield_min": 1.519,
+      "yield_max": 3.973,
+      "features": {
+        "weather_temp_c_mean": {
+          "mean": 26.111202643171808,
+          "std": 0.8289250120295586,
+          "min": 24.146,
+          "max": 28.141
+        },
+        "weather_precip_mm_sum": {
+          "mean": 472.3934801762115,
+          "std": 450.7325458086083,
+          "min": 13.93,
+          "max": 1757.75
+        },
+        "weather_humidity_pct_mean": {
+          "mean": 59.71145374449339,
+          "std": 11.725517408487557,
+          "min": 38.04,
+          "max": 80.58
+        },
+        "weather_wind_speed_ms_mean": {
+          "mean": 1.9601806167400881,
+          "std": 0.6098178517934595,
+          "min": 1.016,
+          "max": 3.441
+        },
+        "satellite_ndvi_mean": {
+          "mean": 0.3931334801762114,
+          "std": 0.08681097728267338,
+          "min": 0.2215,
+          "max": 0.6617
+        },
+        "satellite_evi_mean": {
+          "mean": 0.2713431718061674,
+          "std": 0.07153499227020767,
+          "min": 0.1411,
+          "max": 0.5102
+        },
+        "satellite_ndwi_mean": {
+          "mean": 0.03812070484581498,
+          "std": 0.08266830064930789,
+          "min": -0.1287,
+          "max": 0.2378
+        },
+        "soil_phh2o": {
+          "mean": 69.19638766519824,
+          "std": 3.460224836603422,
+          "min": 62.0,
+          "max": 74.0
+        },
+        "soil_soc": {
+          "mean": 158.83550660792952,
+          "std": 18.443167382066477,
+          "min": 130.0,
+          "max": 193.0
+        },
+        "soil_clay": {
+          "mean": 324.2216740088106,
+          "std": 44.885222185443425,
+          "min": 252.0,
+          "max": 389.0
+        },
+        "soil_sand": {
+          "mean": 371.2963876651982,
+          "std": 59.50031078367134,
+          "min": 262.0,
+          "max": 492.14
+        },
+        "soil_nitrogen": {
+          "mean": 147.31841409691629,
+          "std": 9.747971023074651,
+          "min": 139.0,
+          "max": 172.0
+        }
+      }
+    }
+  },
+  "2A_confounding": {
+    "source_years": [
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012
+    ],
+    "target_years": [
+      2019,
+      2024
+    ],
+    "overlapping_years": [],
+    "overlapping_seasons": [],
+    "region_time_perfectly_confounded": true,
+    "region_season_perfectly_confounded": true
+  },
+  "2B_feature_shift": [
+    {
+      "feature": "weather_humidity_pct_mean",
+      "group": "weather",
+      "source_mean": 64.17601642710473,
+      "source_std": 10.88686204415459,
+      "target_mean": 75.63918918918918,
+      "target_std": 3.42327959261241,
+      "standardized_mean_difference": 1.4205067213378064,
+      "ks_statistic": 0.731533381430712,
+      "ks_pvalue": 8.857303832873719e-35,
+      "wasserstein_source_sd_units": 1.0529363480121723
+    },
+    {
+      "feature": "weather_precip_mm_sum",
+      "group": "weather",
+      "source_mean": 498.6623613963039,
+      "source_std": 452.3519150795093,
+      "target_mean": 904.5506756756758,
+      "target_std": 160.96735902703983,
+      "standardized_mean_difference": 1.1955155636986718,
+      "ks_statistic": 0.6095232809811866,
+      "ks_pvalue": 3.788234864805258e-23,
+      "wasserstein_source_sd_units": 0.9515290680156694
+    },
+    {
+      "feature": "satellite_ndwi_mean",
+      "group": "satellite",
+      "source_mean": 0.06806776180698153,
+      "source_std": 0.10580924041754286,
+      "target_mean": 0.1945121621621622,
+      "target_std": 0.05411882652369793,
+      "standardized_mean_difference": 1.5046273014079266,
+      "ks_statistic": 0.6093845385426495,
+      "ks_pvalue": 3.993010062007026e-23,
+      "wasserstein_source_sd_units": 1.1981544966458708
+    },
+    {
+      "feature": "satellite_ndvi_mean",
+      "group": "satellite",
+      "source_mean": 0.42198275154004106,
+      "source_std": 0.10112050663625206,
+      "target_mean": 0.5546378378378378,
+      "target_std": 0.07784809532638513,
+      "standardized_mean_difference": 1.4700629031378225,
+      "ks_statistic": 0.6054720017759032,
+      "ks_pvalue": 8.184206632052774e-23,
+      "wasserstein_source_sd_units": 1.311851480085835
+    },
+    {
+      "feature": "satellite_evi_mean",
+      "group": "satellite",
+      "source_mean": 0.28530574948665294,
+      "source_std": 0.0731041019366342,
+      "target_mean": 0.3724162162162162,
+      "target_std": 0.04687041309656894,
+      "standardized_mean_difference": 1.418631380724775,
+      "ks_statistic": 0.5541372995171763,
+      "ks_pvalue": 6.759995459948553e-19,
+      "wasserstein_source_sd_units": 1.191864436427302
+    },
+    {
+      "feature": "weather_temp_c_mean",
+      "group": "weather",
+      "source_mean": 26.236199178644764,
+      "source_std": 1.0110930031749221,
+      "target_mean": 26.331540540540537,
+      "target_std": 1.7750394183482558,
+      "standardized_mean_difference": 0.06600370373145555,
+      "ks_statistic": 0.29996115211720964,
+      "ks_pvalue": 1.2787417144405198e-05,
+      "wasserstein_source_sd_units": 0.6404422725421473
+    },
+    {
+      "feature": "weather_wind_speed_ms_mean",
+      "group": "weather",
+      "source_mean": 1.9868952772073918,
+      "source_std": 0.618701696637478,
+      "target_mean": 2.119608108108108,
+      "target_std": 0.550854624124786,
+      "standardized_mean_difference": 0.2265646952081186,
+      "ks_statistic": 0.2369165880459515,
+      "ks_pvalue": 0.0011705783668630352,
+      "wasserstein_source_sd_units": 0.2607165318322434
+    }
+  ],
+  "2C_yield_shift": {
+    "per_state": {
+      "Andhra Pradesh": {
+        "n": 260,
+        "mean": 3.022433461538461,
+        "median": 2.96565,
+        "std": 0.7682372870310857,
+        "min": 0.8136,
+        "max": 5.257,
+        "p05": 1.8765,
+        "p95": 4.5948
+      },
+      "Telangana": {
+        "n": 227,
+        "mean": 2.780796035242291,
+        "median": 2.785,
+        "std": 0.4683398903150546,
+        "min": 1.519,
+        "max": 3.973,
+        "p05": 2.0088999999999997,
+        "p95": 3.5106599999999997
+      },
+      "Tamil Nadu": {
+        "n": 74,
+        "mean": 3.7655810810810815,
+        "median": 3.7915,
+        "std": 0.5985391120706043,
+        "min": 1.966,
+        "max": 5.271,
+        "p05": 2.7306,
+        "p95": 4.6762
+      }
+    },
+    "source_vs_target": {
+      "standardized_mean_difference": 1.3622190904353764,
+      "ks_statistic": 0.5668461068871746,
+      "ks_pvalue": 7.81752262904741e-20,
+      "wasserstein": 0.8557794383706087,
+      "target_range_inside_source_range": false,
+      "source_min": 0.8136,
+      "source_max": 5.257,
+      "target_min": 1.966,
+      "target_max": 5.271,
+      "target_variance_ratio": 0.8310442313838663
+    }
+  },
+  "2D_audit_facts": {
+    "baseline": {
+      "scaler_fitted_on": "train",
+      "scaler_n_fit_rows": 385,
+      "n_train_rows": 385,
+      "n_val_rows": 102,
+      "n_test_rows": 74,
+      "selected_by": "n/a (no training)",
+      "baseline_mean_from_train": 2.929453134536743,
+      "n_fit_labels": 385
+    },
+    "weather_only": {
+      "scaler_fitted_on": "train",
+      "scaler_n_fit_rows": 385,
+      "n_train_rows": 385,
+      "n_val_rows": 102,
+      "n_test_rows": 74,
+      "selected_by": "validation loss only (test set not consulted)",
+      "n_parameters": 705
+    },
+    "satellite_only": {
+      "scaler_fitted_on": "train",
+      "scaler_n_fit_rows": 385,
+      "n_train_rows": 385,
+      "n_val_rows": 102,
+      "n_test_rows": 74,
+      "selected_by": "validation loss only (test set not consulted)",
+      "n_parameters": 673
+    },
+    "weather_satellite": {
+      "scaler_fitted_on": "train",
+      "scaler_n_fit_rows": 385,
+      "n_train_rows": 385,
+      "n_val_rows": 102,
+      "n_test_rows": 74,
+      "selected_by": "validation loss only (test set not consulted)",
+      "n_parameters": 801
+    },
+    "soil_only": {
+      "scaler_fitted_on": "train",
+      "scaler_n_fit_rows": 385,
+      "n_train_rows": 385,
+      "n_val_rows": 102,
+      "n_test_rows": 74,
+      "selected_by": "validation loss only (test set not consulted)",
+      "n_parameters": 737
+    },
+    "full_multimodal": {
+      "scaler_fitted_on": "train",
+      "scaler_n_fit_rows": 385,
+      "n_train_rows": 385,
+      "n_val_rows": 102,
+      "n_test_rows": 74,
+      "selected_by": "validation loss only (test set not consulted)",
+      "n_parameters": 961
+    }
+  },
+  "2D_cross_region": {
+    "label": "CROSS-REGION + TEMPORAL DOMAIN SHIFT (not pure geographic generalization)",
+    "train": [
+      "Andhra Pradesh",
+      "Telangana"
+    ],
+    "test": [
+      "Tamil Nadu"
+    ],
+    "n_train_examples": 487,
+    "n_train_districts": 20,
+    "n_test_examples": 74,
+    "n_test_districts": 38,
+    "results": {
+      "baseline": {
+        "per_seed": [
+          {
+            "mae": 0.8979163862563468,
+            "rmse": 1.0259229135529735,
+            "r2": -1.9781958565735103,
+            "n": 74
+          },
+          {
+            "mae": 0.9094378029977953,
+            "rmse": 1.037536541777115,
+            "r2": -2.0460049057688856,
+            "n": 74
+          },
+          {
+            "mae": 0.9061723705884572,
+            "rmse": 1.0342383921429747,
+            "r2": -2.026670237493829,
+            "n": 74
+          },
+          {
+            "mae": 0.9627177828067058,
+            "rmse": 1.0908926922831763,
+            "r2": -2.367346911377445,
+            "n": 74
+          },
+          {
+            "mae": 0.9874813476124326,
+            "rmse": 1.1157911721298257,
+            "r2": -2.522813384914572,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.9327451380523476,
+        "mae_std": 0.03565612951591654,
+        "rmse_mean": 1.060876342377213,
+        "rmse_std": 0.03575664598292443,
+        "r2_mean": -2.1882062592256486,
+        "r2_std": 0.21655150993662703,
+        "n_runs": 5
+      },
+      "weather_only": {
+        "per_seed": [
+          {
+            "mae": 1.0078555651613184,
+            "rmse": 1.1508031877702638,
+            "r2": -2.74736424001645,
+            "n": 74
+          },
+          {
+            "mae": 1.05372169694385,
+            "rmse": 1.2098535458060116,
+            "r2": -3.1418026242899995,
+            "n": 74
+          },
+          {
+            "mae": 1.0868633228379327,
+            "rmse": 1.249020409946713,
+            "r2": -3.4143103782032798,
+            "n": 74
+          },
+          {
+            "mae": 1.0735840845752407,
+            "rmse": 1.2311094558957272,
+            "r2": -3.2886156863583533,
+            "n": 74
+          },
+          {
+            "mae": 1.1543603893872854,
+            "rmse": 1.324095800091488,
+            "r2": -3.9609244328991506,
+            "n": 74
+          }
+        ],
+        "mae_mean": 1.0752770117811254,
+        "mae_std": 0.047752638214175254,
+        "rmse_mean": 1.2329764799020408,
+        "rmse_std": 0.0563040744576965,
+        "r2_mean": -3.3106034723534465,
+        "r2_std": 0.39494001973198606,
+        "n_runs": 5
+      },
+      "satellite_only": {
+        "per_seed": [
+          {
+            "mae": 0.9541892957043003,
+            "rmse": 1.0802391510507043,
+            "r2": -2.3018977654268027,
+            "n": 74
+          },
+          {
+            "mae": 0.9924326152414888,
+            "rmse": 1.1230767678037266,
+            "r2": -2.5689682343686786,
+            "n": 74
+          },
+          {
+            "mae": 0.9689103896553452,
+            "rmse": 1.0996397469851111,
+            "r2": -2.4215638919183657,
+            "n": 74
+          },
+          {
+            "mae": 0.8268577714224119,
+            "rmse": 0.9484069096559724,
+            "r2": -1.5451490130829137,
+            "n": 74
+          },
+          {
+            "mae": 0.8948426584939699,
+            "rmse": 1.0250601218895103,
+            "r2": -1.97318869271328,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.9274465461035033,
+        "mae_std": 0.05973061064380313,
+        "rmse_mean": 1.055284539477005,
+        "rmse_std": 0.06248559268831279,
+        "r2_mean": -2.162153519502008,
+        "r2_std": 0.3657109991572847,
+        "n_runs": 5
+      },
+      "weather_satellite": {
+        "per_seed": [
+          {
+            "mae": 0.9862452664890805,
+            "rmse": 1.1296315799624062,
+            "r2": -2.6107502141605337,
+            "n": 74
+          },
+          {
+            "mae": 0.9819748643282298,
+            "rmse": 1.1331426443452837,
+            "r2": -2.6332306026380152,
+            "n": 74
+          },
+          {
+            "mae": 0.9726338724832277,
+            "rmse": 1.1195435406511043,
+            "r2": -2.546547434318576,
+            "n": 74
+          },
+          {
+            "mae": 0.9509848920074669,
+            "rmse": 1.0897384569602266,
+            "r2": -2.3602249376379425,
+            "n": 74
+          },
+          {
+            "mae": 1.1287584288700208,
+            "rmse": 1.2706899660215438,
+            "r2": -3.5688089376663825,
+            "n": 74
+          }
+        ],
+        "mae_mean": 1.0041194648356053,
+        "mae_std": 0.06349703459082685,
+        "rmse_mean": 1.148549237588113,
+        "rmse_std": 0.06295019745879361,
+        "r2_mean": -2.7439124252842904,
+        "r2_std": 0.42346332174370693,
+        "n_runs": 5
+      },
+      "soil_only": {
+        "per_seed": [
+          {
+            "mae": 1.057538320889344,
+            "rmse": 1.2711185270895773,
+            "r2": -3.5718912691185363,
+            "n": 74
+          },
+          {
+            "mae": 1.2281161981659967,
+            "rmse": 1.4542805622637296,
+            "r2": -4.984394216175653,
+            "n": 74
+          },
+          {
+            "mae": 1.5702425418673336,
+            "rmse": 1.9336115117188006,
+            "r2": -9.579429324147307,
+            "n": 74
+          },
+          {
+            "mae": 1.4278539241971195,
+            "rmse": 1.7163851192691293,
+            "r2": -7.335914987944234,
+            "n": 74
+          },
+          {
+            "mae": 1.3144210979745194,
+            "rmse": 1.5708616623979132,
+            "r2": -5.982318847901551,
+            "n": 74
+          }
+        ],
+        "mae_mean": 1.3196344166188627,
+        "mae_std": 0.17413386842183493,
+        "rmse_mean": 1.58925147654783,
+        "rmse_std": 0.22561502761682375,
+        "r2_mean": -6.290789729057456,
+        "r2_std": 2.054345129193872,
+        "n_runs": 5
+      },
+      "full_multimodal": {
+        "per_seed": [
+          {
+            "mae": 0.8148481571996534,
+            "rmse": 0.9741699615928833,
+            "r2": -1.6853027939759326,
+            "n": 74
+          },
+          {
+            "mae": 0.8492348790168762,
+            "rmse": 1.0240942989251671,
+            "r2": -1.9675885897707652,
+            "n": 74
+          },
+          {
+            "mae": 1.2298938309824146,
+            "rmse": 1.5161190617556692,
+            "r2": -5.504147952276197,
+            "n": 74
+          },
+          {
+            "mae": 0.7844469917787088,
+            "rmse": 0.9269550441844978,
+            "r2": -1.4313144980959556,
+            "n": 74
+          },
+          {
+            "mae": 1.0163107224412866,
+            "rmse": 1.180131183069576,
+            "r2": -2.9407997574287497,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.938946916283788,
+        "mae_std": 0.1661049330903221,
+        "rmse_mean": 1.1242939099055587,
+        "rmse_std": 0.2136186043014226,
+        "r2_mean": -2.70583071830952,
+        "r2_std": 1.4897422643894513,
+        "n_runs": 5
+      }
+    }
+  },
+  "2E_reverse_exploratory": {
+    "label": "EXPLORATORY / SMALL-SOURCE-DOMAIN ANALYSIS - diagnostic only, not a headline result",
+    "train": [
+      "Tamil Nadu"
+    ],
+    "test": [
+      "Andhra Pradesh",
+      "Telangana"
+    ],
+    "n_train_examples": 74,
+    "n_train_districts": 38,
+    "n_test_examples": 487,
+    "results": {
+      "baseline": {
+        "per_seed": [
+          {
+            "mae": 0.9355597573139339,
+            "rmse": 1.0718981722198007,
+            "r2": -1.670784242970278,
+            "n": 487
+          },
+          {
+            "mae": 0.8790132562482627,
+            "rmse": 1.0188723014024355,
+            "r2": -1.4130774227704177,
+            "n": 487
+          },
+          {
+            "mae": 0.9189236050268953,
+            "rmse": 1.0563017649893827,
+            "r2": -1.5936284148490723,
+            "n": 487
+          },
+          {
+            "mae": 0.9187821351771972,
+            "rmse": 1.0561690802488062,
+            "r2": -1.5929768713016657,
+            "n": 487
+          },
+          {
+            "mae": 0.9762761439875656,
+            "rmse": 1.1103353801546159,
+            "r2": -1.8657618817114865,
+            "n": 487
+          }
+        ],
+        "mae_mean": 0.925710979550771,
+        "mae_std": 0.03139614300154221,
+        "rmse_mean": 1.0627153398030083,
+        "rmse_std": 0.029523523253564048,
+        "r2_mean": -1.6272457667205842,
+        "r2_std": 0.14625874272325817,
+        "n_runs": 5
+      },
+      "weather_only": {
+        "per_seed": [
+          {
+            "mae": 2.286070202777518,
+            "rmse": 2.7799511418600593,
+            "r2": -16.964125107128606,
+            "n": 487
+          },
+          {
+            "mae": 2.983839604276896,
+            "rmse": 3.692756183298071,
+            "r2": -30.6980840479946,
+            "n": 487
+          },
+          {
+            "mae": 2.1724602088056795,
+            "rmse": 2.6283616080875434,
+            "r2": -15.058389011930355,
+            "n": 487
+          },
+          {
+            "mae": 2.2647261789692013,
+            "rmse": 2.808779022506681,
+            "r2": -17.33863009079429,
+            "n": 487
+          },
+          {
+            "mae": 1.1442430904268974,
+            "rmse": 1.4116115685494077,
+            "r2": -3.6319318645285055,
+            "n": 487
+          }
+        ],
+        "mae_mean": 2.170267857051239,
+        "mae_std": 0.5894002330966326,
+        "rmse_mean": 2.6642919048603524,
+        "rmse_std": 0.7297247932608292,
+        "r2_mean": -16.738232024475273,
+        "r2_std": 8.600999366013271,
+        "n_runs": 5
+      },
+      "satellite_only": {
+        "per_seed": [
+          {
+            "mae": 1.2608643482597945,
+            "rmse": 1.4312049128223052,
+            "r2": -3.7614078242074855,
+            "n": 487
+          },
+          {
+            "mae": 1.772749395463501,
+            "rmse": 2.0809723170769563,
+            "r2": -9.066172080328359,
+            "n": 487
+          },
+          {
+            "mae": 1.0642415893396069,
+            "rmse": 1.2343200792977924,
+            "r2": -2.541500703882485,
+            "n": 487
+          },
+          {
+            "mae": 3.1954552477390123,
+            "rmse": 4.065270889647441,
+            "r2": -37.41587458310652,
+            "n": 487
+          },
+          {
+            "mae": 1.664013095827318,
+            "rmse": 1.929328132834834,
+            "r2": -7.652546436867947,
+            "n": 487
+          }
+        ],
+        "mae_mean": 1.7914647353258466,
+        "mae_std": 0.7480874037324753,
+        "rmse_mean": 2.148219266335866,
+        "rmse_std": 1.0076550713577401,
+        "r2_mean": -12.087500325678558,
+        "r2_std": 12.89010246668932,
+        "n_runs": 5
+      },
+      "weather_satellite": {
+        "per_seed": [
+          {
+            "mae": 2.9165281619134626,
+            "rmse": 3.5557418065157584,
+            "r2": -28.389498848581695,
+            "n": 487
+          },
+          {
+            "mae": 3.024882043778774,
+            "rmse": 3.671434442267322,
+            "r2": -30.33309533815087,
+            "n": 487
+          },
+          {
+            "mae": 2.1452589714306827,
+            "rmse": 2.513969437343967,
+            "r2": -13.691012619634524,
+            "n": 487
+          },
+          {
+            "mae": 3.7360374625213826,
+            "rmse": 5.151734158873549,
+            "r2": -60.693389754776994,
+            "n": 487
+          },
+          {
+            "mae": 4.62344537513212,
+            "rmse": 5.888460952884614,
+            "r2": -79.60005602127362,
+            "n": 487
+          }
+        ],
+        "mae_mean": 3.289230402955284,
+        "mae_std": 0.836328140394701,
+        "rmse_mean": 4.156268159577042,
+        "rmse_std": 1.207003326934265,
+        "r2_mean": -42.54141051648354,
+        "r2_std": 24.018753419248252,
+        "n_runs": 5
+      },
+      "soil_only": {
+        "per_seed": [
+          {
+            "mae": 2.310071592580611,
+            "rmse": 2.503901312442269,
+            "r2": -13.573577009153524,
+            "n": 487
+          },
+          {
+            "mae": 2.5241536040325676,
+            "rmse": 2.7109154282175614,
+            "r2": -16.082981989210445,
+            "n": 487
+          },
+          {
+            "mae": 2.521219615696392,
+            "rmse": 2.818525316803499,
+            "r2": -17.466118783924948,
+            "n": 487
+          },
+          {
+            "mae": 1.6570576063416578,
+            "rmse": 1.9731426732214083,
+            "r2": -8.050002995358906,
+            "n": 487
+          },
+          {
+            "mae": 1.0328628778212858,
+            "rmse": 1.4263177588906437,
+            "r2": -3.7289456616882086,
+            "n": 487
+          }
+        ],
+        "mae_mean": 2.009073059294503,
+        "mae_std": 0.5822548200525147,
+        "rmse_mean": 2.2865604979150764,
+        "rmse_std": 0.5193359236460217,
+        "r2_mean": -11.780325287867207,
+        "r2_std": 5.153578803048565,
+        "n_runs": 5
+      },
+      "full_multimodal": {
+        "per_seed": [
+          {
+            "mae": 5.104125550517801,
+            "rmse": 5.607822838733884,
+            "r2": -72.10049446909478,
+            "n": 487
+          },
+          {
+            "mae": 4.546824501647596,
+            "rmse": 5.021010468094802,
+            "r2": -57.60221051652716,
+            "n": 487
+          },
+          {
+            "mae": 4.331347784589693,
+            "rmse": 4.807860775317401,
+            "r2": -52.732309864510654,
+            "n": 487
+          },
+          {
+            "mae": 1.7701835729013478,
+            "rmse": 2.3101787964629543,
+            "r2": -11.405747327449289,
+            "n": 487
+          },
+          {
+            "mae": 3.8857529715346115,
+            "rmse": 4.696539102032429,
+            "r2": -50.2728702145925,
+            "n": 487
+          }
+        ],
+        "mae_mean": 3.92764687623821,
+        "mae_std": 1.1477683068235158,
+        "rmse_mean": 4.488682396128294,
+        "rmse_std": 1.133737684666516,
+        "r2_mean": -48.82272647843488,
+        "r2_std": 20.18094106079097,
+        "n_runs": 5
+      }
+    }
+  },
+  "2F_within_tamil_nadu": {
+    "method": "Leave-one-district-out over all 38 Tamil Nadu districts, repeated for 5 seeds. LOGO was chosen over GroupShuffleSplit because Tamil Nadu has only 74 examples in 38 districts (~2 rows each): a 20% held-out test fold would contain ~15 rows, and R2 on 15 rows drawn from 2 years is far too unstable to interpret. LOGO instead produces a strictly out-of-fold prediction for every one of the 74 examples, and the metric is computed once over the pooled predictions. The seed varies model initialisation and which training districts serve as validation; the test partition itself is fixed by construction.",
+    "n_folds": 38,
+    "n_examples": 74,
+    "results": {
+      "baseline": {
+        "per_seed": [
+          {
+            "mae": 0.47038548218237386,
+            "rmse": 0.6061978596586325,
+            "r2": -0.039806655623669585,
+            "n": 74
+          },
+          {
+            "mae": 0.46988438754468353,
+            "rmse": 0.604956075066718,
+            "r2": -0.035550971286984145,
+            "n": 74
+          },
+          {
+            "mae": 0.47605752783852656,
+            "rmse": 0.6091821780227729,
+            "r2": -0.05006981435789326,
+            "n": 74
+          },
+          {
+            "mae": 0.4738784851254644,
+            "rmse": 0.6091713876439022,
+            "r2": -0.05003261513835899,
+            "n": 74
+          },
+          {
+            "mae": 0.4701267206991041,
+            "rmse": 0.6058617948231536,
+            "r2": -0.038654076198048504,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.47206652067803045,
+        "mae_std": 0.0024723176457594693,
+        "rmse_mean": 0.6070738590430358,
+        "rmse_std": 0.0017644329806889333,
+        "r2_mean": -0.0428228265209909,
+        "r2_std": 0.006063918358562771,
+        "n_runs": 5
+      },
+      "weather_only": {
+        "per_seed": [
+          {
+            "mae": 0.5828038599040057,
+            "rmse": 0.7655818714717952,
+            "r2": -0.6584679293874802,
+            "n": 74
+          },
+          {
+            "mae": 0.6292873701533755,
+            "rmse": 0.7963801092564075,
+            "r2": -0.7945873594502768,
+            "n": 74
+          },
+          {
+            "mae": 0.6381548175940642,
+            "rmse": 0.8616735404710044,
+            "r2": -1.1009190067031334,
+            "n": 74
+          },
+          {
+            "mae": 0.5874536053554432,
+            "rmse": 0.7233706725935035,
+            "r2": -0.4806267462719973,
+            "n": 74
+          },
+          {
+            "mae": 0.6933357055122787,
+            "rmse": 0.8959886385573695,
+            "r2": -1.27158400001544,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.6262070717038334,
+        "mae_std": 0.040110248804864426,
+        "rmse_mean": 0.8085989664700162,
+        "rmse_std": 0.06279729007483563,
+        "r2_mean": -0.8612370083656655,
+        "r2_std": 0.2885320642785751,
+        "n_runs": 5
+      },
+      "satellite_only": {
+        "per_seed": [
+          {
+            "mae": 0.5110069561649013,
+            "rmse": 0.610154933252249,
+            "r2": -0.05342604008314611,
+            "n": 74
+          },
+          {
+            "mae": 0.6315040491722725,
+            "rmse": 0.8453184431797481,
+            "r2": -1.0219224049802587,
+            "n": 74
+          },
+          {
+            "mae": 0.48248399109453766,
+            "rmse": 0.5958665064823253,
+            "r2": -0.004666091673976469,
+            "n": 74
+          },
+          {
+            "mae": 0.4604244506036913,
+            "rmse": 0.5746705289087563,
+            "r2": 0.06553799701262863,
+            "n": 74
+          },
+          {
+            "mae": 0.5174616236944456,
+            "rmse": 0.6363946428281337,
+            "r2": -0.14597943955037573,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.5205762141459698,
+        "mae_std": 0.05911938441807027,
+        "rmse_mean": 0.6524810109302426,
+        "rmse_std": 0.098484736475458,
+        "r2_mean": -0.23209119585502566,
+        "r2_std": 0.40086784002409104,
+        "n_runs": 5
+      },
+      "weather_satellite": {
+        "per_seed": [
+          {
+            "mae": 0.675124923925142,
+            "rmse": 0.8565613967297185,
+            "r2": -1.0760642567877547,
+            "n": 74
+          },
+          {
+            "mae": 0.6308678984642029,
+            "rmse": 0.8328544431391753,
+            "r2": -0.9627365483929566,
+            "n": 74
+          },
+          {
+            "mae": 0.699743842756426,
+            "rmse": 0.9062786603850913,
+            "r2": -1.3240598273544855,
+            "n": 74
+          },
+          {
+            "mae": 0.7937655416694848,
+            "rmse": 1.0728376937765869,
+            "r2": -2.2568056549357043,
+            "n": 74
+          },
+          {
+            "mae": 0.6339550163294818,
+            "rmse": 0.8226331756992693,
+            "r2": -0.9148565106030337,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.6866914446289476,
+        "mae_std": 0.059441418104396224,
+        "rmse_mean": 0.8982330739459682,
+        "rmse_std": 0.09195405743135181,
+        "r2_mean": -1.306904559614787,
+        "r2_std": 0.4955899377902435,
+        "n_runs": 5
+      },
+      "soil_only": {
+        "per_seed": [
+          {
+            "mae": 0.7986190077420827,
+            "rmse": 1.0810219378416501,
+            "r2": -2.306684887682135,
+            "n": 74
+          },
+          {
+            "mae": 1.5711293687691559,
+            "rmse": 1.9463352583381672,
+            "r2": -9.719119085400754,
+            "n": 74
+          },
+          {
+            "mae": 1.080045671076388,
+            "rmse": 1.3753220327642237,
+            "r2": -4.352203240217776,
+            "n": 74
+          },
+          {
+            "mae": 0.7188514261632353,
+            "rmse": 0.9227168929475047,
+            "r2": -1.4091327916484948,
+            "n": 74
+          },
+          {
+            "mae": 0.8292949473535692,
+            "rmse": 1.0694249747559452,
+            "r2": -2.2361186771345323,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.9995880842208862,
+        "mae_std": 0.310268998312087,
+        "rmse_mean": 1.2789642193294983,
+        "rmse_std": 0.3646008588275184,
+        "r2_mean": -4.004651736416738,
+        "r2_std": 3.017397830059053,
+        "n_runs": 5
+      },
+      "full_multimodal": {
+        "per_seed": [
+          {
+            "mae": 0.9642133922190279,
+            "rmse": 1.3941688018445075,
+            "r2": -4.499896486822132,
+            "n": 74
+          },
+          {
+            "mae": 1.0589537266138438,
+            "rmse": 1.3383721788870695,
+            "r2": -4.068478354849388,
+            "n": 74
+          },
+          {
+            "mae": 0.8781127059781874,
+            "rmse": 1.1116969646492358,
+            "r2": -2.497008077158781,
+            "n": 74
+          },
+          {
+            "mae": 0.8055278819960516,
+            "rmse": 1.074787584952337,
+            "r2": -2.268654954436101,
+            "n": 74
+          },
+          {
+            "mae": 0.9686531940022031,
+            "rmse": 1.2733371820795356,
+            "r2": -3.5878650772695284,
+            "n": 74
+          }
+        ],
+        "mae_mean": 0.9350921801618627,
+        "mae_std": 0.08642874194224222,
+        "rmse_mean": 1.238472542482537,
+        "rmse_std": 0.12514121470077488,
+        "r2_mean": -3.384380590107186,
+        "r2_std": 0.8701775766927993,
+        "n_runs": 5
+      }
+    }
+  },
+  "2G_temporal_confound": {
+    "finding": "The AP/Telangana -> Tamil Nadu shift is roughly 5x larger (median across features) than the within-AP/Telangana shift between its own early (1999-2005) and late (2006-2012) halves. That is consistent with the cross-region gap being more than ordinary decade-scale drift, but it does NOT isolate geography from era: the 2019/2024 era is outside the observed source period entirely, so its own drift cannot be measured here.",
+    "source_period": "1999-2012",
+    "target_period": "2019, 2024",
+    "can_isolate_geography_from_time": false,
+    "why": "Isolating geography would require at least one year (ideally several) observed in BOTH AP/Telangana and Tamil Nadu, so that a same-year cross-region comparison could be made. This dataset has zero such years. It would equally require a same-region cross-era comparison (Tamil Nadu in 1999-2012, or AP/Telangana in 2019-2024) to isolate time; there are none of those either. Both isolations are therefore impossible with the current data, not merely difficult.",
+    "era_comparison": [
+      {
+        "feature": "weather_temp_c_mean",
+        "ap_tg_1999_2005_mean": 26.160285140562248,
+        "ap_tg_2006_2012_mean": 26.315621848739497,
+        "within_source_era_smd": 0.1538274108546923,
+        "source_vs_tamil_nadu_smd": 0.06600370373145555
+      },
+      {
+        "feature": "weather_precip_mm_sum",
+        "ap_tg_1999_2005_mean": 439.19056224899595,
+        "ap_tg_2006_2012_mean": 560.8828571428572,
+        "within_source_era_smd": 0.27081037627160764,
+        "source_vs_tamil_nadu_smd": 1.1955155636986718
+      },
+      {
+        "feature": "weather_humidity_pct_mean",
+        "ap_tg_1999_2005_mean": 63.05610441767069,
+        "ap_tg_2006_2012_mean": 65.34768907563026,
+        "within_source_era_smd": 0.21145709835035112,
+        "source_vs_tamil_nadu_smd": 1.4205067213378064
+      },
+      {
+        "feature": "weather_wind_speed_ms_mean",
+        "ap_tg_1999_2005_mean": 1.9837871485943774,
+        "ap_tg_2006_2012_mean": 1.9901470588235297,
+        "within_source_era_smd": 0.01026003144402386,
+        "source_vs_tamil_nadu_smd": 0.2265646952081186
+      },
+      {
+        "feature": "satellite_ndvi_mean",
+        "ap_tg_1999_2005_mean": 0.4125855421686747,
+        "ap_tg_2006_2012_mean": 0.4318142857142857,
+        "within_source_era_smd": 0.1910223313010252,
+        "source_vs_tamil_nadu_smd": 1.4700629031378225
+      },
+      {
+        "feature": "satellite_evi_mean",
+        "ap_tg_1999_2005_mean": 0.2757718875502008,
+        "ap_tg_2006_2012_mean": 0.29528025210084036,
+        "within_source_era_smd": 0.2692416404647801,
+        "source_vs_tamil_nadu_smd": 1.418631380724775
+      },
+      {
+        "feature": "satellite_ndwi_mean",
+        "ap_tg_1999_2005_mean": 0.05365180722891567,
+        "ap_tg_2006_2012_mean": 0.08315000000000002,
+        "within_source_era_smd": 0.28125102649791334,
+        "source_vs_tamil_nadu_smd": 1.5046273014079266
+      },
+      {
+        "feature": "final_yield_t_ha",
+        "ap_tg_1999_2005_mean": 2.7765056224899602,
+        "ap_tg_2006_2012_mean": 3.0492584033613443,
+        "within_source_era_smd": 0.42472178412573325,
+        "source_vs_tamil_nadu_smd": 1.3622190904353764
+      }
+    ],
+    "median_shift_ratio_crossregion_over_within_source_era": 5.309377975283818
+  },
+  "2H_failure_breakdown": {
+    "model": "weather_satellite, predictions averaged over the 5 seeds",
+    "n": 74,
+    "mean_residual_bias": 0.8778603222305711,
+    "mean_absolute_residual": 1.0007130063546672,
+    "actual_std": 0.5985391120706043,
+    "prediction_std": 0.3463582694530487,
+    "prediction_range": [
+      2.298729419708252,
+      3.9883925914764404
+    ],
+    "actual_range": [
+      1.966,
+      5.271
+    ],
+    "corr_residual_vs_actual": 0.8854276856563066,
+    "corr_prediction_vs_actual": -0.15418516600621945,
+    "residual_by_year": [
+      {
+        "year": 2019,
+        "count": 36,
+        "mean": 1.1368200399080912,
+        "std": 0.7173816213725484
+      },
+      {
+        "year": 2024,
+        "count": 38,
+        "mean": 0.6325300633781834,
+        "std": 0.6750926534854981
+      }
+    ],
+    "residual_by_season": [
+      {
+        "season": "Whole Year",
+        "count": 74,
+        "mean": 0.8778603222305711,
+        "std": 0.7363022707108111
+      }
+    ],
+    "largest_absolute_residuals": [
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Kancheepuram",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 5.271,
+        "predicted_mean_over_seeds": 2.9010183811187744,
+        "residual": 2.3699816188812255
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tiruppur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.849,
+        "predicted_mean_over_seeds": 2.734182834625244,
+        "residual": 2.114817165374756
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Dindigul",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.537,
+        "predicted_mean_over_seeds": 2.4495291709899902,
+        "residual": 2.0874708290100097
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Namakkal",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.523,
+        "predicted_mean_over_seeds": 2.5127010345458984,
+        "residual": 2.0102989654541012
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Chengalputtu",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.717,
+        "predicted_mean_over_seeds": 2.7164864540100098,
+        "residual": 2.00051354598999
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Erode",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.559,
+        "predicted_mean_over_seeds": 2.6004979610443115,
+        "residual": 1.9585020389556886
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Ranipet",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.665,
+        "predicted_mean_over_seeds": 2.7573559284210205,
+        "residual": 1.9076440715789795
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Salem",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.318,
+        "predicted_mean_over_seeds": 2.5725293159484863,
+        "residual": 1.7454706840515133
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tiruppur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 4.361,
+        "predicted_mean_over_seeds": 2.660984516143799,
+        "residual": 1.700015483856201
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Perambalur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.38,
+        "predicted_mean_over_seeds": 2.8141958713531494,
+        "residual": 1.5658041286468505
+      }
+    ],
+    "per_district": [
+      {
+        "canonical_district_name": "Ariyalur",
+        "count": 2,
+        "mean": 0.8047548885345459
+      },
+      {
+        "canonical_district_name": "Chengalputtu",
+        "count": 2,
+        "mean": 1.5575848731994628
+      },
+      {
+        "canonical_district_name": "Chennai",
+        "count": 1,
+        "mean": -0.2364351348876954
+      },
+      {
+        "canonical_district_name": "Coimbatore",
+        "count": 2,
+        "mean": 0.6550927906036377
+      },
+      {
+        "canonical_district_name": "Cuddalore",
+        "count": 2,
+        "mean": 0.49911992931365967
+      },
+      {
+        "canonical_district_name": "Dharmapuri",
+        "count": 2,
+        "mean": 1.12700053024292
+      },
+      {
+        "canonical_district_name": "Dindigul",
+        "count": 2,
+        "mean": 1.5425997114181518
+      },
+      {
+        "canonical_district_name": "Erode",
+        "count": 2,
+        "mean": 1.7401417980194092
+      },
+      {
+        "canonical_district_name": "Kallakurichi",
+        "count": 2,
+        "mean": 1.4798712272644043
+      },
+      {
+        "canonical_district_name": "Kancheepuram",
+        "count": 2,
+        "mean": 1.6171609878540039
+      },
+      {
+        "canonical_district_name": "Kanniyakumari",
+        "count": 2,
+        "mean": 0.6103177919387817
+      },
+      {
+        "canonical_district_name": "Karur",
+        "count": 2,
+        "mean": 0.8325436859130859
+      },
+      {
+        "canonical_district_name": "Krishnagiri",
+        "count": 2,
+        "mean": 0.8544149932861329
+      },
+      {
+        "canonical_district_name": "Madurai",
+        "count": 2,
+        "mean": 1.0639477186203001
+      },
+      {
+        "canonical_district_name": "Mayiladuthurai",
+        "count": 1,
+        "mean": -0.377441785812378
+      },
+      {
+        "canonical_district_name": "Nagapattinam",
+        "count": 2,
+        "mean": -0.5311585369110106
+      },
+      {
+        "canonical_district_name": "Namakkal",
+        "count": 2,
+        "mean": 1.7107185831069944
+      },
+      {
+        "canonical_district_name": "Nilgiris",
+        "count": 2,
+        "mean": -0.3923563899993896
+      },
+      {
+        "canonical_district_name": "Perambalur",
+        "count": 2,
+        "mean": 1.5137471342086792
+      },
+      {
+        "canonical_district_name": "Pudukkottai",
+        "count": 2,
+        "mean": 0.5538624668121339
+      },
+      {
+        "canonical_district_name": "Ramanathapuram",
+        "count": 2,
+        "mean": -0.9395247020721437
+      },
+      {
+        "canonical_district_name": "Ranipet",
+        "count": 2,
+        "mean": 1.3971526336669922
+      },
+      {
+        "canonical_district_name": "Salem",
+        "count": 2,
+        "mean": 1.581678220748901
+      },
+      {
+        "canonical_district_name": "Sivaganga",
+        "count": 2,
+        "mean": 0.2635438051223755
+      },
+      {
+        "canonical_district_name": "Tenkasi",
+        "count": 2,
+        "mean": 0.8636002883911134
+      },
+      {
+        "canonical_district_name": "Thanjavur",
+        "count": 2,
+        "mean": 0.47230176734924334
+      },
+      {
+        "canonical_district_name": "Theni",
+        "count": 2,
+        "mean": 0.9668052291870115
+      },
+      {
+        "canonical_district_name": "Thiruvallur",
+        "count": 2,
+        "mean": 1.1473583230972288
+      },
+      {
+        "canonical_district_name": "Thiruvarur",
+        "count": 2,
+        "mean": 0.1146285877227784
+      },
+      {
+        "canonical_district_name": "Thoothukudi",
+        "count": 2,
+        "mean": 0.6070473785400392
+      },
+      {
+        "canonical_district_name": "Tiruchchirappalli",
+        "count": 2,
+        "mean": 1.3746804542541506
+      },
+      {
+        "canonical_district_name": "Tirunelveli Kattabo",
+        "count": 2,
+        "mean": 1.304367322921753
+      },
+      {
+        "canonical_district_name": "Tirupathur",
+        "count": 2,
+        "mean": 0.7568392934799193
+      },
+      {
+        "canonical_district_name": "Tiruppur",
+        "count": 2,
+        "mean": 1.9074163246154785
+      },
+      {
+        "canonical_district_name": "Tiruvannamalai",
+        "count": 2,
+        "mean": 1.2591828060150148
+      },
+      {
+        "canonical_district_name": "Vellore",
+        "count": 2,
+        "mean": 0.7375706024169923
+      },
+      {
+        "canonical_district_name": "Villupuram",
+        "count": 2,
+        "mean": 1.0447693719863889
+      },
+      {
+        "canonical_district_name": "Virudhunagar",
+        "count": 2,
+        "mean": 0.688988492012024
+      }
+    ],
+    "predictions": [
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Kancheepuram",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 5.271,
+        "predicted_mean_over_seeds": 2.9010183811187744,
+        "residual": 2.3699816188812255
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Chengalputtu",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.717,
+        "predicted_mean_over_seeds": 2.7164864540100098,
+        "residual": 2.00051354598999
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Thiruvallur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.34,
+        "predicted_mean_over_seeds": 2.7774736881256104,
+        "residual": 1.5625263118743895
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Cuddalore",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.748,
+        "predicted_mean_over_seeds": 2.856226682662964,
+        "residual": 0.8917733173370364
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Villupuram",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.193,
+        "predicted_mean_over_seeds": 2.6859066486358643,
+        "residual": 1.5070933513641354
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Kallakurichi",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.144,
+        "predicted_mean_over_seeds": 2.6000657081604004,
+        "residual": 1.5439342918395997
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Vellore",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.097,
+        "predicted_mean_over_seeds": 2.922877788543701,
+        "residual": 1.1741222114562992
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Ranipet",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.665,
+        "predicted_mean_over_seeds": 2.7573559284210205,
+        "residual": 1.9076440715789795
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tirupathur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.864,
+        "predicted_mean_over_seeds": 3.1110401153564453,
+        "residual": 0.7529598846435546
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tiruvannamalai",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.264,
+        "predicted_mean_over_seeds": 2.743734836578369,
+        "residual": 1.520265163421631
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Salem",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.318,
+        "predicted_mean_over_seeds": 2.5725293159484863,
+        "residual": 1.7454706840515133
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Namakkal",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.523,
+        "predicted_mean_over_seeds": 2.5127010345458984,
+        "residual": 2.0102989654541012
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Dharmapuri",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.287,
+        "predicted_mean_over_seeds": 3.0356087684631348,
+        "residual": 1.2513912315368652
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Krishnagiri",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.697,
+        "predicted_mean_over_seeds": 3.283430814743042,
+        "residual": 1.413569185256958
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Coimbatore",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.737,
+        "predicted_mean_over_seeds": 2.936662435531616,
+        "residual": 0.8003375644683839
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tiruppur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.849,
+        "predicted_mean_over_seeds": 2.734182834625244,
+        "residual": 2.114817165374756
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Erode",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.559,
+        "predicted_mean_over_seeds": 2.6004979610443115,
+        "residual": 1.9585020389556886
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tiruchchirappalli",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.235,
+        "predicted_mean_over_seeds": 2.708479404449463,
+        "residual": 1.5265205955505374
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Karur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.504,
+        "predicted_mean_over_seeds": 2.7972424030303955,
+        "residual": 0.7067575969696045
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Perambalur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.38,
+        "predicted_mean_over_seeds": 2.8141958713531494,
+        "residual": 1.5658041286468505
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Ariyalur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.861,
+        "predicted_mean_over_seeds": 3.0603229999542236,
+        "residual": 0.8006770000457766
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Pudukkottai",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.111,
+        "predicted_mean_over_seeds": 2.689788818359375,
+        "residual": 0.4212111816406252
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Thanjavur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.72,
+        "predicted_mean_over_seeds": 3.094264507293701,
+        "residual": 0.625735492706299
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Thiruvarur",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.644,
+        "predicted_mean_over_seeds": 3.404829502105713,
+        "residual": 0.23917049789428724
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Nagapattinam",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.301,
+        "predicted_mean_over_seeds": 3.5896964073181152,
+        "residual": -0.2886964073181151
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Madurai",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.1,
+        "predicted_mean_over_seeds": 2.56608510017395,
+        "residual": 1.5339148998260494
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Theni",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.106,
+        "predicted_mean_over_seeds": 3.1351318359375,
+        "residual": 0.9708681640624999
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Dindigul",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.537,
+        "predicted_mean_over_seeds": 2.4495291709899902,
+        "residual": 2.0874708290100097
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Ramanathapuram",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 2.526,
+        "predicted_mean_over_seeds": 3.261894702911377,
+        "residual": -0.7358947029113772
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Virudhunagar",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.38,
+        "predicted_mean_over_seeds": 2.4922935962677,
+        "residual": 0.8877064037322997
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Sivaganga",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 2.676,
+        "predicted_mean_over_seeds": 2.5828933715820312,
+        "residual": 0.0931066284179689
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tirunelveli Kattabo",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.222,
+        "predicted_mean_over_seeds": 2.843690872192383,
+        "residual": 1.3783091278076176
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tenkasi",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.738,
+        "predicted_mean_over_seeds": 2.7801737785339355,
+        "residual": 0.9578262214660644
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Thoothukudi",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.705,
+        "predicted_mean_over_seeds": 3.0943708419799805,
+        "residual": 0.6106291580200196
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Nilgiris",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 4.104,
+        "predicted_mean_over_seeds": 3.908320188522339,
+        "residual": 0.19567981147766123
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Kanniyakumari",
+        "season": "Whole Year",
+        "year": 2019,
+        "actual": 3.993,
+        "predicted_mean_over_seeds": 3.169475793838501,
+        "residual": 0.8235242061614989
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Ariyalur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.538,
+        "predicted_mean_over_seeds": 2.7291672229766846,
+        "residual": 0.8088327770233152
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Chengalputtu",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.865,
+        "predicted_mean_over_seeds": 2.7503437995910645,
+        "residual": 1.1146562004089358
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Chennai",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.267,
+        "predicted_mean_over_seeds": 3.5034351348876953,
+        "residual": -0.2364351348876954
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Coimbatore",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.469,
+        "predicted_mean_over_seeds": 2.9591519832611084,
+        "residual": 0.5098480167388915
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Cuddalore",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 2.76,
+        "predicted_mean_over_seeds": 2.653533458709717,
+        "residual": 0.10646654129028299
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Dharmapuri",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 4.054,
+        "predicted_mean_over_seeds": 3.0513901710510254,
+        "residual": 1.0026098289489749
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Dindigul",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.408,
+        "predicted_mean_over_seeds": 2.410271406173706,
+        "residual": 0.9977285938262939
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Erode",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 4.018,
+        "predicted_mean_over_seeds": 2.49621844291687,
+        "residual": 1.5217815570831297
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Kallakurichi",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.835,
+        "predicted_mean_over_seeds": 2.419191837310791,
+        "residual": 1.415808162689209
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Kancheepuram",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.754,
+        "predicted_mean_over_seeds": 2.8896596431732178,
+        "residual": 0.8643403568267822
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Kanniyakumari",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.835,
+        "predicted_mean_over_seeds": 3.4378886222839355,
+        "residual": 0.3971113777160644
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Karur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.702,
+        "predicted_mean_over_seeds": 2.7436702251434326,
+        "residual": 0.9583297748565673
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Krishnagiri",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.64,
+        "predicted_mean_over_seeds": 3.3447391986846924,
+        "residual": 0.29526080131530774
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Madurai",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.286,
+        "predicted_mean_over_seeds": 2.692019462585449,
+        "residual": 0.5939805374145508
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Mayiladuthurai",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.077,
+        "predicted_mean_over_seeds": 3.454441785812378,
+        "residual": -0.377441785812378
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Nagapattinam",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 2.611,
+        "predicted_mean_over_seeds": 3.3846206665039062,
+        "residual": -0.773620666503906
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Namakkal",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.9,
+        "predicted_mean_over_seeds": 2.4888617992401123,
+        "residual": 1.4111382007598876
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Perambalur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.95,
+        "predicted_mean_over_seeds": 2.488309860229492,
+        "residual": 1.461690139770508
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Pudukkottai",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.294,
+        "predicted_mean_over_seeds": 2.6074862480163574,
+        "residual": 0.6865137519836426
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Ramanathapuram",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 1.966,
+        "predicted_mean_over_seeds": 3.10915470123291,
+        "residual": -1.1431547012329102
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Ranipet",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.65,
+        "predicted_mean_over_seeds": 2.763338804244995,
+        "residual": 0.8866611957550048
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Salem",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 4.151,
+        "predicted_mean_over_seeds": 2.733114242553711,
+        "residual": 1.4178857574462889
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Sivaganga",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 2.892,
+        "predicted_mean_over_seeds": 2.4580190181732178,
+        "residual": 0.43398098182678213
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tenkasi",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.684,
+        "predicted_mean_over_seeds": 2.914625644683838,
+        "residual": 0.7693743553161623
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Thanjavur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.176,
+        "predicted_mean_over_seeds": 2.8571319580078125,
+        "residual": 0.31886804199218766
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Nilgiris",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.008,
+        "predicted_mean_over_seeds": 3.9883925914764404,
+        "residual": -0.9803925914764404
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Theni",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 4.289,
+        "predicted_mean_over_seeds": 3.3262577056884766,
+        "residual": 0.9627422943115231
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Thoothukudi",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.619,
+        "predicted_mean_over_seeds": 3.0155344009399414,
+        "residual": 0.6034655990600588
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tiruchchirappalli",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.829,
+        "predicted_mean_over_seeds": 2.6061596870422363,
+        "residual": 1.2228403129577639
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tirunelveli Kattabo",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 4.068,
+        "predicted_mean_over_seeds": 2.8375744819641113,
+        "residual": 1.2304255180358883
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tirupathur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.949,
+        "predicted_mean_over_seeds": 3.188281297683716,
+        "residual": 0.760718702316284
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tiruppur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 4.361,
+        "predicted_mean_over_seeds": 2.660984516143799,
+        "residual": 1.700015483856201
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Thiruvallur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.562,
+        "predicted_mean_over_seeds": 2.8298096656799316,
+        "residual": 0.7321903343200682
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Tiruvannamalai",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.726,
+        "predicted_mean_over_seeds": 2.7278995513916016,
+        "residual": 0.9981004486083984
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Thiruvarur",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.153,
+        "predicted_mean_over_seeds": 3.1629133224487305,
+        "residual": -0.009913322448730444
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Vellore",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.267,
+        "predicted_mean_over_seeds": 2.9659810066223145,
+        "residual": 0.30101899337768545
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Villupuram",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 3.135,
+        "predicted_mean_over_seeds": 2.5525546073913574,
+        "residual": 0.5824453926086424
+      },
+      {
+        "state": "Tamil Nadu",
+        "canonical_district_name": "Virudhunagar",
+        "season": "Whole Year",
+        "year": 2024,
+        "actual": 2.789,
+        "predicted_mean_over_seeds": 2.298729419708252,
+        "residual": 0.4902705802917482
+      }
+    ],
+    "error_decomposition": {
+      "as_predicted": {
+        "mae": 1.0007130063546672,
+        "rmse": 1.1425644616447004,
+        "r2": -2.693900668673737
+      },
+      "oracle_debiased_upper_bound": {
+        "mae": 0.5628120202439991,
+        "rmse": 0.7313103333514998,
+        "r2": -0.5133075875230737
+      },
+      "tamil_nadu_own_mean": {
+        "mae": 0.46225675675675676,
+        "rmse": 0.5944811729966559,
+        "r2": 0.0
+      },
+      "share_of_mse_from_constant_offset": 0.5903226092794711,
+      "interpretation": "The constant level offset accounts for ~59% of the mean squared error. But removing it entirely with oracle knowledge still leaves R2 = -0.51, i.e. still worse than predicting Tamil Nadu own mean. Recalibrating the intercept would therefore fix most of the magnitude of the error but would NOT produce a useful model: the remaining failure is loss of ranking ability, not a shifted intercept."
+    }
+  }
+}
