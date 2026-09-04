@@ -1,0 +1,93 @@
+[
+ {
+  "filename": "imd_rain_2000.grd",
+  "official_filename": "ind2000_rfp25.grd",
+  "year": 2000,
+  "bytes": 25495560,
+  "sha256": "2f2b20a58c883e117467beb1767cd4bce4e517fef9d53f4b00318eea4ba2de25"
+ },
+ {
+  "filename": "imd_rain_2001.grd",
+  "official_filename": "ind2001_rfp25.grd",
+  "year": 2001,
+  "bytes": 25425900,
+  "sha256": "83185ebbab190a95c87bee058f36835de5758c24908805f85f2b3394a127fd37"
+ },
+ {
+  "filename": "imd_rain_2002.grd",
+  "official_filename": "ind2002_rfp25.grd",
+  "year": 2002,
+  "bytes": 25425900,
+  "sha256": "b138efce173261e6ede0ba06cbb90c1a21462222c44fd3dc46f6a85c24a1ca8b"
+ },
+ {
+  "filename": "imd_rain_2003.grd",
+  "official_filename": "ind2003_rfp25.grd",
+  "year": 2003,
+  "bytes": 25425900,
+  "sha256": "5542e3441278325c038d7933fc294087afb1acc75cd8d37c51e76ce4d6462d08"
+ },
+ {
+  "filename": "imd_rain_2004.grd",
+  "official_filename": "ind2004_rfp25.grd",
+  "year": 2004,
+  "bytes": 25495560,
+  "sha256": "8d671a7b4eeeb21802599d8b48ce34576093a2df46030ab2fac32228e62d4bc7"
+ },
+ {
+  "filename": "imd_rain_2005.grd",
+  "official_filename": "ind2005_rfp25.grd",
+  "year": 2005,
+  "bytes": 25425900,
+  "sha256": "8e22a50a30c92d9cb948cbcce8faa678b49c00f881e2c0eca77a353fb6670bd2"
+ },
+ {
+  "filename": "imd_rain_2006.grd",
+  "official_filename": "ind2006_rfp25.grd",
+  "year": 2006,
+  "bytes": 25425900,
+  "sha256": "79d1d9acb4da5614dc00991c03c114fa9031fa4e3bca9e9e32150472043f4cba"
+ },
+ {
+  "filename": "imd_rain_2007.grd",
+  "official_filename": "ind2007_rfp25.grd",
+  "year": 2007,
+  "bytes": 25425900,
+  "sha256": "6056e795aaa11f261ad2c4c781f1c5fe303c9d05cfc8f0afabd47d2fc49c5da8"
+ },
+ {
+  "filename": "imd_rain_2008.grd",
+  "official_filename": "ind2008_rfp25.grd",
+  "year": 2008,
+  "bytes": 25495560,
+  "sha256": "8c22bbde0d4753cdb9c142536d9498b3b21b2cb3fdbe48da29a20951fb9d3799"
+ },
+ {
+  "filename": "imd_rain_2009.grd",
+  "official_filename": "ind2009_rfp25.grd",
+  "year": 2009,
+  "bytes": 25425900,
+  "sha256": "1023548bcc409d95541e4b52f86ac37e7648cf2cd9c34ed42bf8ce0a45eb108e"
+ },
+ {
+  "filename": "imd_rain_2010.grd",
+  "official_filename": "ind2010_rfp25.grd",
+  "year": 2010,
+  "bytes": 25425900,
+  "sha256": "1db12d8eb5a471d3623ff448bdd72a25a3afc577c0b979233083e0c183a143d0"
+ },
+ {
+  "filename": "imd_rain_2011.grd",
+  "official_filename": "ind2011_rfp25.grd",
+  "year": 2011,
+  "bytes": 25425900,
+  "sha256": "1f656dc6498b8bcb8423ed8713b4b8469c0d66771b67bd2e985a3071240ac67b"
+ },
+ {
+  "filename": "imd_rain_2012.grd",
+  "official_filename": "ind2012_rfp25.grd",
+  "year": 2012,
+  "bytes": 25495560,
+  "sha256": "3f007292029a212edde5ee1ee618242c8f2a64062d80e196d20f9576e8f77381"
+ }
+]

@@ -1,0 +1,45 @@
+{
+ "rows_total": 382,
+ "rows_observed": 382,
+ "status_counts": {
+  "OBSERVED": 382
+ },
+ "anomaly_status_counts": {
+  "OBSERVED": 382
+ },
+ "onset_status_counts": {
+  "OBSERVED": 382
+ },
+ "districts": 32,
+ "years": [
+  2000,
+  2001,
+  2002,
+  2003,
+  2004,
+  2005,
+  2006,
+  2007,
+  2008,
+  2009,
+  2010,
+  2011,
+  2012
+ ],
+ "validation_vs_existing_pipeline": {
+  "n_compared": 382,
+  "max_abs_diff_mm": 0.005000000000109139,
+  "mean_abs_diff_mm": 0.00244502617801292,
+  "n_over_1mm": 0
+ },
+ "definitions": {
+  "rain_day_threshold_mm": 2.5,
+  "rain_day_threshold_source": "IMD definition of a rainy day",
+  "onset_rule": "first day whose forward 7-day cumulative precipitation reaches 25.0 mm",
+  "onset_rule_caveat": "standard agronomic convention, NOT a per-district verified sowing date",
+  "window": "1 June - 30 November inclusive (183 days)",
+  "baseline": "1971-2000, strictly prior to the 2000-2012 panel",
+  "n_blocks": 18,
+  "block_note": "final block carries 13 days; mean daily rate per block is used so unequal length adds no dispersion"
+ }
+}

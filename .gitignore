@@ -7,3 +7,10 @@ venv/
 *.egg-info/
 .ipynb_checkpoints/
 data/metadata/boundary_sources/geoboundaries_IND_ADM2.geojson
+
+# Experiment 8: IMD gridded rainfall raw binaries (330.8 MB, 13 files).
+# CITED-NOT-STORED. Reproducible from the official IMD Pune source via
+# ingestion/imd_gridded_validation.py; SHA-256 hashes and full provenance are
+# recorded in data/processed/experiment8_imd_file_inventory.json and in
+# experiments/EXPERIMENT_8_RAINFALL_RESULTS.md.
+data/raw/weather/imd_gridded/

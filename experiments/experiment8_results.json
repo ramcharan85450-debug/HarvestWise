@@ -1,0 +1,1347 @@
+{
+ "experiment": 8,
+ "title": "Kharif Rainfall Anomaly and Intra-Seasonal Distribution",
+ "primary_verdict": "INCONCLUSIVE",
+ "preregistration_commit": "04441c5",
+ "preregistration_file": "experiments/EXPERIMENT_8_PREREGISTRATION.md",
+ "hypothesis_H8": "Within districts, information about the intra-seasonal distribution and climatological anomaly of Kharif rainfall explains variation in Kharif rice yield BEYOND what the seasonal rainfall total (weather_precip_mm_sum) already explains.",
+ "not_tested": "Whether rainfall affects yield. The seasonal rainfall total was already a model feature.",
+ "analytic_sample": {
+  "rows": 359,
+  "districts": 31,
+  "years": 13,
+  "regions": 3,
+  "by_region": {
+   "Andhra Pradesh": {
+    "rows": 130,
+    "districts": 10
+   },
+   "Tamil Nadu": {
+    "rows": 121,
+    "districts": 12
+   },
+   "Telangana": {
+    "rows": 108,
+    "districts": 9
+   }
+  },
+  "initial_panel": 382,
+  "e1_boundary_exclusions": 22,
+  "e2_singleton_exclusions": 1
+ },
+ "primary_test": {
+  "wald_statistic": 7.658,
+  "degrees_of_freedom": 5,
+  "chi2_p": 0.1761,
+  "wild_cluster_bootstrap_p": 0.3418,
+  "bootstrap_reps": 9999,
+  "bootstrap_weights": "Rademacher (restricted)",
+  "cluster_unit": "district",
+  "incremental_within_r2": 0.0273,
+  "r2_threshold": 0.031,
+  "inference_of_record": "restricted wild cluster bootstrap"
+ },
+ "measurement_validation": {
+  "status": "REGION_CORRELATED_DISAGREEMENT",
+  "affected_region": "Tamil Nadu",
+  "prior_experiment_status": "AUDIT_FLAG_ONLY",
+  "within_district_r": {
+   "Andhra Pradesh": 0.77,
+   "Telangana": 0.751,
+   "Tamil Nadu": 0.446
+  },
+  "mean_abs_diff_mm": {
+   "Andhra Pradesh": 154,
+   "Telangana": 129,
+   "Tamil Nadu": 254
+  },
+  "future_audit_question": "Does region-correlated ERA5 rainfall measurement disagreement materially affect conclusions in previous experiments that relied materially on the ERA5-derived rainfall feature?",
+  "retrospective_invalidation": false
+ },
+ "raw_imd_data": {
+  "storage_policy": "CITED_NOT_STORED",
+  "institution": "India Meteorological Department, Pune",
+  "product": "Gridded Rainfall 0.25 x 0.25 degree daily binary",
+  "source_url": "https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_25_Bin.html",
+  "retrieval_procedure": "HTTP POST rain=<year> to https://www.imdpune.gov.in/cmpg/Griddata/rainfall.php",
+  "retrieval_date": "2026-09-04",
+  "years": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012
+  ],
+  "total_bytes": 330815340,
+  "n_files": 13,
+  "processing_script": "ingestion/imd_gridded_validation.py",
+  "file_inventory": [
+   {
+    "filename": "imd_rain_2000.grd",
+    "official_filename": "ind2000_rfp25.grd",
+    "year": 2000,
+    "bytes": 25495560,
+    "sha256": "2f2b20a58c883e117467beb1767cd4bce4e517fef9d53f4b00318eea4ba2de25"
+   },
+   {
+    "filename": "imd_rain_2001.grd",
+    "official_filename": "ind2001_rfp25.grd",
+    "year": 2001,
+    "bytes": 25425900,
+    "sha256": "83185ebbab190a95c87bee058f36835de5758c24908805f85f2b3394a127fd37"
+   },
+   {
+    "filename": "imd_rain_2002.grd",
+    "official_filename": "ind2002_rfp25.grd",
+    "year": 2002,
+    "bytes": 25425900,
+    "sha256": "b138efce173261e6ede0ba06cbb90c1a21462222c44fd3dc46f6a85c24a1ca8b"
+   },
+   {
+    "filename": "imd_rain_2003.grd",
+    "official_filename": "ind2003_rfp25.grd",
+    "year": 2003,
+    "bytes": 25425900,
+    "sha256": "5542e3441278325c038d7933fc294087afb1acc75cd8d37c51e76ce4d6462d08"
+   },
+   {
+    "filename": "imd_rain_2004.grd",
+    "official_filename": "ind2004_rfp25.grd",
+    "year": 2004,
+    "bytes": 25495560,
+    "sha256": "8d671a7b4eeeb21802599d8b48ce34576093a2df46030ab2fac32228e62d4bc7"
+   },
+   {
+    "filename": "imd_rain_2005.grd",
+    "official_filename": "ind2005_rfp25.grd",
+    "year": 2005,
+    "bytes": 25425900,
+    "sha256": "8e22a50a30c92d9cb948cbcce8faa678b49c00f881e2c0eca77a353fb6670bd2"
+   },
+   {
+    "filename": "imd_rain_2006.grd",
+    "official_filename": "ind2006_rfp25.grd",
+    "year": 2006,
+    "bytes": 25425900,
+    "sha256": "79d1d9acb4da5614dc00991c03c114fa9031fa4e3bca9e9e32150472043f4cba"
+   },
+   {
+    "filename": "imd_rain_2007.grd",
+    "official_filename": "ind2007_rfp25.grd",
+    "year": 2007,
+    "bytes": 25425900,
+    "sha256": "6056e795aaa11f261ad2c4c781f1c5fe303c9d05cfc8f0afabd47d2fc49c5da8"
+   },
+   {
+    "filename": "imd_rain_2008.grd",
+    "official_filename": "ind2008_rfp25.grd",
+    "year": 2008,
+    "bytes": 25495560,
+    "sha256": "8c22bbde0d4753cdb9c142536d9498b3b21b2cb3fdbe48da29a20951fb9d3799"
+   },
+   {
+    "filename": "imd_rain_2009.grd",
+    "official_filename": "ind2009_rfp25.grd",
+    "year": 2009,
+    "bytes": 25425900,
+    "sha256": "1023548bcc409d95541e4b52f86ac37e7648cf2cd9c34ed42bf8ce0a45eb108e"
+   },
+   {
+    "filename": "imd_rain_2010.grd",
+    "official_filename": "ind2010_rfp25.grd",
+    "year": 2010,
+    "bytes": 25425900,
+    "sha256": "1db12d8eb5a471d3623ff448bdd72a25a3afc577c0b979233083e0c183a143d0"
+   },
+   {
+    "filename": "imd_rain_2011.grd",
+    "official_filename": "ind2011_rfp25.grd",
+    "year": 2011,
+    "bytes": 25425900,
+    "sha256": "1f656dc6498b8bcb8423ed8713b4b8469c0d66771b67bd2e985a3071240ac67b"
+   },
+   {
+    "filename": "imd_rain_2012.grd",
+    "official_filename": "ind2012_rfp25.grd",
+    "year": 2012,
+    "bytes": 25495560,
+    "sha256": "3f007292029a212edde5ee1ee618242c8f2a64062d80e196d20f9576e8f77381"
+   }
+  ]
+ },
+ "deviations_from_preregistration": [
+  {
+   "item": "wild cluster bootstrap applied to robustness arms 1-8",
+   "preregistered": false,
+   "rationale": "Chi-squared p-values are anti-conservative with few clusters, and the arms that rejected are those with the fewest clusters. The same procedure the pre-registration fixes for the primary test was applied uniformly across arms. It makes inference MORE conservative. Both asymptotic and bootstrap p-values are reported for every arm.",
+   "affects_primary": false,
+   "primary_arm0_unchanged": true
+  }
+ ],
+ "integrity_assertions": {
+  "experiments_1_to_7_modified": false,
+  "training_dir_modified": false,
+  "models_dir_modified": false,
+  "backend_dir_modified": false,
+  "district_multimodal_examples_modified": false,
+  "district_multimodal_examples_v2_modified": false,
+  "experiment8_variables_merged_into_main_datasets": false,
+  "primary_specification_changed_after_seeing_results": false,
+  "thresholds_changed_after_seeing_results": false
+ },
+ "screens": {
+  "precip_anomaly_z": {
+   "icc": 0.10665744691078126,
+   "within_pct": 89.33425530892187,
+   "ks": 0.24282412148520932,
+   "smd": 0.44845604917425624,
+   "fingerprint_fail": false,
+   "region_proxy_fail": false,
+   "verdict": "PASS"
+  },
+  "rain_days": {
+   "icc": 0.5151737152229497,
+   "within_pct": 48.48262847770503,
+   "ks": 0.08646165549931228,
+   "smd": 0.16079336896743784,
+   "fingerprint_fail": false,
+   "region_proxy_fail": false,
+   "verdict": "PASS"
+  },
+  "max_dry_spell_days": {
+   "icc": 0.3371895690572208,
+   "within_pct": 66.28104309427792,
+   "ks": 0.34742663194546036,
+   "smd": -0.8174993793521114,
+   "fingerprint_fail": false,
+   "region_proxy_fail": false,
+   "verdict": "PASS"
+  },
+  "precip_cv_10day": {
+   "icc": 0.36969758654446205,
+   "within_pct": 63.0302413455538,
+   "ks": 0.21347689966936828,
+   "smd": -0.27995819851046355,
+   "fingerprint_fail": false,
+   "region_proxy_fail": false,
+   "verdict": "PASS"
+  },
+  "onset_day": {
+   "icc": 0.3570344041769587,
+   "within_pct": 64.29655958230414,
+   "ks": 0.17081663106767708,
+   "smd": 0.3900710483432456,
+   "fingerprint_fail": false,
+   "region_proxy_fail": false,
+   "verdict": "PASS"
+  },
+  "weather_precip_mm_sum": {
+   "icc": 0.510951452722592,
+   "within_pct": 48.9048547277408,
+   "ks": 0.1643795535008925,
+   "smd": -0.3935583704616266,
+   "fingerprint_fail": false,
+   "region_proxy_fail": false,
+   "verdict": "PASS"
+  }
+ },
+ "screens_note": "Published BEFORE any model was fitted. A variable with ICC > 0.90 is excluded from the primary model as a district fingerprint; a variable failing KS >= 0.95 or |SMD| >= 3 is excluded from cross-region interpretation.",
+ "panel": {
+  "rows_features": 382,
+  "e1_dropped": 22,
+  "e2_dropped": 1,
+  "analytic_n": 359,
+  "analytic_districts": 31,
+  "analytic_years": 13,
+  "by_state": {
+   "Andhra Pradesh": 130,
+   "Tamil Nadu": 121,
+   "Telangana": 108
+  }
+ },
+ "primary_block": [
+  "precip_anomaly_z",
+  "rain_days",
+  "max_dry_spell_days",
+  "precip_cv_10day",
+  "onset_day"
+ ],
+ "primary_block_excluded": [],
+ "arm0_primary": {
+  "label": "Arm 0 PRIMARY: two-way FE",
+  "n": 359,
+  "districts": 31,
+  "years": 13,
+  "year_fe": true,
+  "region_trends": false,
+  "control_beta": -0.0004263488638478613,
+  "joint_wald": 7.658248459018149,
+  "joint_p_chi2": 0.17610323543854667,
+  "incremental_within_r2": 0.027349820228595258,
+  "coefficients": {
+   "precip_anomaly_z": {
+    "beta": 0.029419827538755695,
+    "se_cluster": 0.16890148929493642,
+    "se_hc3": 0.13981313739317572,
+    "se_iid": 0.12200716242504239,
+    "design_effect": 1.3843571634468963,
+    "ci_low": -0.3155230318765513,
+    "ci_high": 0.3743626869540627,
+    "p_cluster": 0.8628914926900504
+   },
+   "rain_days": {
+    "beta": 0.15676172511358716,
+    "se_cluster": 0.09231951993493433,
+    "se_hc3": 0.10996817426438212,
+    "se_iid": 0.09038455719463762,
+    "design_effect": 1.0214081121859113,
+    "ci_low": -0.031779887628482245,
+    "ci_high": 0.3453033378556566,
+    "p_cluster": 0.09985231306466913
+   },
+   "max_dry_spell_days": {
+    "beta": -0.03984159946283288,
+    "se_cluster": 0.027148838304572175,
+    "se_hc3": 0.04312692492102141,
+    "se_iid": 0.03965556451908917,
+    "design_effect": 0.6846161095879348,
+    "ci_low": -0.09528692415283663,
+    "ci_high": 0.015603725227170864,
+    "p_cluster": 0.15263991466590743
+   },
+   "precip_cv_10day": {
+    "beta": -0.019710205736914444,
+    "se_cluster": 0.055646826579816525,
+    "se_hc3": 0.05486326138772174,
+    "se_iid": 0.050553848570635905,
+    "design_effect": 1.1007436259192909,
+    "ci_low": -0.13335618694144535,
+    "ci_high": 0.09393577546761646,
+    "p_cluster": 0.725665218620029
+   },
+   "onset_day": {
+    "beta": 0.029802617680927245,
+    "se_cluster": 0.030894858493059733,
+    "se_hc3": 0.03786977745387979,
+    "se_iid": 0.037093184021016225,
+    "design_effect": 0.8328985313192674,
+    "ci_low": -0.033293100860773014,
+    "ci_high": 0.09289833622262751,
+    "p_cluster": 0.34243402624843067
+   }
+  },
+  "joint_p_wild_bootstrap": 0.3418,
+  "bootstrap_reps": 9999,
+  "holm_adjusted_p": {
+   "rain_days": 0.49926156532334565,
+   "max_dry_spell_days": 0.6105596586636297,
+   "onset_day": 1.0,
+   "precip_cv_10day": 1.0,
+   "precip_anomaly_z": 1.0
+  }
+ },
+ "decision": {
+  "outcome": "INCONCLUSIVE",
+  "joint_p_used": 0.3418,
+  "incremental_within_r2": 0.027349820228595258,
+  "any_coefficient_at_or_above_A1_with_ci_excluding_zero": false,
+  "all_cis_exclude_A1": false,
+  "some_ci_contains_both_zero_and_A1": true,
+  "anchor_A1": 0.0834,
+  "anchor_A2": 0.044390000000000006
+ },
+ "robustness_arms": {
+  "arm1_district_fe_only": {
+   "label": "Arm 1: district FE only",
+   "n": 359,
+   "districts": 31,
+   "years": 13,
+   "year_fe": false,
+   "region_trends": false,
+   "control_beta": -0.000291905065783557,
+   "joint_wald": 13.492238693115105,
+   "joint_p_chi2": 0.01917772262621309,
+   "incremental_within_r2": 0.04095029726607364,
+   "coefficients": {
+    "precip_anomaly_z": {
+     "beta": -0.035054543683645814,
+     "se_cluster": 0.15835932291446908,
+     "se_hc3": 0.14237172301742781,
+     "se_iid": 0.12624467531516667,
+     "design_effect": 1.2543841751672218,
+     "ci_low": -0.35846742707037943,
+     "ci_high": 0.28835833970308783,
+     "p_cluster": 0.8263113604546339
+    },
+    "rain_days": {
+     "beta": 0.25669893127418497,
+     "se_cluster": 0.07597188689334837,
+     "se_hc3": 0.10018682397393039,
+     "se_iid": 0.08697397715963112,
+     "design_effect": 0.8735013549387349,
+     "ci_low": 0.10154363921866658,
+     "ci_high": 0.41185422332970334,
+     "p_cluster": 0.0020334619667796705
+    },
+    "max_dry_spell_days": {
+     "beta": -0.028023644263003532,
+     "se_cluster": 0.03303208567873148,
+     "se_hc3": 0.03743118489094474,
+     "se_iid": 0.03860215161589572,
+     "design_effect": 0.8557058168003626,
+     "ci_low": -0.09548416301885942,
+     "ci_high": 0.03943687449285235,
+     "p_cluster": 0.4029469812006261
+    },
+    "precip_cv_10day": {
+     "beta": 0.04841121372953857,
+     "se_cluster": 0.04269691725791463,
+     "se_hc3": 0.05337345151574997,
+     "se_iid": 0.047885385516002764,
+     "design_effect": 0.8916481886450678,
+     "ci_low": -0.038787524355273446,
+     "ci_high": 0.1356099518143506,
+     "p_cluster": 0.2658437847416142
+    },
+    "onset_day": {
+     "beta": 0.00874823313330098,
+     "se_cluster": 0.037364956645000516,
+     "se_hc3": 0.04299768914546842,
+     "se_iid": 0.038997737503108976,
+     "design_effect": 0.9581313952385496,
+     "ci_low": -0.06756118865367348,
+     "ci_high": 0.08505765492027544,
+     "p_cluster": 0.8164750397174152
+    }
+   }
+  },
+  "arm2_region_trends": {
+   "label": "Arm 2: district FE + region linear trends",
+   "n": 359,
+   "districts": 31,
+   "years": 13,
+   "year_fe": false,
+   "region_trends": true,
+   "control_beta": -1.6412209642637012e-05,
+   "joint_wald": 16.50876036184594,
+   "joint_p_chi2": 0.005532129107830186,
+   "incremental_within_r2": 0.035151671156316455,
+   "coefficients": {
+    "precip_anomaly_z": {
+     "beta": -0.09023560615280257,
+     "se_cluster": 0.1585930087239978,
+     "se_hc3": 0.13990927813599852,
+     "se_iid": 0.12362639152246839,
+     "design_effect": 1.2828410404195487,
+     "ci_low": -0.41412573963176524,
+     "ci_high": 0.2336545273261601,
+     "p_cluster": 0.5736079208709564
+    },
+    "rain_days": {
+     "beta": 0.23543717261127572,
+     "se_cluster": 0.07856928859044364,
+     "se_hc3": 0.09650198430690293,
+     "se_iid": 0.08486910562468063,
+     "design_effect": 0.9257701964941534,
+     "ci_low": 0.07497727861182957,
+     "ci_high": 0.3958970666107219,
+     "p_cluster": 0.005436867967528292
+    },
+    "max_dry_spell_days": {
+     "beta": 0.013212879020738337,
+     "se_cluster": 0.02852116400823646,
+     "se_hc3": 0.038141622837282375,
+     "se_iid": 0.03877490607667484,
+     "design_effect": 0.735557268709761,
+     "ci_low": -0.04503510865493319,
+     "ci_high": 0.07146086669640986,
+     "p_cluster": 0.6465172782875555
+    },
+    "precip_cv_10day": {
+     "beta": 0.021393075431967477,
+     "se_cluster": 0.03809280119245561,
+     "se_hc3": 0.0531453289563807,
+     "se_iid": 0.0474858857090535,
+     "design_effect": 0.8021920750483751,
+     "ci_low": -0.05640280322674357,
+     "ci_high": 0.09918895409067852,
+     "p_cluster": 0.578557516901065
+    },
+    "onset_day": {
+     "beta": 0.016454611457360442,
+     "se_cluster": 0.035121210013002446,
+     "se_hc3": 0.03947863427332762,
+     "se_iid": 0.0383951076595342,
+     "design_effect": 0.9147313851659747,
+     "ci_low": -0.0552724683841657,
+     "ci_high": 0.08818169129888659,
+     "p_cluster": 0.6428069504765896
+    }
+   }
+  },
+  "arm3_include_e1": {
+   "label": "Arm 3: include the 22 E1 boundary rows",
+   "n": 381,
+   "districts": 31,
+   "years": 13,
+   "year_fe": true,
+   "region_trends": false,
+   "control_beta": -7.530699419080355e-05,
+   "joint_wald": 2.84391552888451,
+   "joint_p_chi2": 0.724034278602845,
+   "incremental_within_r2": 0.01056253145202721,
+   "coefficients": {
+    "precip_anomaly_z": {
+     "beta": -0.0453481228715564,
+     "se_cluster": 0.17508846370532238,
+     "se_hc3": 0.1369851040606602,
+     "se_iid": 0.1376287616488005,
+     "design_effect": 1.2721793149030223,
+     "ci_low": -0.40292646971303525,
+     "ci_high": 0.3122302239699225,
+     "p_cluster": 0.7974032543400156
+    },
+    "rain_days": {
+     "beta": 0.11312182101753276,
+     "se_cluster": 0.10468486193640324,
+     "se_hc3": 0.11614788077772081,
+     "se_iid": 0.10580306033485255,
+     "design_effect": 0.9894313227338569,
+     "ci_low": -0.10067318910688142,
+     "ci_high": 0.3269168311419469,
+     "p_cluster": 0.28848854781930866
+    },
+    "max_dry_spell_days": {
+     "beta": -0.005179251142847212,
+     "se_cluster": 0.03827457733376298,
+     "se_hc3": 0.050922385102449154,
+     "se_iid": 0.046647115184123226,
+     "design_effect": 0.8205132768165283,
+     "ci_low": -0.08334636620816302,
+     "ci_high": 0.07298786392246859,
+     "p_cluster": 0.8932640853548803
+    },
+    "precip_cv_10day": {
+     "beta": -0.034009925259583136,
+     "se_cluster": 0.058571486707420364,
+     "se_hc3": 0.06060326889570272,
+     "se_iid": 0.05987109254518875,
+     "design_effect": 0.9782932667081783,
+     "ci_low": -0.15362885928676182,
+     "ci_high": 0.08560900876759556,
+     "p_cluster": 0.5658086182494426
+    },
+    "onset_day": {
+     "beta": 0.015367168035972134,
+     "se_cluster": 0.033655129518951235,
+     "se_hc3": 0.03759696746280653,
+     "se_iid": 0.04269291877949617,
+     "design_effect": 0.7883070654591681,
+     "ci_low": -0.053365775993832694,
+     "ci_high": 0.08410011206577696,
+     "p_cluster": 0.6512424125696956
+    }
+   }
+  },
+  "arm4_balanced": {
+   "label": "Arm 4: balanced panel (17 districts)",
+   "n": 221,
+   "districts": 17,
+   "years": 13,
+   "year_fe": true,
+   "region_trends": false,
+   "control_beta": -0.0025782152569738216,
+   "joint_wald": 40.63734092940153,
+   "joint_p_chi2": 1.1106328268173371e-07,
+   "incremental_within_r2": 0.052004865803493956,
+   "coefficients": {
+    "precip_anomaly_z": {
+     "beta": 0.502941818926931,
+     "se_cluster": 0.15186334605596383,
+     "se_hc3": 0.16568691560451088,
+     "se_iid": 0.17389120214340562,
+     "design_effect": 0.8733239185426085,
+     "ci_low": 0.18100590686542206,
+     "ci_high": 0.82487773098844,
+     "p_cluster": 0.0044082853579090475
+    },
+    "rain_days": {
+     "beta": 0.018922924950852835,
+     "se_cluster": 0.12832794319345878,
+     "se_hc3": 0.15399987791275296,
+     "se_iid": 0.11950035485894482,
+     "design_effect": 1.0738708127263206,
+     "ci_low": -0.2531201618631245,
+     "ci_high": 0.2909660117648302,
+     "p_cluster": 0.8846130582741663
+    },
+    "max_dry_spell_days": {
+     "beta": 0.019406042731711346,
+     "se_cluster": 0.034390835491056794,
+     "se_hc3": 0.05104613412487821,
+     "se_iid": 0.04591489115516778,
+     "design_effect": 0.7490126759711606,
+     "ci_low": -0.053499271670426354,
+     "ci_high": 0.09231135713384904,
+     "p_cluster": 0.5803888127088572
+    },
+    "precip_cv_10day": {
+     "beta": -0.07922027876609418,
+     "se_cluster": 0.06815461358785747,
+     "se_hc3": 0.0692973862492139,
+     "se_iid": 0.06340961385489027,
+     "design_effect": 1.0748309198637591,
+     "ci_low": -0.22370160527737015,
+     "ci_high": 0.06526104774518181,
+     "p_cluster": 0.26213391930078433
+    },
+    "onset_day": {
+     "beta": 0.05073727608318197,
+     "se_cluster": 0.03765287676976785,
+     "se_hc3": 0.05530118604473931,
+     "se_iid": 0.050704591560610836,
+     "design_effect": 0.7425930396216418,
+     "ci_low": -0.029083256911973762,
+     "ci_high": 0.1305578090783377,
+     "p_cluster": 0.19659212331607057
+    }
+   }
+  },
+  "arm5_leave_one_district_out": {
+   "n_refits": 31,
+   "beta_range": {
+    "precip_anomaly_z": [
+     -0.06268416358830138,
+     0.10057753426278114
+    ],
+    "rain_days": [
+     0.12165630561667684,
+     0.18787841935226696
+    ],
+    "max_dry_spell_days": [
+     -0.05503656714705182,
+     -0.027856712829419462
+    ],
+    "precip_cv_10day": [
+     -0.03907425757110225,
+     5.0676333161887375e-05
+    ],
+    "onset_day": [
+     0.011306785543443732,
+     0.03868996402499059
+    ]
+   },
+   "per_district": {
+    "SD000": {
+     "precip_anomaly_z": 0.03940425452933723,
+     "rain_days": 0.17042548113826841,
+     "max_dry_spell_days": -0.045974578268320895,
+     "precip_cv_10day": -0.024222209326700713,
+     "onset_day": 0.030685277638291722,
+     "joint_wald": 9.777790637636269
+    },
+    "SD001": {
+     "precip_anomaly_z": 0.03496170235980083,
+     "rain_days": 0.1639267113395482,
+     "max_dry_spell_days": -0.040610185397510816,
+     "precip_cv_10day": -0.013400063576885685,
+     "onset_day": 0.034120526457646586,
+     "joint_wald": 7.708356868412794
+    },
+    "SD002": {
+     "precip_anomaly_z": -0.06268416358830138,
+     "rain_days": 0.16395198815994452,
+     "max_dry_spell_days": -0.04183340381254901,
+     "precip_cv_10day": -0.03455315088537458,
+     "onset_day": 0.026368048143770466,
+     "joint_wald": 6.878060578489977
+    },
+    "SD003": {
+     "precip_anomaly_z": 0.05828490863857294,
+     "rain_days": 0.13811773944912847,
+     "max_dry_spell_days": -0.03631724284197992,
+     "precip_cv_10day": -0.03528838922676441,
+     "onset_day": 0.035903908302168774,
+     "joint_wald": 7.883205170938016
+    },
+    "SD005": {
+     "precip_anomaly_z": 0.01786705066284079,
+     "rain_days": 0.12165630561667684,
+     "max_dry_spell_days": -0.037016186154707115,
+     "precip_cv_10day": -0.03907425757110225,
+     "onset_day": 0.027900641464600882,
+     "joint_wald": 6.862607256323049
+    },
+    "SD006": {
+     "precip_anomaly_z": 0.020098097742834733,
+     "rain_days": 0.17328051112246348,
+     "max_dry_spell_days": -0.048214680406148604,
+     "precip_cv_10day": -0.005571498532796376,
+     "onset_day": 0.03382591762938418,
+     "joint_wald": 8.276980270514223
+    },
+    "SD007": {
+     "precip_anomaly_z": 0.035900027493693434,
+     "rain_days": 0.16717020916847578,
+     "max_dry_spell_days": -0.05503656714705182,
+     "precip_cv_10day": -0.013325848638066575,
+     "onset_day": 0.03868996402499059,
+     "joint_wald": 10.672073661506683
+    },
+    "SD009": {
+     "precip_anomaly_z": -0.0074033413650071295,
+     "rain_days": 0.18394494362550654,
+     "max_dry_spell_days": -0.04514528137925532,
+     "precip_cv_10day": -0.0016949183450423735,
+     "onset_day": 0.027050368599225414,
+     "joint_wald": 8.189260303717864
+    },
+    "SD011": {
+     "precip_anomaly_z": -0.008223364678153815,
+     "rain_days": 0.18787841935226696,
+     "max_dry_spell_days": -0.03759092971755366,
+     "precip_cv_10day": 5.0676333161887375e-05,
+     "onset_day": 0.021680865110495554,
+     "joint_wald": 7.602292770429172
+    },
+    "SD012": {
+     "precip_anomaly_z": -0.011540646662154415,
+     "rain_days": 0.16943018537574886,
+     "max_dry_spell_days": -0.040931032878384566,
+     "precip_cv_10day": -0.03541176714823032,
+     "onset_day": 0.030610412953387605,
+     "joint_wald": 8.257952033764624
+    },
+    "SD013": {
+     "precip_anomaly_z": 0.01843209238418047,
+     "rain_days": 0.1618046145895992,
+     "max_dry_spell_days": -0.03763809579471014,
+     "precip_cv_10day": -0.011398360581962247,
+     "onset_day": 0.030646057467072396,
+     "joint_wald": 7.18587555414662
+    },
+    "SD016": {
+     "precip_anomaly_z": 0.030227606138271843,
+     "rain_days": 0.15282764067507243,
+     "max_dry_spell_days": -0.04051676134116691,
+     "precip_cv_10day": -0.02034156302922683,
+     "onset_day": 0.03002516070749991,
+     "joint_wald": 7.427641466628152
+    },
+    "SD017": {
+     "precip_anomaly_z": 0.01510682933180138,
+     "rain_days": 0.16918194906492376,
+     "max_dry_spell_days": -0.040164217422771556,
+     "precip_cv_10day": -0.006148525569343219,
+     "onset_day": 0.011306785543443732,
+     "joint_wald": 7.247880359921187
+    },
+    "SD018": {
+     "precip_anomaly_z": 0.033074887762382016,
+     "rain_days": 0.1541541169058816,
+     "max_dry_spell_days": -0.03803245800800233,
+     "precip_cv_10day": -0.0173510387837444,
+     "onset_day": 0.03152819934619742,
+     "joint_wald": 6.910355686811235
+    },
+    "SD019": {
+     "precip_anomaly_z": -0.026069900852378876,
+     "rain_days": 0.16465793143906632,
+     "max_dry_spell_days": -0.041780855739118744,
+     "precip_cv_10day": -0.007326301122714656,
+     "onset_day": 0.020712157331299323,
+     "joint_wald": 6.534836214062093
+    },
+    "SD020": {
+     "precip_anomaly_z": 0.04490602621033794,
+     "rain_days": 0.15899440770902878,
+     "max_dry_spell_days": -0.041578064673802005,
+     "precip_cv_10day": -0.019854804056848044,
+     "onset_day": 0.03290240958029089,
+     "joint_wald": 8.228793492615004
+    },
+    "SD022": {
+     "precip_anomaly_z": 0.0307584058567186,
+     "rain_days": 0.1561142926949125,
+     "max_dry_spell_days": -0.03448110601513282,
+     "precip_cv_10day": -0.035441123376916996,
+     "onset_day": 0.03247484787321781,
+     "joint_wald": 7.873903243149056
+    },
+    "SD023": {
+     "precip_anomaly_z": 0.017048067659322402,
+     "rain_days": 0.1859392261047192,
+     "max_dry_spell_days": -0.039033086086744766,
+     "precip_cv_10day": -0.021176952755446513,
+     "onset_day": 0.031253294750145176,
+     "joint_wald": 9.752765775033497
+    },
+    "SD024": {
+     "precip_anomaly_z": 0.00850734333848957,
+     "rain_days": 0.14168518730979693,
+     "max_dry_spell_days": -0.04231388687770041,
+     "precip_cv_10day": -0.02089239465635575,
+     "onset_day": 0.016526330739329152,
+     "joint_wald": 6.8909460576271835
+    },
+    "SD025": {
+     "precip_anomaly_z": 0.025490134864739437,
+     "rain_days": 0.1448235539537312,
+     "max_dry_spell_days": -0.038298280025307566,
+     "precip_cv_10day": -0.020226561232185893,
+     "onset_day": 0.030433123158512276,
+     "joint_wald": 6.622917326131814
+    },
+    "SD026": {
+     "precip_anomaly_z": 0.031079294604950895,
+     "rain_days": 0.13243314707901677,
+     "max_dry_spell_days": -0.04360504084140902,
+     "precip_cv_10day": -0.024240281558514532,
+     "onset_day": 0.03857918042824285,
+     "joint_wald": 6.784375108797559
+    },
+    "SD028": {
+     "precip_anomaly_z": 0.08797978880464154,
+     "rain_days": 0.12234009117684959,
+     "max_dry_spell_days": -0.03036229037681397,
+     "precip_cv_10day": -0.002412107715062211,
+     "onset_day": 0.029618617423789923,
+     "joint_wald": 6.372637618643492
+    },
+    "SD052": {
+     "precip_anomaly_z": 0.06527263561758953,
+     "rain_days": 0.15890233001003481,
+     "max_dry_spell_days": -0.03629803416722132,
+     "precip_cv_10day": -0.026998683488659716,
+     "onset_day": 0.032487117667627845,
+     "joint_wald": 8.554585706588785
+    },
+    "SD054": {
+     "precip_anomaly_z": 0.053731994819063746,
+     "rain_days": 0.15806880924904732,
+     "max_dry_spell_days": -0.03983238264191845,
+     "precip_cv_10day": -0.027381021353605883,
+     "onset_day": 0.033566564573808064,
+     "joint_wald": 8.631358614462973
+    },
+    "SD055": {
+     "precip_anomaly_z": 0.10057753426278114,
+     "rain_days": 0.14572137334126944,
+     "max_dry_spell_days": -0.0409584306712581,
+     "precip_cv_10day": -0.014965831120166865,
+     "onset_day": 0.03457341444213526,
+     "joint_wald": 7.990619820263333
+    },
+    "SD056": {
+     "precip_anomaly_z": 0.024783348679810645,
+     "rain_days": 0.15681990347397215,
+     "max_dry_spell_days": -0.038488192235239395,
+     "precip_cv_10day": -0.01922679949737389,
+     "onset_day": 0.03222721046376762,
+     "joint_wald": 7.178687907858299
+    },
+    "SD057": {
+     "precip_anomaly_z": 0.0389640932956192,
+     "rain_days": 0.1610124554644559,
+     "max_dry_spell_days": -0.038764672093336505,
+     "precip_cv_10day": -0.01956758042966275,
+     "onset_day": 0.027962678687116285,
+     "joint_wald": 7.655413034795656
+    },
+    "SD058": {
+     "precip_anomaly_z": 0.03019895744432817,
+     "rain_days": 0.15490549586283345,
+     "max_dry_spell_days": -0.04408052725622606,
+     "precip_cv_10day": -0.018620795577787813,
+     "onset_day": 0.030571520197142443,
+     "joint_wald": 7.70179972127581
+    },
+    "SD059": {
+     "precip_anomaly_z": 0.04330964918925435,
+     "rain_days": 0.15007184563697773,
+     "max_dry_spell_days": -0.027856712829419462,
+     "precip_cv_10day": -0.018906914152217208,
+     "onset_day": 0.02221640247328199,
+     "joint_wald": 6.631925266421213
+    },
+    "SD060": {
+     "precip_anomaly_z": 0.02673563952313507,
+     "rain_days": 0.1531668773974768,
+     "max_dry_spell_days": -0.037272060300519265,
+     "precip_cv_10day": -0.0178419203619604,
+     "onset_day": 0.026186864408600064,
+     "joint_wald": 6.984575714201297
+    },
+    "SD061": {
+     "precip_anomaly_z": 0.08866221919925257,
+     "rain_days": 0.13609491892733594,
+     "max_dry_spell_days": -0.033129060942770516,
+     "precip_cv_10day": -0.0335490583914614,
+     "onset_day": 0.03580131237218125,
+     "joint_wald": 7.262452568187737
+    }
+   }
+  },
+  "arm6_leave_one_year_out": {
+   "n_refits": 13,
+   "beta_range": {
+    "precip_anomaly_z": [
+     -0.15675225906491297,
+     0.11253023727812875
+    ],
+    "rain_days": [
+     0.0674332689623501,
+     0.26584068825760654
+    ],
+    "max_dry_spell_days": [
+     -0.07242143004078005,
+     0.0070040488909219245
+    ],
+    "precip_cv_10day": [
+     -0.05594872212419319,
+     0.024755823536465833
+    ],
+    "onset_day": [
+     0.005298992465937549,
+     0.05169017227864521
+    ]
+   },
+   "per_year": {
+    "2000": {
+     "precip_anomaly_z": 0.04592570654478864,
+     "rain_days": 0.1608601884998923,
+     "max_dry_spell_days": -0.0255345198209629,
+     "precip_cv_10day": -0.014692223371963072,
+     "onset_day": 0.005298992465937549,
+     "joint_wald": 6.69340142411609
+    },
+    "2001": {
+     "precip_anomaly_z": 0.10341706903936404,
+     "rain_days": 0.2054945322704446,
+     "max_dry_spell_days": -0.06653489734533283,
+     "precip_cv_10day": 0.0077846841317220205,
+     "onset_day": 0.03826108285909075,
+     "joint_wald": 10.745582166951424
+    },
+    "2002": {
+     "precip_anomaly_z": -0.009808008472063298,
+     "rain_days": 0.1383804905357621,
+     "max_dry_spell_days": -0.023912874694041887,
+     "precip_cv_10day": -0.039712842182640484,
+     "onset_day": 0.05169017227864521,
+     "joint_wald": 6.379122105020778
+    },
+    "2003": {
+     "precip_anomaly_z": 0.04612619500058153,
+     "rain_days": 0.06973771066353543,
+     "max_dry_spell_days": -0.07242143004078005,
+     "precip_cv_10day": -0.05594872212419319,
+     "onset_day": 0.025252752697629315,
+     "joint_wald": 9.410390262882562
+    },
+    "2004": {
+     "precip_anomaly_z": 0.03828093931361291,
+     "rain_days": 0.26584068825760654,
+     "max_dry_spell_days": -0.058501115564803155,
+     "precip_cv_10day": 0.024755823536465833,
+     "onset_day": 0.046183854444648786,
+     "joint_wald": 11.76353867452373
+    },
+    "2005": {
+     "precip_anomaly_z": 0.11253023727812875,
+     "rain_days": 0.12483001792727064,
+     "max_dry_spell_days": -0.01440918294037314,
+     "precip_cv_10day": -0.04203212671399173,
+     "onset_day": 0.02133296726166179,
+     "joint_wald": 7.6959013997572425
+    },
+    "2006": {
+     "precip_anomaly_z": 0.026241838436284942,
+     "rain_days": 0.0674332689623501,
+     "max_dry_spell_days": -0.05939463153721097,
+     "precip_cv_10day": -0.04499840749352866,
+     "onset_day": 0.04543552375067843,
+     "joint_wald": 6.172676790121383
+    },
+    "2007": {
+     "precip_anomaly_z": 0.046837770610904675,
+     "rain_days": 0.13214220591160233,
+     "max_dry_spell_days": -0.0705478272084418,
+     "precip_cv_10day": -0.01832446092712796,
+     "onset_day": 0.02218586697759099,
+     "joint_wald": 8.94844781683159
+    },
+    "2008": {
+     "precip_anomaly_z": 0.024826349545184256,
+     "rain_days": 0.1633287081352893,
+     "max_dry_spell_days": -0.03937709837628888,
+     "precip_cv_10day": 0.00943789772499852,
+     "onset_day": 0.022739562669523178,
+     "joint_wald": 6.604487340273156
+    },
+    "2009": {
+     "precip_anomaly_z": 0.035982065022979286,
+     "rain_days": 0.15019088342005013,
+     "max_dry_spell_days": -0.035330963117923345,
+     "precip_cv_10day": -0.013276955837480028,
+     "onset_day": 0.027829889053535676,
+     "joint_wald": 6.37029027127189
+    },
+    "2010": {
+     "precip_anomaly_z": -0.15675225906491297,
+     "rain_days": 0.14326834236923072,
+     "max_dry_spell_days": -0.036158983411380574,
+     "precip_cv_10day": -0.027339942709090678,
+     "onset_day": 0.016090505901472617,
+     "joint_wald": 5.640519666189555
+    },
+    "2011": {
+     "precip_anomaly_z": 0.02476691387419755,
+     "rain_days": 0.16562661904002043,
+     "max_dry_spell_days": 0.0070040488909219245,
+     "precip_cv_10day": -0.023859183946460197,
+     "onset_day": 0.037375630192630474,
+     "joint_wald": 14.461156214507145
+    },
+    "2012": {
+     "precip_anomaly_z": 0.022717404150877543,
+     "rain_days": 0.2235898288240571,
+     "max_dry_spell_days": -0.031837040339961466,
+     "precip_cv_10day": -0.013921517409544502,
+     "onset_day": 0.031818459582632824,
+     "joint_wald": 12.230914921662805
+    }
+   }
+  },
+  "arm7_threshold_1mm": {
+   "label": "Arm 7: 1 mm rain-day threshold",
+   "n": 359,
+   "districts": 31,
+   "years": 13,
+   "year_fe": true,
+   "region_trends": false,
+   "control_beta": -0.00031064989869482903,
+   "joint_wald": 4.215534793116688,
+   "joint_p_chi2": 0.5188199171256268,
+   "incremental_within_r2": 0.014641371557528095,
+   "coefficients": {
+    "precip_anomaly_z": {
+     "beta": 0.06026408945110727,
+     "se_cluster": 0.1790746401958589,
+     "se_hc3": 0.14152690563378656,
+     "se_iid": 0.12364204240044464,
+     "design_effect": 1.4483313015477566,
+     "ci_low": -0.3054551158429498,
+     "ci_high": 0.4259832947451644,
+     "p_cluster": 0.7388135969654739
+    },
+    "rain_days": {
+     "beta": 0.06456668032114452,
+     "se_cluster": 0.11552612776910849,
+     "se_hc3": 0.09883119651697193,
+     "se_iid": 0.09081707653600177,
+     "design_effect": 1.2720749464260892,
+     "ci_low": -0.17136914840484332,
+     "ci_high": 0.3005025090471324,
+     "p_cluster": 0.5803835159517654
+    },
+    "max_dry_spell_days": {
+     "beta": -0.0044239368542313895,
+     "se_cluster": 0.03440709760920526,
+     "se_hc3": 0.05198813576379101,
+     "se_iid": 0.05166976285810141,
+     "design_effect": 0.6659039195456748,
+     "ci_low": -0.07469260460277946,
+     "ci_high": 0.0658447308943167,
+     "p_cluster": 0.8985510403175585
+    },
+    "precip_cv_10day": {
+     "beta": -0.0646652916950609,
+     "se_cluster": 0.04972195827419352,
+     "se_hc3": 0.04539792875210001,
+     "se_iid": 0.04563293520981838,
+     "design_effect": 1.0896068386917033,
+     "ci_low": -0.16621107755180575,
+     "ci_high": 0.03688049416168396,
+     "p_cluster": 0.20331900210344211
+    },
+    "onset_day": {
+     "beta": 0.023865922961602767,
+     "se_cluster": 0.031535535286854044,
+     "se_hc3": 0.03758564682808556,
+     "se_iid": 0.037166573227895516,
+     "design_effect": 0.8484918718087501,
+     "ci_low": -0.040538232149455,
+     "ci_high": 0.08827007807266053,
+     "p_cluster": 0.45507574559657726
+    }
+   }
+  },
+  "arm8_within_region": {
+   "AP_TG": {
+    "label": "Arm 8: AP_TG only",
+    "n": 238,
+    "districts": 19,
+    "years": 13,
+    "year_fe": true,
+    "region_trends": false,
+    "control_beta": -9.876329371634132e-06,
+    "joint_wald": 3.223635468967935,
+    "joint_p_chi2": 0.6655517824288811,
+    "incremental_within_r2": 0.007852562538123784,
+    "coefficients": {
+     "precip_anomaly_z": {
+      "beta": 0.009972516716999322,
+      "se_cluster": 0.22903396781747973,
+      "se_hc3": 0.14895905266282836,
+      "se_iid": 0.12991411278073084,
+      "design_effect": 1.7629644918103968,
+      "ci_low": -0.47120999423460047,
+      "ci_high": 0.49115502766859914,
+      "p_cluster": 0.9657491516201315
+     },
+     "rain_days": {
+      "beta": 0.059445757580712126,
+      "se_cluster": 0.08637069556828454,
+      "se_hc3": 0.1269972812239334,
+      "se_iid": 0.1039213520373894,
+      "design_effect": 0.8311159725598029,
+      "ci_low": -0.12201234036964584,
+      "ci_high": 0.2409038555310701,
+      "p_cluster": 0.5000619488523976
+     },
+     "max_dry_spell_days": {
+      "beta": -0.03459202716670139,
+      "se_cluster": 0.04757066232006009,
+      "se_hc3": 0.04645946560103419,
+      "se_iid": 0.045930693845741034,
+      "design_effect": 1.035705284135853,
+      "ci_low": -0.13453428010377952,
+      "ci_high": 0.06535022577037672,
+      "p_cluster": 0.4764730696295698
+     },
+     "precip_cv_10day": {
+      "beta": 0.03351525708538252,
+      "se_cluster": 0.059882341452340684,
+      "se_hc3": 0.05051801479244876,
+      "se_iid": 0.0496691561071592,
+      "design_effect": 1.2056242977663432,
+      "ci_low": -0.09229287389307955,
+      "ci_high": 0.1593233880638446,
+      "p_cluster": 0.5825926505828676
+     },
+     "onset_day": {
+      "beta": -0.011589406261068391,
+      "se_cluster": 0.023210812948436,
+      "se_hc3": 0.030667175046159914,
+      "se_iid": 0.035921603169593606,
+      "design_effect": 0.6461519225312068,
+      "ci_low": -0.06035351475634966,
+      "ci_high": 0.037174702234212875,
+      "p_cluster": 0.6236083577673011
+     }
+    }
+   },
+   "TN": {
+    "label": "Arm 8: TN only",
+    "n": 121,
+    "districts": 12,
+    "years": 13,
+    "year_fe": true,
+    "region_trends": false,
+    "control_beta": -0.0018581897322008645,
+    "joint_wald": 25.76133412666938,
+    "joint_p_chi2": 9.926656155778701e-05,
+    "incremental_within_r2": 0.06914335748035987,
+    "coefficients": {
+     "precip_anomaly_z": {
+      "beta": 0.3344180035331787,
+      "se_cluster": 0.34174983853007684,
+      "se_hc3": 0.3120448199160367,
+      "se_iid": 0.35886651899158634,
+      "design_effect": 0.9523034901399905,
+      "ci_low": -0.41776831953523424,
+      "ci_high": 1.0866043266015917,
+      "p_cluster": 0.34883518305331984
+     },
+     "rain_days": {
+      "beta": 0.05828412583391038,
+      "se_cluster": 0.1525082760241388,
+      "se_hc3": 0.21702510050932272,
+      "se_iid": 0.19785198610517815,
+      "design_effect": 0.770820040912126,
+      "ci_low": -0.27738432648637856,
+      "ci_high": 0.3939525781541994,
+      "p_cluster": 0.7096155080282884
+     },
+     "max_dry_spell_days": {
+      "beta": -0.13988936794363277,
+      "se_cluster": 0.06568216484291353,
+      "se_hc3": 0.08003676281153355,
+      "se_iid": 0.08253997791971712,
+      "design_effect": 0.7957618416956639,
+      "ci_low": -0.28445483804557825,
+      "ci_high": 0.004676102158312684,
+      "p_cluster": 0.05659998278449496
+     },
+     "precip_cv_10day": {
+      "beta": -0.09109106550234275,
+      "se_cluster": 0.06234861478474147,
+      "se_hc3": 0.11771492632212566,
+      "se_iid": 0.12783894036376006,
+      "design_effect": 0.48771223077515535,
+      "ci_low": -0.22831944139582888,
+      "ci_high": 0.04613731039114338,
+      "p_cluster": 0.17198493332197184
+     },
+     "onset_day": {
+      "beta": 0.0931775225862346,
+      "se_cluster": 0.03868164657486801,
+      "se_hc3": 0.08089826826342245,
+      "se_iid": 0.07454603387795167,
+      "design_effect": 0.5188961043614797,
+      "ci_low": 0.008039792507040552,
+      "ci_high": 0.17831525266542864,
+      "p_cluster": 0.034686205869197906
+     }
+    }
+   }
+  }
+ },
+ "robustness_bootstrap_p": {
+  "arm1_district_fe_only": {
+   "n": 359,
+   "clusters": 31,
+   "joint_wald": 13.492238693115105,
+   "p_chi2": 0.01917772262621309,
+   "p_wild_bootstrap": 0.0515,
+   "bootstrap_reps": 1999
+  },
+  "arm2_region_trends": {
+   "n": 359,
+   "clusters": 31,
+   "joint_wald": 16.50876036184594,
+   "p_chi2": 0.005532129107830186,
+   "p_wild_bootstrap": 0.03,
+   "bootstrap_reps": 1999
+  },
+  "arm3_include_e1": {
+   "n": 381,
+   "clusters": 31,
+   "joint_wald": 2.84391552888451,
+   "p_chi2": 0.724034278602845,
+   "p_wild_bootstrap": 0.7715,
+   "bootstrap_reps": 1999
+  },
+  "arm4_balanced": {
+   "n": 221,
+   "clusters": 17,
+   "joint_wald": 40.63734092940153,
+   "p_chi2": 1.1106328268173371e-07,
+   "p_wild_bootstrap": 0.002,
+   "bootstrap_reps": 1999
+  },
+  "arm7_threshold_1mm": {
+   "n": 359,
+   "clusters": 31,
+   "joint_wald": 4.215534793116688,
+   "p_chi2": 0.5188199171256268,
+   "p_wild_bootstrap": 0.6365,
+   "bootstrap_reps": 1999
+  },
+  "arm8_AP_TG": {
+   "n": 238,
+   "clusters": 19,
+   "joint_wald": 3.223635468967935,
+   "p_chi2": 0.6655517824288811,
+   "p_wild_bootstrap": 0.751,
+   "bootstrap_reps": 1999
+  },
+  "arm8_TN": {
+   "n": 121,
+   "clusters": 12,
+   "joint_wald": 25.76133412666938,
+   "p_chi2": 9.926656155778701e-05,
+   "p_wild_bootstrap": 0.18,
+   "bootstrap_reps": 1999
+  }
+ },
+ "robustness_bootstrap_note": "Wild cluster bootstrap (1,999 reps) applied to every arm AFTER the arms were first run with asymptotic chi-2 p-values. Disclosed as an inference refinement not specified in advance: it applies the SAME procedure the pre-registration fixes for the primary test uniformly across arms, because chi-2 p-values are known to be anti-conservative with few clusters and the arms that rejected are precisely those with the fewest clusters. It makes the arms MORE conservative, not less. Both p-values are reported for every arm; neither is hidden.",
+ "imd_validation_full": {
+  "source": {
+   "institution": "India Meteorological Department, Pune",
+   "product": "Gridded Rainfall 0.25 x 0.25 degree daily binary",
+   "url": "https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_25_Bin.html",
+   "years": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012
+   ],
+   "tier": "Tier 1 official"
+  },
+  "role": "independent cross-check; ERA5-Land remains the primary source",
+  "n_compared": 359,
+  "cell_status_counts": {
+   "OBSERVED": 381,
+   "CELL_FALLBACK_NEAREST": 1
+  },
+  "imd_status_counts": {
+   "OBSERVED": 382
+  },
+  "overall": {
+   "pearson_r": 0.6619391068524813,
+   "mean_bias_era5_minus_imd_mm": 37.15755290438936,
+   "mean_abs_diff_mm": 180.17376184796095
+  },
+  "by_region": {
+   "Andhra Pradesh": {
+    "n": 130,
+    "pearson_r": 0.820136441876574,
+    "mean_bias_era5_minus_imd_mm": 60.95200357008714,
+    "mean_abs_diff_mm": 154.08170889986476,
+    "imd_mean_mm": 845.8342733529898,
+    "era5_mean_mm": 906.7862769230768
+   },
+   "Tamil Nadu": {
+    "n": 121,
+    "pearson_r": 0.4326590040367117,
+    "mean_bias_era5_minus_imd_mm": -15.462056765721869,
+    "mean_abs_diff_mm": 253.6943893135008,
+    "imd_mean_mm": 816.911180732664,
+    "era5_mean_mm": 801.4491239669421
+   },
+   "Telangana": {
+    "n": 108,
+    "pearson_r": 0.82956884061159,
+    "mean_bias_era5_minus_imd_mm": 67.4695360853407,
+    "mean_abs_diff_mm": 129.21052999538847,
+    "imd_mean_mm": 839.1358713220667,
+    "era5_mean_mm": 906.6054074074075
+   }
+  },
+  "within_district_pearson_r": 0.6152508655142553,
+  "within_district_pearson_r_by_region": {
+   "Andhra Pradesh": 0.7696146151944252,
+   "Tamil Nadu": 0.44606187132661346,
+   "Telangana": 0.7512754794340947
+  }
+ }
+}
