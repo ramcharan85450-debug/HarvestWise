@@ -1,0 +1,130 @@
+{
+  "generated_utc": "2026-09-04T11:33:18.137154+00:00",
+  "experiment": "Experiment 6 - two-period within-district irrigation analysis",
+  "design": "Convention C; P1 = irrigation 2004-05 / yield Kharif 2004; P2 = irrigation 2011-12 / yield Kharif 2011",
+  "cannot_answer": "is_tn is time-invariant and absorbed by district fixed effects, so the region coefficient is inestimable and Experiment 5's incremental statistic is not computable in this design.",
+  "language": "All results are ASSOCIATIONS; no causal claim is supported.",
+  "pre_registered_anchor_t_ha_per_pp": 0.058444288717589346,
+  "sample": {
+    "long_rows": 54,
+    "n_first_differences": 27,
+    "by_region": {
+      "Andhra Pradesh": 10,
+      "Telangana": 9,
+      "Tamil Nadu": 8
+    }
+  },
+  "primary": {
+    "label": "primary",
+    "n": 27,
+    "beta_irrigation": 0.01209997050450424,
+    "se_hc3": 0.031741953452812846,
+    "ci95_hc3": [
+      -0.05356326307522425,
+      0.07776320408423273
+    ],
+    "t_hc3": 0.3811980419696567,
+    "p_hc3": 0.7065549179536545,
+    "period_effect_intercept": 0.006000660200498671,
+    "coef_d_non_rice_cropped_area_ha": 9.90889137080284e-07,
+    "coef_d_n_crops_grown": -0.13604783413495714,
+    "r2": 0.3666821524536934,
+    "t_observed": 0.3811980419696567,
+    "p_wild_bootstrap": 0.7193,
+    "n_boot": 9999
+  },
+  "R1_fd_vs_twoway_fe": {
+    "fd_beta": 0.01209997050450424,
+    "twoway_fe_beta": 0.012099970504537776,
+    "abs_difference": 3.3535674237583635e-14,
+    "equivalent": true
+  },
+  "R2_alternative_outcome": {
+    "label": "R2_alt_outcome_P1_mean_2004_2005",
+    "n": 27,
+    "beta_irrigation": -0.0037903188693757155,
+    "se_hc3": 0.025454365775187646,
+    "ci95_hc3": [
+      -0.056446686348607805,
+      0.04886604860985637
+    ],
+    "t_hc3": -0.14890643525954336,
+    "p_hc3": 0.8829253794391825,
+    "period_effect_intercept": 0.23289512710283206,
+    "coef_d_non_rice_cropped_area_ha": -2.4918097272309023e-06,
+    "coef_d_n_crops_grown": -0.11769144401470545,
+    "r2": 0.4458981551657478
+  },
+  "R3_leave_one_district_out": {
+    "n_folds": 27,
+    "beta_min": 0.0019283177757917938,
+    "beta_max": 0.039038176710034046,
+    "beta_median": 0.011871851471172253,
+    "n_folds_sign_flip": 0,
+    "n_folds_p_below_05": 0,
+    "most_influential": [
+      {
+        "district_left_out": "NAGAPATTINAM",
+        "beta": 0.039038176710034046,
+        "p_hc3": 0.08042154601837481
+      },
+      {
+        "district_left_out": "CUDDALORE",
+        "beta": 0.0019283177757917938,
+        "p_hc3": 0.9479770635264197
+      },
+      {
+        "district_left_out": "DHARMAPURI",
+        "beta": 0.0052760460409042136,
+        "p_hc3": 0.8788417193900653
+      }
+    ]
+  },
+  "R4_ap_rounding_sensitivity": {
+    "-500_ha": {
+      "beta": 0.012137762869084847,
+      "ci95_hc3": [
+        -0.053353232047529155,
+        0.07762875778569885
+      ]
+    },
+    "+500_ha": {
+      "beta": 0.012068301183074608,
+      "ci95_hc3": [
+        -0.053760322816530405,
+        0.07789692518267963
+      ]
+    }
+  },
+  "R5_tn_only": {
+    "label": "R5_tn_only",
+    "n": 8,
+    "beta_irrigation": 0.004715309240803354,
+    "se_hc3": 0.051935810370744774,
+    "ci95_hc3": [
+      -0.13948161724753178,
+      0.14891223572913848
+    ],
+    "t_hc3": 0.09079109784064268,
+    "p_hc3": 0.9320233605800758,
+    "period_effect_intercept": 1.7583330607594951,
+    "coef_d_non_rice_cropped_area_ha": -1.0177138119460984e-05,
+    "coef_d_n_crops_grown": 0.10365027903532317,
+    "r2": 0.13777574838846662
+  },
+  "verdict": {
+    "beta": 0.01209997050450424,
+    "ci95_hc3": [
+      -0.05356326307522425,
+      0.07776320408423273
+    ],
+    "p_hc3": 0.7065549179536545,
+    "p_wild_bootstrap": 0.7193,
+    "significant_both_methods": false,
+    "ci_contains_zero": true,
+    "ci_contains_regional_gap_anchor": true,
+    "anchor": 0.058444288717589346,
+    "sign_stable_in_lodo": true,
+    "FINAL": "INCONCLUSIVE"
+  }
+}

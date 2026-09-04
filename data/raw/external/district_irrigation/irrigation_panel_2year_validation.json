@@ -1,0 +1,24 @@
+{
+  "expected_rows": 56,
+  "accepted_rows": 56,
+  "rejected_rows": 0,
+  "rejects": [],
+  "coverage": {
+    "Andhra Pradesh | 2004-05": 10,
+    "Andhra Pradesh | 2011-12": 10,
+    "Tamil Nadu | 2004-05": 8,
+    "Tamil Nadu | 2011-12": 8,
+    "Telangana | 2004-05": 10,
+    "Telangana | 2011-12": 10
+  },
+  "identity_gross_minus_more_equals_net_pass": 56,
+  "identity_intensity_pass": 36,
+  "identity_intensity_not_applicable": 20,
+  "excluded_districts": {
+    "KANNIYAKUMARI": "DATA_NOT_AVAILABLE - absent from every block of TN 2011-12 Table III-B (all seven blocks terminate at '30. The Nilgiris'); present elsewhere in the report, so not an OCR failure. No value assigned.",
+    "ARIYALUR": "SINGLE_YEAR_ONLY - district constituted 2007 from Perambalur; absent from the 2004-05 source. Perambalur values not redistributed.",
+    "COIMBATORE": "BOUNDARY_NOT_COMPARABLE - Thiruppur district formed 2009 from parts of Coimbatore and Erode; the 2004-05 and 2011-12 extents are different territory. Thiruppur values NOT redistributed back.",
+    "ERODE": "BOUNDARY_NOT_COMPARABLE - see Coimbatore. Thiruppur values NOT redistributed back."
+  },
+  "missing_pct_variable": 1
+}
