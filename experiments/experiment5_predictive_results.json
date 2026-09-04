@@ -1,0 +1,384 @@
+{
+  "generated_utc": "2026-09-04T10:29:50.280214+00:00",
+  "checkpoint": "11 - approved predictive transfer, 7 arms",
+  "design": {
+    "train": [
+      "Andhra Pradesh",
+      "Telangana"
+    ],
+    "test": [
+      "Tamil Nadu"
+    ],
+    "n_train": 239,
+    "n_test": 139,
+    "train_districts": 20,
+    "test_districts": 11,
+    "district_overlap": 0,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "hyperparameters_unchanged_from_experiment1": {
+      "epochs": 300,
+      "batch_size": 32,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "patience": 30,
+      "hidden_dims": [
+        32,
+        16
+      ],
+      "dropout": 0.2
+    }
+  },
+  "arms": {
+    "1_baseline": {
+      "features": [],
+      "n_features": 0,
+      "per_seed": [
+        {
+          "mae": 1.0652523328074448,
+          "rmse": 1.340349834648903,
+          "r2": -0.702094259757251,
+          "n": 139
+        },
+        {
+          "mae": 1.0134296172814403,
+          "rmse": 1.2895111423639336,
+          "r2": -0.5754240649386584,
+          "n": 139
+        },
+        {
+          "mae": 1.0649055795703861,
+          "rmse": 1.3400240411512951,
+          "r2": -0.7012669177694195,
+          "n": 139
+        },
+        {
+          "mae": 1.0737627783267618,
+          "rmse": 1.3483810258401498,
+          "r2": -0.7225527967475625,
+          "n": 139
+        },
+        {
+          "mae": 1.0713700506326964,
+          "rmse": 1.3461162434345433,
+          "r2": -0.7167711506134047,
+          "n": 139
+        }
+      ],
+      "mae_mean": 1.0577440717237458,
+      "mae_std": 0.02242185681034612,
+      "rmse_mean": 1.3328764574877652,
+      "r2_mean": -0.6836218379652592,
+      "r2_std": 0.05472446212951967
+    },
+    "2_weather_satellite": {
+      "features": [
+        "weather_temp_c_mean",
+        "weather_precip_mm_sum",
+        "weather_humidity_pct_mean",
+        "weather_wind_speed_ms_mean",
+        "satellite_ndvi_mean",
+        "satellite_evi_mean",
+        "satellite_ndwi_mean"
+      ],
+      "n_features": 7,
+      "per_seed": [
+        {
+          "mae": 1.0396817686746447,
+          "rmse": 1.3724360291221438,
+          "r2": -0.7845614127998302,
+          "n": 139
+        },
+        {
+          "mae": 1.1285740432979392,
+          "rmse": 1.4251360160707314,
+          "r2": -0.9242429687634686,
+          "n": 139
+        },
+        {
+          "mae": 1.129848188204731,
+          "rmse": 1.4487724606058048,
+          "r2": -0.9886009420945101,
+          "n": 139
+        },
+        {
+          "mae": 1.0551113289037197,
+          "rmse": 1.3703751755851028,
+          "r2": -0.7792060324616767,
+          "n": 139
+        },
+        {
+          "mae": 1.0412714837266386,
+          "rmse": 1.3491585309782066,
+          "r2": -0.7245398905392337,
+          "n": 139
+        }
+      ],
+      "mae_mean": 1.0788973625615346,
+      "mae_std": 0.04143212329070413,
+      "rmse_mean": 1.3931756424723978,
+      "r2_mean": -0.840230249331744,
+      "r2_std": 0.09927661660247947
+    },
+    "3_weather_satellite_exp4_covariates": {
+      "features": [
+        "weather_temp_c_mean",
+        "weather_precip_mm_sum",
+        "weather_humidity_pct_mean",
+        "weather_wind_speed_ms_mean",
+        "satellite_ndvi_mean",
+        "satellite_evi_mean",
+        "satellite_ndwi_mean",
+        "non_rice_cropped_area_ha",
+        "n_crops_grown",
+        "elevation_m_mean",
+        "slope_deg_mean"
+      ],
+      "n_features": 11,
+      "per_seed": [
+        {
+          "mae": 0.9340641974545211,
+          "rmse": 1.253304090484054,
+          "r2": -0.48819619936948233,
+          "n": 139
+        },
+        {
+          "mae": 0.8823924557768184,
+          "rmse": 1.1913091819712567,
+          "r2": -0.3446097469206477,
+          "n": 139
+        },
+        {
+          "mae": 0.8810343069138287,
+          "rmse": 1.200778695128622,
+          "r2": -0.366070850902956,
+          "n": 139
+        },
+        {
+          "mae": 0.9962206654411425,
+          "rmse": 1.3165834344264522,
+          "r2": -0.6422680719372242,
+          "n": 139
+        },
+        {
+          "mae": 0.8399377019285298,
+          "rmse": 1.1457243389802667,
+          "r2": -0.24367686312412484,
+          "n": 139
+        }
+      ],
+      "mae_mean": 0.906729865502968,
+      "mae_std": 0.053795043145540754,
+      "rmse_mean": 1.2215399481981302,
+      "r2_mean": -0.41696434645088704,
+      "r2_std": 0.13688654676645962
+    },
+    "4_weather_satellite_exp4_covariates_irrigation": {
+      "features": [
+        "weather_temp_c_mean",
+        "weather_precip_mm_sum",
+        "weather_humidity_pct_mean",
+        "weather_wind_speed_ms_mean",
+        "satellite_ndvi_mean",
+        "satellite_evi_mean",
+        "satellite_ndwi_mean",
+        "non_rice_cropped_area_ha",
+        "n_crops_grown",
+        "elevation_m_mean",
+        "slope_deg_mean",
+        "pct_net_irrigated_to_net_area_sown"
+      ],
+      "n_features": 12,
+      "per_seed": [
+        {
+          "mae": 1.055432002750232,
+          "rmse": 1.349666766919018,
+          "r2": -0.7258394238704156,
+          "n": 139
+        },
+        {
+          "mae": 0.7578876906161686,
+          "rmse": 1.085013659574266,
+          "r2": -0.11536673605992243,
+          "n": 139
+        },
+        {
+          "mae": 0.8956969440412178,
+          "rmse": 1.203691218630578,
+          "r2": -0.37270577658429116,
+          "n": 139
+        },
+        {
+          "mae": 0.8549528083355307,
+          "rmse": 1.1783269105449186,
+          "r2": -0.31546370281083536,
+          "n": 139
+        },
+        {
+          "mae": 0.825494390168636,
+          "rmse": 1.1456221740931138,
+          "r2": -0.2434550742748487,
+          "n": 139
+        }
+      ],
+      "mae_mean": 0.8778927671823571,
+      "mae_std": 0.09950901356849025,
+      "rmse_mean": 1.1924641459523788,
+      "r2_mean": -0.35456614272006265,
+      "r2_std": 0.20457953079295696
+    },
+    "5_static_only": {
+      "features": [
+        "elevation_m_mean",
+        "slope_deg_mean"
+      ],
+      "n_features": 2,
+      "per_seed": [
+        {
+          "mae": 1.182667469377998,
+          "rmse": 1.484466982774929,
+          "r2": -1.087797445929319,
+          "n": 139
+        },
+        {
+          "mae": 1.5306809981949896,
+          "rmse": 1.8411389416074062,
+          "r2": -2.211592273744026,
+          "n": 139
+        },
+        {
+          "mae": 1.1462828199640454,
+          "rmse": 1.428170737076705,
+          "r2": -0.9324467583320928,
+          "n": 139
+        },
+        {
+          "mae": 1.1564682391907672,
+          "rmse": 1.4792221094993356,
+          "r2": -1.0730704245245009,
+          "n": 139
+        },
+        {
+          "mae": 1.1712744008722922,
+          "rmse": 1.4731281876263906,
+          "r2": -1.05602483428112,
+          "n": 139
+        }
+      ],
+      "mae_mean": 1.2374747855200183,
+      "mae_std": 0.14712868592599718,
+      "rmse_mean": 1.5412253917169534,
+      "r2_mean": -1.2721863473622115,
+      "r2_std": 0.4729225518649493
+    },
+    "6_soil_only": {
+      "features": [
+        "soil_phh2o",
+        "soil_soc",
+        "soil_clay",
+        "soil_sand",
+        "soil_nitrogen"
+      ],
+      "n_features": 5,
+      "per_seed": [
+        {
+          "mae": 1.1318323230571885,
+          "rmse": 1.4331571567393917,
+          "r2": -0.9459644872183082,
+          "n": 139
+        },
+        {
+          "mae": 1.6290374475417377,
+          "rmse": 1.9679757609759458,
+          "r2": -2.669329960348145,
+          "n": 139
+        },
+        {
+          "mae": 1.5588540426261133,
+          "rmse": 1.9034071155260444,
+          "r2": -2.4325008533829022,
+          "n": 139
+        },
+        {
+          "mae": 1.3647053426118205,
+          "rmse": 1.6945908129754963,
+          "r2": -1.7206769177388406,
+          "n": 139
+        },
+        {
+          "mae": 1.5994919508481198,
+          "rmse": 1.9374362219816688,
+          "r2": -2.5563304378539713,
+          "n": 139
+        }
+      ],
+      "mae_mean": 1.4567842213369961,
+      "mae_std": 0.18682996254406853,
+      "rmse_mean": 1.7873134136397095,
+      "r2_mean": -2.0649605313084334,
+      "r2_std": 0.6499963128247495
+    },
+    "7_static_only_with_irrigation": {
+      "features": [
+        "elevation_m_mean",
+        "slope_deg_mean",
+        "pct_net_irrigated_to_net_area_sown"
+      ],
+      "n_features": 3,
+      "per_seed": [
+        {
+          "mae": 1.1878866681949698,
+          "rmse": 1.4773826805462247,
+          "r2": -1.0679178584327822,
+          "n": 139
+        },
+        {
+          "mae": 1.2228085938975108,
+          "rmse": 1.508027370162086,
+          "r2": -1.1545953819342372,
+          "n": 139
+        },
+        {
+          "mae": 1.2767392804296753,
+          "rmse": 1.6109892711778908,
+          "r2": -1.4588530422243848,
+          "n": 139
+        },
+        {
+          "mae": 1.2269550111653993,
+          "rmse": 1.5350151481133187,
+          "r2": -1.2324030546760456,
+          "n": 139
+        },
+        {
+          "mae": 1.280709619573552,
+          "rmse": 1.5893522857293667,
+          "r2": -1.3932475254455148,
+          "n": 139
+        }
+      ],
+      "mae_mean": 1.2390198346522214,
+      "mae_std": 0.035167484303161196,
+      "rmse_mean": 1.5441533511457775,
+      "r2_mean": -1.261403372542593,
+      "r2_std": 0.14563987240905626
+    }
+  },
+  "interpretation": {
+    "irrigation_mae_gain_arm3_minus_arm4": 0.028837098320610877,
+    "arm7_mae": 1.2390198346522214,
+    "arm4_mae": 0.8778927671823571,
+    "arm5_mae": 1.2374747855200183,
+    "baseline_mae": 1.0577440717237458,
+    "arm7_comparable_or_better_than_arm4": false,
+    "arm7_beats_baseline": false,
+    "verdict": "Irrigation improved arm 4 AND the static-only-with-irrigation control did not match it. Consistent with genuine transferable signal, subject to the anachronism caveat below.",
+    "anachronism_caveat": "117 of 378 rows (31.0%) pair a yield observation with an irrigation figure measured in a LATER year (2004-05). Any predictive result carries this anachronism, which is not admissible in a genuine forecasting setting.",
+    "primacy_rule": "This predictive result does NOT overturn the Checkpoint 8/9 explanatory null, which is the pre-specified primary outcome."
+  }
+}

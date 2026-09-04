@@ -1,0 +1,1181 @@
+{
+  "windows": {
+    "start": "2000-01-01",
+    "end": "2012-12-31"
+  },
+  "scale": 100,
+  "districts": [
+    {
+      "district_id": "SD013",
+      "district": "Ariyalur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 585,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 316,
+        "Landsat 5 TM": 269
+      },
+      "district_cropland_pixels": 186416.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 269
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 316
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD014",
+      "district": "Chengalputtu",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 433,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 234,
+        "Landsat 5 TM": 199
+      },
+      "district_cropland_pixels": 158007.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 199
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 234
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD015",
+      "district": "Chennai",
+      "state": "Tamil Nadu",
+      "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+      "scenes": 0,
+      "scenes_by_sensor": {},
+      "district_cropland_pixels": 0.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD016",
+      "district": "Coimbatore",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 555,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 376,
+        "Landsat 5 TM": 179
+      },
+      "district_cropland_pixels": 479930.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 179
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 376
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD017",
+      "district": "Cuddalore",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 406,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 218,
+        "Landsat 5 TM": 188
+      },
+      "district_cropland_pixels": 337662.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 188
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 218
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD018",
+      "district": "Dharmapuri",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 756,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 446,
+        "Landsat 5 TM": 310
+      },
+      "district_cropland_pixels": 691580.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 310
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 446
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD019",
+      "district": "Dindigul",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 646,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 422,
+        "Landsat 5 TM": 224
+      },
+      "district_cropland_pixels": 410623.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 224
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 422
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD020",
+      "district": "Erode",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 675,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 443,
+        "Landsat 5 TM": 232
+      },
+      "district_cropland_pixels": 558463.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 232
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 443
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD021",
+      "district": "Kallakurichi",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 408,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 220,
+        "Landsat 5 TM": 188
+      },
+      "district_cropland_pixels": 265911.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 188
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 220
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD022",
+      "district": "Kancheepuram",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 629,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 335,
+        "Landsat 5 TM": 294
+      },
+      "district_cropland_pixels": 390149.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 294
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 335
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD023",
+      "district": "Kanniyakumari",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 168,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 105,
+        "Landsat 5 TM": 63
+      },
+      "district_cropland_pixels": 50011.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 63
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 105
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD024",
+      "district": "Karur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 424,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 233,
+        "Landsat 5 TM": 191
+      },
+      "district_cropland_pixels": 274937.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 191
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 233
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD025",
+      "district": "Krishnagiri",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 745,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 439,
+        "Landsat 5 TM": 306
+      },
+      "district_cropland_pixels": 385649.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 306
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 439
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD026",
+      "district": "Madurai",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 209,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 117,
+        "Landsat 5 TM": 92
+      },
+      "district_cropland_pixels": 314881.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 92
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 117
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD027",
+      "district": "Mayiladuthurai",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 357,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 196,
+        "Landsat 5 TM": 161
+      },
+      "district_cropland_pixels": 103971.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 161
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 196
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD028",
+      "district": "Nagapattinam",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 393,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 208,
+        "Landsat 5 TM": 185
+      },
+      "district_cropland_pixels": 424932.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 185
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 208
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD029",
+      "district": "Namakkal",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 357,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 221,
+        "Landsat 5 TM": 136
+      },
+      "district_cropland_pixels": 284589.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 136
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 221
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD030",
+      "district": "Perambalur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 415,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 224,
+        "Landsat 5 TM": 191
+      },
+      "district_cropland_pixels": 161713.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 191
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 224
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD031",
+      "district": "Pudukkottai",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 608,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 336,
+        "Landsat 5 TM": 272
+      },
+      "district_cropland_pixels": 415641.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 272
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 336
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD032",
+      "district": "Ramanathapuram",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 759,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 416,
+        "Landsat 5 TM": 343
+      },
+      "district_cropland_pixels": 371561.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 343
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 416
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD033",
+      "district": "Ranipet",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 432,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 231,
+        "Landsat 5 TM": 201
+      },
+      "district_cropland_pixels": 193353.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 201
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 231
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD034",
+      "district": "Salem",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 361,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 224,
+        "Landsat 5 TM": 137
+      },
+      "district_cropland_pixels": 366157.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 137
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 224
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD035",
+      "district": "Sivaganga",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 585,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 320,
+        "Landsat 5 TM": 265
+      },
+      "district_cropland_pixels": 345960.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 265
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 320
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD036",
+      "district": "Tenkasi",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 358,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 242,
+        "Landsat 5 TM": 116
+      },
+      "district_cropland_pixels": 245842.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 116
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 242
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD037",
+      "district": "Thanjavur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 800,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 435,
+        "Landsat 5 TM": 365
+      },
+      "district_cropland_pixels": 315714.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 365
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 435
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD038",
+      "district": "Nilgiris",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 192,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 150,
+        "Landsat 5 TM": 42
+      },
+      "district_cropland_pixels": 4221.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 42
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 150
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD039",
+      "district": "Theni",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 328,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 232,
+        "Landsat 5 TM": 96
+      },
+      "district_cropland_pixels": 175825.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 96
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 232
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD040",
+      "district": "Thiruvallur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 441,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 234,
+        "Landsat 5 TM": 207
+      },
+      "district_cropland_pixels": 287745.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 207
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 234
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD041",
+      "district": "Thoothukudi",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 351,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 199,
+        "Landsat 5 TM": 152
+      },
+      "district_cropland_pixels": 383352.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 152
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 199
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD042",
+      "district": "Tiruchchirappalli",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 520,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 266,
+        "Landsat 5 TM": 254
+      },
+      "district_cropland_pixels": 398644.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 254
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 266
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD043",
+      "district": "Tirunelveli Kattabo",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 250,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 177,
+        "Landsat 5 TM": 73
+      },
+      "district_cropland_pixels": 493165.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 73
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 177
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD044",
+      "district": "Tirupathur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 419,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 223,
+        "Landsat 5 TM": 196
+      },
+      "district_cropland_pixels": 123722.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 196
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 223
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD045",
+      "district": "Tiruppur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 674,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 443,
+        "Landsat 5 TM": 231
+      },
+      "district_cropland_pixels": 451742.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 231
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 443
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD046",
+      "district": "Thiruvallur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 441,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 234,
+        "Landsat 5 TM": 207
+      },
+      "district_cropland_pixels": 287745.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 207
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 234
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD047",
+      "district": "Tiruvannamalai",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 840,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 449,
+        "Landsat 5 TM": 391
+      },
+      "district_cropland_pixels": 511147.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 391
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 449
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD048",
+      "district": "Thiruvarur",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 398,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 206,
+        "Landsat 5 TM": 192
+      },
+      "district_cropland_pixels": 210425.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 192
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 206
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD049",
+      "district": "Vellore",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 637,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 342,
+        "Landsat 5 TM": 295
+      },
+      "district_cropland_pixels": 469300.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 295
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 342
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD050",
+      "district": "Villupuram",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 838,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 449,
+        "Landsat 5 TM": 389
+      },
+      "district_cropland_pixels": 646469.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 389
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 449
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    },
+    {
+      "district_id": "SD051",
+      "district": "Virudhunagar",
+      "state": "Tamil Nadu",
+      "outcome": "FETCHED",
+      "scenes": 365,
+      "scenes_by_sensor": {
+        "Landsat 7 ETM+": 207,
+        "Landsat 5 TM": 158
+      },
+      "district_cropland_pixels": 362468.0,
+      "per_collection_status": {
+        "LANDSAT/LT05/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 158
+        },
+        "LANDSAT/LE07/C02/T1_L2": {
+          "outcome": "OK",
+          "scenes": 207
+        },
+        "LANDSAT/LC08/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        },
+        "LANDSAT/LC09/C02/T1_L2": {
+          "outcome": "NO_SATELLITE_OBSERVATION_EXISTS",
+          "scenes": 0
+        }
+      }
+    }
+  ],
+  "fetched": 38,
+  "skipped": 0,
+  "failed": 0,
+  "aborted_early": false,
+  "abort_reason": null
+}

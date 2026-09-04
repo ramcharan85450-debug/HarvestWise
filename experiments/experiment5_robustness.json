@@ -1,0 +1,369 @@
+{
+  "generated_utc": "2026-09-04T10:23:44.774824+00:00",
+  "checkpoint": "9 - approved robustness tests",
+  "primary_sample_n": 378,
+  "note": "Nothing here changes the primary sample, variable, threshold or model formulas. All results reported, including failures.",
+  "primary_recomputed": {
+    "beta_A": 0.8340370759459366,
+    "beta_B": 0.5702242506322597,
+    "beta_C": 0.5833594310554394,
+    "incremental_pct": -1.5748916687285466
+  },
+  "R1_alternative_definitions": {
+    "pct_net_irrigated_to_net_area_sown": {
+      "description": "PRIMARY (pre-registered irrigated_fraction)",
+      "n": 378,
+      "beta_A": 0.8340370759459366,
+      "beta_B": 0.5702242506322597,
+      "beta_C": 0.5833594310554394,
+      "incremental_pct": -1.5748916687285466,
+      "irrigation_coefficient": -0.00570442364008533
+    },
+    "net_irrigated_area_ha": {
+      "description": "pre-registered fallback (absolute hectares)",
+      "n": 378,
+      "beta_A": 0.8340370759459366,
+      "beta_B": 0.5702242506322597,
+      "beta_C": 0.9124841258197147,
+      "incremental_pct": -41.0365300366624,
+      "irrigation_coefficient": 3.488380623532117e-06
+    },
+    "gross_irrigated_area_ha": {
+      "description": "alternative absolute definition",
+      "n": 378,
+      "beta_A": 0.8340370759459366,
+      "beta_B": 0.5702242506322597,
+      "beta_C": 0.8729413541573582,
+      "incremental_pct": -36.29540127838646,
+      "irrigation_coefficient": 2.0063951933487584e-06
+    },
+    "irrigation_intensity": {
+      "description": "gross/net; undefined for Hyderabad (0/0)",
+      "n": 377,
+      "beta_A": 0.8345175442839,
+      "beta_B": 0.5589281162512875,
+      "beta_C": 0.5963244264227676,
+      "incremental_pct": -4.48118921257311,
+      "irrigation_coefficient": 0.20901585943680637
+    }
+  },
+  "R2_within_region": {
+    "Tamil Nadu": {
+      "n": 139,
+      "districts": 11,
+      "irrigation_coefficient": -0.016986698315408725,
+      "se_clustered": 0.016475853290091436,
+      "ci95_clustered": [
+        -0.04927937076398793,
+        0.015305974133170485
+      ]
+    },
+    "AP + Telangana": {
+      "n": 239,
+      "districts": 20,
+      "irrigation_coefficient": 0.002041485218811378,
+      "se_clustered": 0.006705125052408446,
+      "ci95_clustered": [
+        -0.011100559883909176,
+        0.015183530321531932
+      ]
+    }
+  },
+  "R3_source_composition": {
+    "status": "NOT RUN - INVALID BY CONSTRUCTION",
+    "reason": "The two Directorates publish incompatible source taxonomies. Andhra Pradesh reports major/medium/minor project canals, tanks split by size, public and private lift irrigation, tube wells and open wells; Tamil Nadu reports canals, tanks, wells (sole irrigation), supplementary irrigation by wells, and other sources. There is no defensible one-to-one mapping between the two category sets, so a cross-region comparison of canal, tank or well SHARES would compare differently-defined quantities. This pre-registered test is reported as not runnable rather than run in an invalid form."
+  },
+  "R4_winsorization": {
+    "rule": "Symmetric 1st/99th percentile winsorization of the TARGET on the pooled 378-row sample, applied identically to every state. Nothing deleted.",
+    "n_clipped": 8,
+    "clipped_by_state": {
+      "Tamil Nadu": 7,
+      "Andhra Pradesh": 1
+    },
+    "beta_A": 0.7996565712651624,
+    "beta_B": 0.5666517917471061,
+    "beta_C": 0.5790721826778006,
+    "incremental_pct": -1.5532156399395016
+  },
+  "R5_leave_one_district_out": {
+    "n_folds": 31,
+    "incremental_min": -3.6935683301225977,
+    "incremental_max": -0.16800788814641487,
+    "incremental_median": -1.5254366622007778,
+    "n_folds_reaching_threshold": 0,
+    "n_folds_positive": 0,
+    "results": [
+      {
+        "district_left_out": "ADILABAD",
+        "n": 366,
+        "beta_A": 0.8066578582068283,
+        "beta_B": 0.5388060050367925,
+        "beta_C": 0.5535120879213752,
+        "incremental_pct": -1.8230880335404824
+      },
+      {
+        "district_left_out": "ANANTAPUR",
+        "n": 365,
+        "beta_A": 0.8413205672630041,
+        "beta_B": 0.5687989277846774,
+        "beta_C": 0.5718709494568639,
+        "incremental_pct": -0.3651428232855875
+      },
+      {
+        "district_left_out": "CHITTOOR",
+        "n": 365,
+        "beta_A": 0.8278572929267206,
+        "beta_B": 0.5298134912409327,
+        "beta_C": 0.5483683143741063,
+        "incremental_pct": -2.241306960959031
+      },
+      {
+        "district_left_out": "COIMBATORE",
+        "n": 365,
+        "beta_A": 0.7888189247526058,
+        "beta_B": 0.5597476372369855,
+        "beta_C": 0.5701517968838771,
+        "incremental_pct": -1.3189541123337754
+      },
+      {
+        "district_left_out": "CUDDALORE",
+        "n": 365,
+        "beta_A": 0.9062125755462561,
+        "beta_B": 0.6293203421257849,
+        "beta_C": 0.6451037711302453,
+        "incremental_pct": -1.7416916770269155
+      },
+      {
+        "district_left_out": "DHARMAPURI",
+        "n": 365,
+        "beta_A": 0.8376665438002246,
+        "beta_B": 0.6065379357673247,
+        "beta_C": 0.6140976855803412,
+        "incremental_pct": -0.9024772290320053
+      },
+      {
+        "district_left_out": "DINDIGUL",
+        "n": 365,
+        "beta_A": 0.7855720993557803,
+        "beta_B": 0.5208775222876664,
+        "beta_C": 0.5350229850975972,
+        "incremental_pct": -1.800657485357611
+      },
+      {
+        "district_left_out": "EAST GODAVARI",
+        "n": 365,
+        "beta_A": 0.826324549563889,
+        "beta_B": 0.5841324963902903,
+        "beta_C": 0.5961414189065021,
+        "incremental_pct": -1.4532936873955575
+      },
+      {
+        "district_left_out": "ERODE",
+        "n": 365,
+        "beta_A": 0.757027654911336,
+        "beta_B": 0.4510447587806017,
+        "beta_C": 0.4637057009513086,
+        "incremental_pct": -1.6724543797795297
+      },
+      {
+        "district_left_out": "GUNTUR",
+        "n": 365,
+        "beta_A": 0.8621975584134464,
+        "beta_B": 0.5942262615236946,
+        "beta_C": 0.6068066953625993,
+        "incremental_pct": -1.459112672744554
+      },
+      {
+        "district_left_out": "HYDERABAD",
+        "n": 377,
+        "beta_A": 0.8345175442839,
+        "beta_B": 0.5589281162512875,
+        "beta_C": 0.5680690259792479,
+        "incremental_pct": -1.095352613084278
+      },
+      {
+        "district_left_out": "KANCHEEPURAM",
+        "n": 365,
+        "beta_A": 0.8399252739589549,
+        "beta_B": 0.5654576234501615,
+        "beta_C": 0.5668687641649479,
+        "incremental_pct": -0.16800788814641487
+      },
+      {
+        "district_left_out": "KANNIYAKUMARI",
+        "n": 365,
+        "beta_A": 0.7601332104668913,
+        "beta_B": 0.5459958842407487,
+        "beta_C": 0.5584290963636466,
+        "incremental_pct": -1.6356622696778456
+      },
+      {
+        "district_left_out": "KARIMNAGAR",
+        "n": 366,
+        "beta_A": 0.8524336291319384,
+        "beta_B": 0.5873934823643717,
+        "beta_C": 0.6083709371796147,
+        "incremental_pct": -2.4608901031514883
+      },
+      {
+        "district_left_out": "KARUR",
+        "n": 365,
+        "beta_A": 0.8500728930065738,
+        "beta_B": 0.580835151928443,
+        "beta_C": 0.6109010667219534,
+        "incremental_pct": -3.5368631373683725
+      },
+      {
+        "district_left_out": "KHAMMAM",
+        "n": 366,
+        "beta_A": 0.8278605013786347,
+        "beta_B": 0.5624737931575726,
+        "beta_C": 0.5708660009380706,
+        "incremental_pct": -1.0137224528193405
+      },
+      {
+        "district_left_out": "KRISHNA",
+        "n": 365,
+        "beta_A": 0.8532559654930923,
+        "beta_B": 0.6060313898745446,
+        "beta_C": 0.6214160197491403,
+        "incremental_pct": -1.8030497877275262
+      },
+      {
+        "district_left_out": "KRISHNAGIRI",
+        "n": 369,
+        "beta_A": 0.8393945413582238,
+        "beta_B": 0.5814979211920821,
+        "beta_C": 0.5943023532664725,
+        "incremental_pct": -1.5254366622007778
+      },
+      {
+        "district_left_out": "KURNOOL",
+        "n": 365,
+        "beta_A": 0.8591519831922075,
+        "beta_B": 0.5549600087388609,
+        "beta_C": 0.5642607485650106,
+        "incremental_pct": -1.0825488397981178
+      },
+      {
+        "district_left_out": "MADURAI",
+        "n": 365,
+        "beta_A": 0.8212213057049865,
+        "beta_B": 0.5546247493411383,
+        "beta_C": 0.5648491312272588,
+        "incremental_pct": -1.2450215082210125
+      },
+      {
+        "district_left_out": "MAHBUBNAGAR",
+        "n": 366,
+        "beta_A": 0.8187415586473571,
+        "beta_B": 0.578497597959483,
+        "beta_C": 0.5924078482257957,
+        "incremental_pct": -1.698979381148538
+      },
+      {
+        "district_left_out": "MEDAK",
+        "n": 366,
+        "beta_A": 0.8287640256077097,
+        "beta_B": 0.5654304927345268,
+        "beta_C": 0.5768664623680286,
+        "incremental_pct": -1.3798824852606406
+      },
+      {
+        "district_left_out": "NAGAPATTINAM",
+        "n": 365,
+        "beta_A": 0.9881927342764152,
+        "beta_B": 0.7436686217297269,
+        "beta_C": 0.7453651691904282,
+        "incremental_pct": -0.17168183916506038
+      },
+      {
+        "district_left_out": "NALGONDA",
+        "n": 366,
+        "beta_A": 0.8422741577662999,
+        "beta_B": 0.5739997750314816,
+        "beta_C": 0.5833128564672416,
+        "incremental_pct": -1.1057066573736765
+      },
+      {
+        "district_left_out": "NIZAMABAD",
+        "n": 366,
+        "beta_A": 0.8495455234050665,
+        "beta_B": 0.5975129162684497,
+        "beta_C": 0.6276110292888909,
+        "incremental_pct": -3.542848757510349
+      },
+      {
+        "district_left_out": "PRAKASAM",
+        "n": 365,
+        "beta_A": 0.85937897434265,
+        "beta_B": 0.5875527833446293,
+        "beta_C": 0.5908306383289545,
+        "incremental_pct": -0.3814213614933359
+      },
+      {
+        "district_left_out": "RANGAREDDI",
+        "n": 366,
+        "beta_A": 0.8214164485151988,
+        "beta_B": 0.5454416744073216,
+        "beta_C": 0.5544459244243569,
+        "incremental_pct": -1.0961857451614816
+      },
+      {
+        "district_left_out": "SRIKAKULAM",
+        "n": 365,
+        "beta_A": 0.7955422486789335,
+        "beta_B": 0.5117375301914219,
+        "beta_C": 0.5247618183106094,
+        "incremental_pct": -1.637158572133095
+      },
+      {
+        "district_left_out": "VIZIANAGARAM",
+        "n": 365,
+        "beta_A": 0.7981249920417651,
+        "beta_B": 0.530177133366129,
+        "beta_C": 0.5431098166589433,
+        "incremental_pct": -1.6203832008480092
+      },
+      {
+        "district_left_out": "WARANGAL",
+        "n": 366,
+        "beta_A": 0.8368217348588106,
+        "beta_B": 0.5699913374454217,
+        "beta_C": 0.5917170898397917,
+        "incremental_pct": -2.596222288374895
+      },
+      {
+        "district_left_out": "WEST GODAVARI",
+        "n": 365,
+        "beta_A": 0.8386254345196412,
+        "beta_B": 0.5880969700543076,
+        "beta_C": 0.6190721735120781,
+        "incremental_pct": -3.6935683301225977
+      }
+    ]
+  },
+  "R5_hyderabad": {
+    "incremental_without_hyderabad": -1.095352613084278,
+    "beta_A": 0.8345175442839,
+    "beta_B": 0.5589281162512875,
+    "beta_C": 0.5680690259792479,
+    "note": "Hyderabad publishes net and gross irrigated area of exactly 0 - a real value for an essentially urban district, not missing data."
+  },
+  "R6_cluster_bootstrap": {
+    "method": "Districts resampled with replacement (31 clusters), respecting the geographic dependence structure and the static district-level irrigation variable. Percentile CI. Reported as an ADDITIONAL PRECISION ANALYSIS for the pre-specified outcome; it does not change the threshold and was not used to select a specification.",
+    "n_reps_requested": 2000,
+    "n_reps_used": 2000,
+    "n_failed": 0,
+    "seed": 20260904,
+    "point_estimate_pct": -1.5748916687285466,
+    "bootstrap_mean_pct": -2.5353007270080297,
+    "ci95_pct": [
+      -23.674411319314967,
+      8.826656258625022
+    ],
+    "pr_incremental_ge_10pct": 0.0205,
+    "pr_incremental_ge_5pct": 0.063,
+    "pr_incremental_le_0": 0.636
+  }
+}

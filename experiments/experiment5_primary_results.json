@@ -1,0 +1,130 @@
+{
+  "generated_utc": "2026-09-04T10:20:42.729284+00:00",
+  "checkpoint": "8 - approved primary analysis only",
+  "conventions": {
+    "D-A": "Irrigation is a STATIC DISTRICT-LEVEL ATTRIBUTE: the observed 2004-05 / Fasli 1414 value applied across 2000-2012. This assumes approximate temporal stability. The variable is NOT annually observed over 2000-2012.",
+    "D-B": "Plain and district-clustered SEs both reported; the primary precision verdict uses the CLUSTERED SEs (G = 31 districts)."
+  },
+  "language": "All results are ASSOCIATIONS. A reduction in the Tamil Nadu coefficient means irrigation accounts for part of the observed regional association; it is not evidence that irrigation caused the regional yield difference.",
+  "sample": {
+    "n": 378,
+    "districts": 31,
+    "years": [
+      2000,
+      2012
+    ],
+    "by_region": {
+      "Tamil Nadu": 139,
+      "Andhra Pradesh": 130,
+      "Telangana": 109
+    },
+    "excluded": "Ariyalur (UNMAPPABLE_YEAR_NOT_COVERED), 4 rows"
+  },
+  "models": {
+    "A_region_only": {
+      "coefficient_t_ha": 0.8340370759459366,
+      "n": 378,
+      "r2": 0.2187507697258927,
+      "adj_r2": 0.2166729792198444,
+      "se_plain": 0.08128519292785315,
+      "ci95_plain": [
+        0.6742065514594695,
+        0.9938676004324036
+      ],
+      "t_plain": 10.260627377561969,
+      "p_plain": 0.0,
+      "se_clustered": 0.21273378659441744,
+      "ci95_clustered": [
+        0.3995767230594923,
+        1.2684974288323807
+      ],
+      "t_clustered": 3.9205670584713004,
+      "p_clustered": 0.0004747808842846535,
+      "n_clusters": 31,
+      "all_coefficients": {
+        "intercept": 2.7606485355648536,
+        "is_tn": 0.8340370759459366
+      }
+    },
+    "B_region_plus_exp4_covariates": {
+      "coefficient_t_ha": 0.5702242506322597,
+      "n": 378,
+      "r2": 0.2840912893831087,
+      "adj_r2": 0.2744688604769676,
+      "se_plain": 0.10257362787273093,
+      "ci95_plain": [
+        0.36852741749816664,
+        0.7719210837663527
+      ],
+      "t_plain": 5.559170153753069,
+      "p_plain": 5.1806186673886145e-08,
+      "se_clustered": 0.21794337189445007,
+      "ci95_clustered": [
+        0.12512450517880697,
+        1.0153239960857123
+      ],
+      "t_clustered": 2.616387209556523,
+      "p_clustered": 0.013781422244629082,
+      "n_clusters": 31,
+      "all_coefficients": {
+        "intercept": 3.0667963204181383,
+        "is_tn": 0.5702242506322597,
+        "non_rice_cropped_area_ha": 1.2258264358533408e-07,
+        "n_crops_grown": -0.0401125444281923,
+        "elevation_m_mean": 0.00041064675805350964,
+        "slope_deg_mean": 0.08748442833572687
+      }
+    },
+    "C_region_plus_covariates_plus_irrigation": {
+      "coefficient_t_ha": 0.5833594310554394,
+      "n": 378,
+      "r2": 0.28957843638452485,
+      "adj_r2": 0.2780891388597463,
+      "se_plain": 0.10261120428275802,
+      "ci95_plain": [
+        0.38158693400497,
+        0.7851319281059088
+      ],
+      "t_plain": 5.685143597456662,
+      "p_plain": 2.649919639274856e-08,
+      "se_clustered": 0.21418522311754667,
+      "ci95_clustered": [
+        0.1459348493357387,
+        1.0207840127751402
+      ],
+      "t_clustered": 2.7236212777166555,
+      "p_clustered": 0.010659523817136973,
+      "n_clusters": 31,
+      "all_coefficients": {
+        "intercept": 3.5378023428175736,
+        "is_tn": 0.5833594310554394,
+        "non_rice_cropped_area_ha": -9.417705262716111e-08,
+        "n_crops_grown": -0.04000577566741236,
+        "elevation_m_mean": 0.0001498937688079584,
+        "slope_deg_mean": 0.03853998749663658,
+        "pct_net_irrigated_to_net_area_sown": -0.00570442364008533
+      }
+    }
+  },
+  "primary_outcome": {
+    "beta_A": 0.8340370759459366,
+    "beta_B": 0.5702242506322597,
+    "beta_C": 0.5833594310554394,
+    "experiment4_share_pct": 31.63082708457167,
+    "incremental_irrigation_explanation_pct": -1.5748916687285466,
+    "cumulative_share_pct": 30.05593541584312,
+    "pre_registered_threshold_pct": 10.0,
+    "irrigation_coefficient": -0.00570442364008533,
+    "irrigation_variable": "pct_net_irrigated_to_net_area_sown",
+    "provisional_band": "LITTLE OR NO SUPPORT (coefficient moved the WRONG way)",
+    "region_coefficient_still_excludes_zero_clustered": true,
+    "clustered_ci_width": 0.8748491634394016
+  },
+  "experiment4_reproduction": {
+    "n": 382,
+    "beta_A_reproduced": 0.8250402756239593,
+    "beta_A_published": 0.825,
+    "beta_B_reproduced": 0.5646324398058558,
+    "beta_B_published": 0.565
+  }
+}

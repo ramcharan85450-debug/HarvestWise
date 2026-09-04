@@ -1,0 +1,406 @@
+{
+  "generated_utc": "2026-09-04T10:14:27.608215+00:00",
+  "checkpoint": "6 - descriptive analysis only; no model fitted, no year-alignment convention adopted",
+  "n_study_districts_with_irrigation": 31,
+  "excluded": {
+    "ARIYALUR": "UNMAPPABLE_YEAR_NOT_COVERED (district created 2007)"
+  },
+  "intensity_crosscheck_tn": {
+    "n": 11,
+    "max_abs_diff": 0.0047524853951010915,
+    "mean_abs_diff": 0.002544030838682053,
+    "note": "Tamil Nadu publishes Irrigation Intensity directly. Recomputing it as gross/net reproduces the published column, which validates both the extraction and the pre-registered formula before it is applied to AP, where intensity is not published."
+  },
+  "descriptives": {
+    "net_irrigated_area_ha": {
+      "Andhra Pradesh": {
+        "n": 10,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 214029.5,
+        "median": 177129.0,
+        "std": 90865.57745403677,
+        "min": 112147.0,
+        "max": 358835.0
+      },
+      "Tamil Nadu": {
+        "n": 11,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 92410.54545454546,
+        "median": 92955.0,
+        "std": 47416.43842669679,
+        "min": 27972.0,
+        "max": 160261.0
+      },
+      "Telangana": {
+        "n": 10,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 128028.5,
+        "median": 121130.5,
+        "std": 80412.22221673353,
+        "min": 0.0,
+        "max": 284852.0
+      },
+      "ALL": {
+        "n": 31,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 143132.12903225806,
+        "median": 127324.0,
+        "std": 88662.71892392424,
+        "min": 0.0,
+        "max": 358835.0
+      }
+    },
+    "gross_irrigated_area_ha": {
+      "Andhra Pradesh": {
+        "n": 10,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 277725.7,
+        "median": 200737.0,
+        "std": 151248.6403245038,
+        "min": 141751.0,
+        "max": 584850.0
+      },
+      "Tamil Nadu": {
+        "n": 11,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 107856.45454545454,
+        "median": 100111.0,
+        "std": 56158.626459990344,
+        "min": 38917.0,
+        "max": 178381.0
+      },
+      "Telangana": {
+        "n": 10,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 166118.4,
+        "median": 174661.0,
+        "std": 98610.37796770345,
+        "min": 0.0,
+        "max": 328697.0
+      },
+      "ALL": {
+        "n": 31,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 181447.16129032258,
+        "median": 163874.0,
+        "std": 126432.60741651966,
+        "min": 0.0,
+        "max": 584850.0
+      }
+    },
+    "pct_net_irrigated_to_net_area_sown": {
+      "Andhra Pradesh": {
+        "n": 10,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 45.77,
+        "median": 49.1,
+        "std": 23.368927612917492,
+        "min": 10.4,
+        "max": 83.0
+      },
+      "Tamil Nadu": {
+        "n": 11,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 51.08181818181819,
+        "median": 49.4,
+        "std": 20.61734115650309,
+        "min": 24.53,
+        "max": 86.91
+      },
+      "Telangana": {
+        "n": 10,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 32.43,
+        "median": 30.6,
+        "std": 20.254878698997707,
+        "min": 0.0,
+        "max": 63.6
+      },
+      "ALL": {
+        "n": 31,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 43.35161290322579,
+        "median": 42.7,
+        "std": 22.18608318996005,
+        "min": 0.0,
+        "max": 86.91
+      }
+    },
+    "irrigation_intensity": {
+      "Andhra Pradesh": {
+        "n": 10,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 1.2648766907244657,
+        "median": 1.1696897188340303,
+        "std": 0.23175138847467963,
+        "min": 1.0824673937455151,
+        "max": 1.7308134226145184
+      },
+      "Tamil Nadu": {
+        "n": 11,
+        "missing": 0,
+        "missing_pct": 0.0,
+        "mean": 1.168431413545118,
+        "median": 1.113009504927401,
+        "std": 0.1085716775917114,
+        "min": 1.047714552238806,
+        "max": 1.3912841412841412
+      },
+      "Telangana": {
+        "n": 9,
+        "missing": 1,
+        "missing_pct": 10.0,
+        "mean": 1.3106440894159461,
+        "median": 1.336086898725764,
+        "std": 0.1820042669946019,
+        "min": 1.0273894191554214,
+        "max": 1.6516004419812593
+      },
+      "ALL": {
+        "n": 30,
+        "missing": 1,
+        "missing_pct": 3.23,
+        "mean": 1.2432436420328157,
+        "median": 1.1893972733512908,
+        "std": 0.18320816382694868,
+        "min": 1.0273894191554214,
+        "max": 1.7308134226145184
+      }
+    }
+  },
+  "tn_vs_aptg": [
+    {
+      "variable": "net_irrigated_area_ha",
+      "ap_tg_mean": 171029.0,
+      "tamil_nadu_mean": 92410.54545454546,
+      "ap_tg_n": 20,
+      "tamil_nadu_n": 11,
+      "standardized_mean_difference": -1.0520600238109115,
+      "ks_statistic": 0.5,
+      "mann_whitney_p": 0.011113878749909418
+    },
+    {
+      "variable": "gross_irrigated_area_ha",
+      "ap_tg_mean": 221922.05,
+      "tamil_nadu_mean": 107856.45454545454,
+      "ap_tg_n": 20,
+      "tamil_nadu_n": 11,
+      "standardized_mean_difference": -1.0907027305726151,
+      "ks_statistic": 0.55,
+      "mann_whitney_p": 0.00774575170514943
+    },
+    {
+      "variable": "pct_net_irrigated_to_net_area_sown",
+      "ap_tg_mean": 39.10000000000001,
+      "tamil_nadu_mean": 51.08181818181819,
+      "ap_tg_n": 20,
+      "tamil_nadu_n": 11,
+      "standardized_mean_difference": 0.5571669999110507,
+      "ks_statistic": 0.3090909090909091,
+      "mann_whitney_p": 0.20794824125043831
+    },
+    {
+      "variable": "irrigation_intensity",
+      "ap_tg_mean": 1.2865559848414827,
+      "tamil_nadu_mean": 1.168431413545118,
+      "ap_tg_n": 19,
+      "tamil_nadu_n": 11,
+      "standardized_mean_difference": -0.7194439981329555,
+      "ks_statistic": 0.34449760765550247,
+      "mann_whitney_p": 0.14340173262644212
+    }
+  ],
+  "yield_association": {
+    "A_nearest_year_2004": {
+      "net_irrigated_area_ha": {
+        "pooled": {
+          "n": 30,
+          "pearson_r": 0.23341100914966992,
+          "pearson_p": 0.21447466861137104,
+          "spearman_rho": 0.16440489432703
+        },
+        "within_tamil_nadu": {
+          "n": 11,
+          "pearson_r": -0.05372738290559112,
+          "pearson_p": 0.8753317536363409,
+          "spearman_rho": 0.009090909090909092
+        },
+        "within_ap_telangana": {
+          "n": 19,
+          "pearson_r": 0.6085907534134356,
+          "pearson_p": 0.005689888090024365,
+          "spearman_rho": 0.5350877192982456
+        },
+        "flag": "POTENTIAL_GEOGRAPHIC_CONFOUNDING"
+      },
+      "gross_irrigated_area_ha": {
+        "pooled": {
+          "n": 30,
+          "pearson_r": 0.2136987573189555,
+          "pearson_p": 0.2568364088598699,
+          "spearman_rho": 0.10344827586206896
+        },
+        "within_tamil_nadu": {
+          "n": 11,
+          "pearson_r": -0.09015185510163408,
+          "pearson_p": 0.7920856849371809,
+          "spearman_rho": -0.018181818181818184
+        },
+        "within_ap_telangana": {
+          "n": 19,
+          "pearson_r": 0.5652810716542831,
+          "pearson_p": 0.011662955886327948,
+          "spearman_rho": 0.4456140350877193
+        },
+        "flag": "POTENTIAL_GEOGRAPHIC_CONFOUNDING"
+      },
+      "pct_net_irrigated_to_net_area_sown": {
+        "pooled": {
+          "n": 30,
+          "pearson_r": 0.006288704092114483,
+          "pearson_p": 0.9736895056340917,
+          "spearman_rho": 0.045606229143492764
+        },
+        "within_tamil_nadu": {
+          "n": 11,
+          "pearson_r": -0.44239528791912297,
+          "pearson_p": 0.17303638846061373,
+          "spearman_rho": -0.13636363636363638
+        },
+        "within_ap_telangana": {
+          "n": 19,
+          "pearson_r": 0.26109731176603046,
+          "pearson_p": 0.28027545986198055,
+          "spearman_rho": 0.15789473684210528
+        },
+        "flag": "POTENTIAL_GEOGRAPHIC_CONFOUNDING"
+      },
+      "irrigation_intensity": {
+        "pooled": {
+          "n": 30,
+          "pearson_r": -0.009975647943187282,
+          "pearson_p": 0.9582750204391419,
+          "spearman_rho": -0.1292547274749722
+        },
+        "within_tamil_nadu": {
+          "n": 11,
+          "pearson_r": 0.035646458691916294,
+          "pearson_p": 0.9171304926822192,
+          "spearman_rho": 0.018181818181818184
+        },
+        "within_ap_telangana": {
+          "n": 19,
+          "pearson_r": 0.06536287153470996,
+          "pearson_p": 0.7903533504587817,
+          "spearman_rho": -0.11754385964912278
+        },
+        "flag": "POTENTIAL_GEOGRAPHIC_CONFOUNDING"
+      }
+    },
+    "B_district_mean_2000_2012": {
+      "net_irrigated_area_ha": {
+        "pooled": {
+          "n": 31,
+          "pearson_r": -0.18629448172363544,
+          "pearson_p": 0.3156493071493415,
+          "spearman_rho": -0.217741935483871
+        },
+        "within_tamil_nadu": {
+          "n": 11,
+          "pearson_r": -0.12732259922573752,
+          "pearson_p": 0.7091049665833872,
+          "spearman_rho": 0.03636363636363637
+        },
+        "within_ap_telangana": {
+          "n": 20,
+          "pearson_r": 0.31297609814281324,
+          "pearson_p": 0.17907925912273892,
+          "spearman_rho": 0.2781954887218045
+        },
+        "flag": "POTENTIAL_GEOGRAPHIC_CONFOUNDING"
+      },
+      "gross_irrigated_area_ha": {
+        "pooled": {
+          "n": 31,
+          "pearson_r": -0.2094335852039661,
+          "pearson_p": 0.2581587057576962,
+          "spearman_rho": -0.20524193548387096
+        },
+        "within_tamil_nadu": {
+          "n": 11,
+          "pearson_r": -0.17457410129355166,
+          "pearson_p": 0.6076795414487668,
+          "spearman_rho": 0.009090909090909092
+        },
+        "within_ap_telangana": {
+          "n": 20,
+          "pearson_r": 0.26956215256488414,
+          "pearson_p": 0.2504201848939857,
+          "spearman_rho": 0.3578947368421052
+        },
+        "flag": "POTENTIAL_GEOGRAPHIC_CONFOUNDING"
+      },
+      "pct_net_irrigated_to_net_area_sown": {
+        "pooled": {
+          "n": 31,
+          "pearson_r": 0.018203748684580863,
+          "pearson_p": 0.9225699715105131,
+          "spearman_rho": 0.037096774193548385
+        },
+        "within_tamil_nadu": {
+          "n": 11,
+          "pearson_r": -0.5641583195122002,
+          "pearson_p": 0.07063335481185963,
+          "spearman_rho": -0.3181818181818182
+        },
+        "within_ap_telangana": {
+          "n": 20,
+          "pearson_r": 0.08735781693221234,
+          "pearson_p": 0.7141994358998031,
+          "spearman_rho": 0.07518796992481201
+        },
+        "flag": "POTENTIAL_GEOGRAPHIC_CONFOUNDING"
+      },
+      "irrigation_intensity": {
+        "pooled": {
+          "n": 30,
+          "pearson_r": -0.15435489187588583,
+          "pearson_p": 0.4154097856675665,
+          "spearman_rho": -0.19332591768631813
+        },
+        "within_tamil_nadu": {
+          "n": 11,
+          "pearson_r": -0.01842435328195058,
+          "pearson_p": 0.9571212303255567,
+          "spearman_rho": -0.018181818181818184
+        },
+        "within_ap_telangana": {
+          "n": 19,
+          "pearson_r": 0.14059414049138957,
+          "pearson_p": 0.5659036436976593,
+          "spearman_rho": 0.09298245614035087
+        },
+        "flag": "POTENTIAL_GEOGRAPHIC_CONFOUNDING"
+      }
+    }
+  },
+  "geographic_confounding_flags": [
+    "gross_irrigated_area_ha",
+    "irrigation_intensity",
+    "net_irrigated_area_ha",
+    "pct_net_irrigated_to_net_area_sown"
+  ]
+}
