@@ -1,0 +1,210 @@
+{
+  "experiment": 7,
+  "title": "Fertilizer intensity feasibility investigation",
+  "hypothesis": "H6-B",
+  "question": "Does district-level fertilizer application intensity account for statistical variation in the remaining cross-regional agricultural gap between Andhra Pradesh/Telangana and Tamil Nadu?",
+  "checkpoint": 2,
+  "checkpoint_approved": true,
+  "decision": "NOT_FEASIBLE",
+  "decision_date": "2026-09-04",
+  "status": "NOT FEASIBLE WITH CURRENT VERIFIED SOURCES",
+  "analysis_performed": false,
+  "modelling_dataset_created": false,
+  "artifacts_written": [
+    "experiments/EXPERIMENT_7_FERTILIZER_FEASIBILITY_REPORT.md",
+    "experiments/experiment7_feasibility.json"
+  ],
+
+  "blocking_questions": {
+    "Q1_definition_comparability": {
+      "status": "UNRESOLVED",
+      "code": "DEFINITION_NOT_COMPARABLE",
+      "ap_term": "DISTRIBUTION OF FERTILIZERS",
+      "tn_term": "CONSUMPTION OF CHEMICAL FERTILIZERS AND PESTICIDES",
+      "ap_self_definition_found": false,
+      "tn_self_definition_found": false,
+      "search_pattern": "concept|definition|glossar|explanatory note|methodolog",
+      "search_matches_ap": 0,
+      "search_matches_tn": 0,
+      "ap_table_attribution": "Fertilizers statistics (no agency named)",
+      "tn_table_attribution": "Department of Agriculture, Chennai-600 005",
+      "third_source_attempted": "GoI DES State-wise Consumption of Fertilizers (desagri.gov.in)",
+      "third_source_result": "ECONNREFUSED 164.100.114.118:443",
+      "fai_methodology_retrievable": false,
+      "structural_inference": "TN table decomposes totals by delivery channel (Private N 484,601 + Co-Operative N 199,958 = 684,559), characteristic of a sales/dispatch basis rather than on-farm application. Recorded as inference from table layout, NOT as a source definition. Does not resolve the question.",
+      "warning_flag": "DEFINITION_WARNING"
+    },
+    "Q2_second_matched_year": {
+      "status": "RESOLVED_NEGATIVE",
+      "code": "YEAR_NOT_COVERED",
+      "ap_wayback_prefix_enumerated": "ecostat.telangana.gov.in/PDF/PUBLICATIONS/*",
+      "ap_archived_pdfs_found": 48,
+      "ap_district_level_publications_in_window": 1,
+      "ap_only_district_publication": "Districts_at_Glance_2012.pdf",
+      "ap_other_publications": [
+        "Agricultural_at_glance_2013-14",
+        "Agricultural_at_glance_2014-15",
+        "Agricultural_at_glance_2015-16",
+        "Statistical_Year_Book_2015",
+        "Statistical_Year_Book_2017",
+        "Telangana_at_Glance_2015 .. Telangana_at_Glance_2024"
+      ],
+      "ap_editions_probed_no_snapshot": [2010, 2011, 2013, 2014, 2015],
+      "tn_editions_probed_no_snapshot": [2011, 2012, 2014, 2015, 2016],
+      "tn_only_edition_served": "stst_handbook_tn_2013.pdf",
+      "matched_years_available": ["2011-12"],
+      "multi_year_panel_feasible": false
+    },
+    "Q3_tn_denominator": {
+      "status": "RESOLVED_AVAILABLE",
+      "source": "TN Season and Crop Report 2011-12 (Fasli 1421)",
+      "table": "TABLE II - CLASSIFICATION OF LAND DURING 2011-12 (in ha.)",
+      "page": 82,
+      "variables": ["Net area sown", "Area sown more than once", "Gross area sown"],
+      "identity_validation": [
+        {"district": "Kancheepuram", "net": 110872, "sown_more_than_once": 15770, "gross": 126642, "identity_holds": true},
+        {"district": "Cuddalore", "net": 217331, "sown_more_than_once": 82359, "gross": 299690, "identity_holds": true}
+      ],
+      "target_derived": false
+    }
+  },
+
+  "sources": [
+    {
+      "id": "F1",
+      "role": "AP/TG fertilizer",
+      "publication": "Districts at a Glance 2012",
+      "agency": "Directorate of Economics and Statistics, Government of Andhra Pradesh",
+      "table": "VIII. DISTRIBUTION OF FERTILIZERS (2011-12) (In Tonnes)",
+      "table_attribution": "Fertilizers statistics (no agency named)",
+      "observation_year": "2011-12",
+      "units": "Tonnes",
+      "districts_in_table": 23,
+      "url": "https://web.archive.org/web/20190819040958/http://ecostat.telangana.gov.in/PDF/PUBLICATIONS/Districts_at_Glance_2012.pdf",
+      "bytes": 291434,
+      "sha256": "464a3acc1cda543f7f6eba4545569f013c90828c1025f8a9eaab0afbbcb91b5e",
+      "primary_source": true,
+      "stored_in_repo": true,
+      "repo_path": "data/raw/external/district_irrigation/source_documents/AP_Districts_at_a_Glance_2012.pdf",
+      "state_totals": {"N": 1977287, "K2O": 322034, "NPK_total": 3342657}
+    },
+    {
+      "id": "F2",
+      "role": "TN fertilizer",
+      "publication": "Statistical Handbook 2013",
+      "agency": "Directorate of Economics and Statistics, Government of Tamil Nadu",
+      "table": "4.8 CONSUMPTION OF CHEMICAL FERTILIZERS AND PESTICIDES 2011-12",
+      "table_attribution": "Department of Agriculture, Chennai-600 005",
+      "observation_year": "2011-12",
+      "units": "MT",
+      "districts_in_table": 31,
+      "url": "https://agritech.tnau.ac.in/pdf/stst_handbook_tn_2013.pdf",
+      "bytes": 1172090,
+      "sha256": "b845bbcb0edb13e89efc42c1793c5b95dc839b5efec3c70935a6a849891d82a5",
+      "primary_source": true,
+      "stored_in_repo": false,
+      "storage_note": "Cited, not stored. Inspected only during feasibility investigation.",
+      "state_totals": {"N": 684559, "P2O5": 316382, "K2O": 263953, "NPK_total": 1264894},
+      "channel_decomposition": {"Private_N": 484601, "CoOperative_N": 199958}
+    },
+    {
+      "id": "F3",
+      "role": "TN denominator",
+      "publication": "Season and Crop Report 2011-12 (Fasli 1421)",
+      "agency": "Directorate of Economics and Statistics, Government of Tamil Nadu",
+      "table": "TABLE II CLASSIFICATION OF LAND DURING 2011-12 (in ha.)",
+      "page": 82,
+      "observation_year": "2011-12",
+      "units": "hectares",
+      "districts_in_table": 30,
+      "url": "https://agritech.tnau.ac.in/pdf/2014/season_crop_11-12.pdf",
+      "bytes": 171478812,
+      "sha256": "2a41f404a85b4181b02a9b52f2772f1b636d6cec4ca80801b4569052d73b89ec",
+      "md5": "3b5f2484c7edbd216f13419eb87fb6d2",
+      "primary_source": true,
+      "stored_in_repo": false,
+      "storage_note": "Cited, not stored. 171 MB exceeds the GitHub 100 MB file limit; same handling as Experiment 6."
+    },
+    {
+      "id": "F4",
+      "role": "AP denominator",
+      "publication": "Districts at a Glance 2012",
+      "variable": "Net area sown",
+      "page": 17,
+      "validation": "Accounting identity validated 22/22 during Experiment 6",
+      "primary_source": true,
+      "stored_in_repo": true
+    }
+  ],
+
+  "coverage": {
+    "study_districts_total": 32,
+    "fertilizer_covered": 31,
+    "by_region": {
+      "andhra_pradesh": {"study_districts": 10, "covered": 10, "match_type": "DIRECT_MATCH", "spelling_variants": ["Prakasam/Prakasham", "Anantapur/Ananthapur"]},
+      "telangana": {"study_districts": 10, "covered": 9, "match_type": "RENAME_ONLY for Mahbubnagar, Ranga Reddy"},
+      "tamil_nadu": {"study_districts": 12, "covered": 12, "note": "Includes Ariyalur and Kanniyakumari, which the Experiment 6 irrigation panel could not cover"}
+    },
+    "missing": [
+      {"district": "Hyderabad", "source": "F1", "printed_value": "--- ---", "status": "DATA_NOT_AVAILABLE", "treated_as_zero": false, "is_study_district": true},
+      {"district": "Tiruppur", "source": "F2", "printed_value": "* Data Not available", "status": "DATA_NOT_AVAILABLE", "treated_as_zero": false, "is_study_district": false}
+    ],
+    "imputation_performed": false,
+    "interpolation_performed": false,
+    "carry_forward_performed": false,
+    "state_average_substitution_performed": false
+  },
+
+  "boundary_compatibility": {
+    "cross_year_reconciliation_required": false,
+    "reason": "Single-year cross-section; both regions measured on 2011-12 boundaries",
+    "coimbatore_erode": "Measured on post-2009 boundaries in both the fertilizer and denominator tables, therefore internally consistent for this year (unlike the Experiment 6 irrigation panel, where they were BOUNDARY_NOT_COMPARABLE across years)"
+  },
+
+  "leakage_risks": [
+    {"risk": "target_leakage", "level": "NONE", "basis": "Fertilizer tonnage contains no yield component"},
+    {"risk": "denominator_overlap_with_target", "level": "NONE", "basis": "Net area sown (all crops) is not rice area"},
+    {"risk": "district_fingerprinting", "level": "HIGH", "basis": "One observed year makes the variable static per district, i.e. a district identifier. Same failure mode as soil (Exp 1), n_rice_seasons (Exp 4), single-year irrigation (Exp 5)"},
+    {"risk": "region_proxy", "level": "HIGH", "decisive": true, "basis": "Two publications, two agencies, two terms, no definitions. Any systematic AP-vs-TN reporting difference loads directly and entirely onto the is_tn contrast"},
+    {"risk": "temporal_leakage_anachronism", "level": "SEVERE_UNLESS_RESTRICTED", "basis": "Broadcasting a 2011-12 observation across the 2000-2012 panel makes ~90% of rows anachronistic, against 31% in Experiment 5", "only_clean_restriction": "Kharif 2011 cross-section, N approx 31"},
+    {"risk": "reverse_causality", "level": "PRESENT", "basis": "Fertilizer supply responds to past and expected production; a single cross-section offers no identification strategy"}
+  ],
+
+  "conclusions": {
+    "fertilizer_intensity_constructible": true,
+    "matched_multi_year_panel_feasible": false,
+    "experiment_feasible": false,
+    "primary_reasons": [
+      "The definitional mismatch between AP 'distribution' and TN 'consumption' is unresolved and is confounded with the AP/TN contrast being measured.",
+      "Only one matched year exists, so the within-district differenced design that neutralised this class of confound in Experiment 6 is impossible.",
+      "Broadcasting 2011-12 values across the 2000-2012 panel would create severe temporal leakage and is prohibited.",
+      "Restricting to Kharif 2011 leaves a single-year cross-section of N approx 31 with a static district-level regressor and high district-fingerprinting risk.",
+      "Intensity normalization solves district-size scaling but does not address definition comparability or single-year identification."
+    ],
+    "analogy": "Reproduces the n_rice_seasons failure mode from Experiment 4 (reporting convention masquerading as agronomy), except undetectable here because it is confounded with region by construction. No robustness test available at N approx 31 could separate the two.",
+    "does_not_claim": [
+      "That fertilizer has no effect on yield",
+      "That hypothesis H6-B is refuted"
+    ],
+    "would_change_verdict": [
+      "An official methodology statement establishing a shared measurement basis (GoI DES route unreachable but not exhausted; FAI Fertiliser Statistics is the other candidate)",
+      "A second observed year for BOTH regions (TN District Statistical Handbooks unexplored; AP/TG is the binding constraint)",
+      "Reframing to a within-region question, though the single-year constraint forecloses this too"
+    ],
+    "further_source_discovery_authorized": false,
+    "further_search_note": "Any additional fertilizer source discovery must be commissioned as a separate, explicitly approved task, and any resulting experiment treated as a new experiment."
+  },
+
+  "integrity_assertions": {
+    "experiments_1_to_6_modified": false,
+    "training_dir_modified": false,
+    "models_dir_modified": false,
+    "backend_dir_modified": false,
+    "district_multimodal_examples_modified": false,
+    "training_dataset_py_modified": false,
+    "regression_run": false,
+    "predictive_model_run": false,
+    "figures_generated": false,
+    "large_source_files_added": false
+  }
+}
