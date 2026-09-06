@@ -14,3 +14,7 @@ data/metadata/boundary_sources/geoboundaries_IND_ADM2.geojson
 # recorded in data/processed/experiment8_imd_file_inventory.json and in
 # experiments/EXPERIMENT_8_RAINFALL_RESULTS.md.
 data/raw/weather/imd_gridded/
+
+# Experiment 9 per-arm estimation cache (working artefact).
+# Every value it holds is also in experiments/experiment9_results.json.
+experiments/.experiment9_cache/
