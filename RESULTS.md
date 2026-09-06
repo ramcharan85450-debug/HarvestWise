@@ -612,3 +612,72 @@ labels it was trained against.
   single-plot signal a harvest-timing policy depends on (§5c), even given
   fully real, correctly-dated outcomes - the same resolution-sensitivity
   finding, now shown on both sides of the pipeline.
+
+---
+
+## 11. Experiments 4-9 — district-level explanatory analyses
+
+Everything above is the **field-level predictive track**: unit *(field,
+season)*, 21 real held-out examples, and the question is *accuracy*.
+
+Sections 11 onward summarize a **separate district-level analytical track**:
+unit *(district, year)*, 359-561 rows across Andhra Pradesh, Telangana and
+Tamil Nadu, 2000-2012, and the question is *statistical association*. The two
+tracks share a codebase, not a sample — their numbers are not comparable and
+must not be quoted together.
+
+**None of these experiments improves the §2 headline result.** They were not
+predictive evaluations and did not test predictive accuracy.
+
+Full reports are in `experiments/`; a consolidated reading with the robustness
+hierarchy is in `experiments/EXPERIMENTS_1_TO_9_SYNTHESIS.md`.
+
+| # | Question | Result | Status |
+|---|---|---|---|
+| 4 | Do geographic covariates explain the AP/TG-vs-TN yield gap? | Raw gap **0.8250 t/ha**; covariates account for **~31.6%**. A pre-stated screen caught `n_rice_seasons` as a region proxy (ICC 1.000) and excluded it. | Partial explanatory association — **not a causal decomposition** |
+| 5 | Does district irrigation explain the residual gap? | Irrigation coefficient **-0.0057**, the wrong direction. | **Little / no support** |
+| 6 | Within districts, does irrigation change yield? | **beta +0.0121, CI [-0.0536, +0.0778]**, p 0.7193, on 27 first-differences. CI contains both zero and the meaningful-effect anchor. | **Inconclusive, underpowered** — establishes neither an effect nor its absence |
+| 7 | Does fertilizer intensity explain the gap? | Data located for 31 of 32 districts, but AP publishes "Distribution of Fertilizers" and TN "Consumption of Chemical Fertilizers"; that definitional mismatch is **confounded with the regional contrast**, and only one matched year exists. | **Not feasible** — no estimate exists and none should be quoted |
+| 8 | Does intra-seasonal rainfall structure add value beyond the seasonal total? | Joint Wald 7.658; **wild cluster bootstrap p 0.3418**; incremental within-R2 **0.0273** against a pre-registered 0.031. | **Inconclusive** |
+| 9 | Does within-season temperature structure add value beyond seasonal mean temperature? | **beta +0.17195 t/ha per SD, bootstrap p 0.0211, CI [+0.04223, +0.32329]**. | **SUPPORTED UNDER THE PRE-REGISTERED PRIMARY SPECIFICATION, BUT SPECIFICATION-FRAGILE** |
+
+### A measurement limitation that applies to both tracks
+
+Experiment 8 validated ERA5-Land rainfall against IMD gridded rainfall over
+identical district polygons and found **terrain-correlated disagreement**:
+within-district agreement of **0.446 in Tamil Nadu against 0.770 (AP) and
+0.751 (Telangana)**, concentrated in the Western Ghats rain-shadow interior.
+Experiment 9 found a milder version in temperature (TN 0.705 vs 0.873 / 0.818).
+
+This is recorded as a **confirmed limitation of Experiments 8-9 and an audit
+flag** for earlier work using ERA5-derived weather features. It does **not**
+retroactively invalidate any prior result, and no prior experiment has been
+rerun or reinterpreted because of it.
+
+### Experiment 9 — the full label is required
+
+The pre-registered criterion was met. The association is also fragile:
+removing year fixed effects **reverses the sign** (-0.1263, p 0.0034);
+region-specific trends do the same (-0.0906, p 0.0159); the **balanced panel
+essentially eliminates it** (+0.0059, p 0.9408); neither AP+TG (p 0.1843) nor
+TN (p 0.1965) is supported alone; and two secondary constructs survive
+multiplicity correction **with opposite signs**.
+
+It is **not causal**, and it is **not evidence that temperature structure
+improves predictive performance** — Experiment 9 measured an association and
+never evaluated prediction. Cite it only as *supported under the
+pre-registered primary specification, but specification-fragile*.
+
+### What Experiments 4-9 add to §9 and §10
+
+To **§9 (not established)**: irrigation as an explanation of the regional gap;
+any established irrigation-to-yield relationship; any fertilizer result; any
+established value for rainfall structure; robustness, causality or predictive
+usefulness for temperature structure; and any causal claim anywhere.
+
+To **§10 (established)**: a pre-registration methodology that demonstrably
+works — hash-frozen specifications, pre-stated ICC and region-proxy screens,
+and independent two-product measurement validation caught the `n_rice_seasons`
+proxy, a region-correlated zero-inflation defect in heat-stress constructs, and
+the Tamil Nadu rainfall disagreement, each **before** it could reach a
+conclusion.
